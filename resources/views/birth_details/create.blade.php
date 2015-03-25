@@ -21,20 +21,83 @@
                     <div class="form-group col-lg-6">
                          {!! Form::label('child_last_name','Last Name') !!}
                          {!! Form::text('child_last_name',null,array('class'=>'form-control')) !!}
-                     </div>
+                    </div>
                     <div class="form-group col-lg-12">
                          {!! Form::label('child_full_name','Full Name') !!}
                          {!! Form::text('child_full_name',null,array('class'=>'form-control')) !!}
-                     </div>
+                    </div>
                     <div class="form-group col-lg-6">
                          {!! Form::label('child_birth_date_bs','Birth Date (B.S)') !!}
                          {!! Form::text('child_birth_date_bs',null,array('class'=>'form-control')) !!}
-                     </div>
-                   <div class="form-group col-lg-6">
+                    </div>
+                    <div class="form-group col-lg-6">
                         {!! Form::label('child_birth_date_ad','Birth Date (A.D)') !!}
                         {!! Form::text('child_birth_date_ad',null,array('class'=>'form-control')) !!}
                     </div>
-
+                    <div class="form-group col-lg-12">
+                        {!! Form::label('child_birth_place','Birth Place: ',['class'=>'col-md-2 control-label']) !!}
+                            <div class="col-md-10">
+                    		    <label class="radio-inline">
+                                    <input type="radio" name="child_birth_place">
+                                    Home </label>
+                    			<label class="radio-inline">
+                    				<input type="radio" name="child_birth_place">
+                    				Hospital </label>
+                    			<label class="radio-inline">
+                    				<input type="radio" name="child_birth_place">
+                    				Other </label>
+                            </div>
+                    </div>
+                     <div class="form-group col-lg-12">
+                         {!! Form::label('child_birth_helper','Birth Helper: ',['class'=>'col-md-2 control-label']) !!}
+                             <div class="col-md-10">
+                     		    <label class="radio-inline">
+                                     <input type="radio" name="child_birth_helper">
+                                     People at Home </label>
+                     			<label class="radio-inline">
+                     				<input type="radio"  name="child_birth_helper">
+                     				ANM </label>
+                     			<label class="radio-inline">
+                     				<input type="radio"  name="child_birth_helper">
+                     				Nurse </label>
+                      			<label class="radio-inline">
+                      				<input type="radio"  name="child_birth_helper">
+                      				Doctor </label>
+                     			<label class="radio-inline">
+                     				<input type="radio"  name="child_birth_helper">
+                     				Other </label>
+                             </div>
+                     </div>
+                     <div class="form-group col-lg-12">
+                         {!! Form::label('child_gender','Gender: ',['class'=>'col-md-2 control-label']) !!}
+                             <div class="col-md-10">
+                     		    <label class="radio-inline">
+                                     <input type="radio" name="child_gender" value="Male">
+                                     Male </label>
+                     			<label class="radio-inline">
+                     				<input type="radio"  name="child_gender" value="Female">
+                     				Female </label>
+                     			<label class="radio-inline">
+                     				<input type="radio"  name="child_gender" value="Other">
+                     				Other </label>
+                             </div>
+                     </div>
+                    <div class="form-group col-lg-6">
+                        {!! Form::label('child_religion','Religion: ') !!}
+                        <select class="form-control">
+                            <option value="Religion 1">Religion 1</option>
+                            <option value="Religion 2">Religion 2</option>
+                            <option value="Religion 3">Religion 3</option>
+                        </select>
+                    </div>
+                     <div class="form-group col-lg-6">
+                         {!! Form::label('child_birth_type','Birth Type: ') !!}
+                            <select class="form-control">
+                                <option value="Religion 1">Single</option>
+                                <option value="Religion 2">Twins</option>
+                                <option value="Religion 3">Thrice</option>
+                            </select>
+                     </div>
             </div>
             <div class="tab-pane" id="tab2">
 
