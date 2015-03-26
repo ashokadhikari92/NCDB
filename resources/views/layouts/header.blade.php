@@ -7,10 +7,10 @@
 	                <div class="logo-img col-md-4">
 	                    <img src="{{asset('assets/img/logo/nepal.png')}}" >
 	                </div>
-	                <div class="heading-title col-md-8">
-                        <h5>नेपाल सरकार</h5>
-                        <h1>काठमाडाै महानगरपालिका </h1>
-                        <h3>वडा कायालय १९</h3>	                
+	                <div class="heading-title col-md-8 center-block">
+                        <h5>Government of Nepal</h5>
+                        <h1>Kathmandu Municipality</h1>
+                        <h3>Ward Office 19</h3>
 	                </div>
 
 	              </div>

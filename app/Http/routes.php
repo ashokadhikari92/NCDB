@@ -20,4 +20,5 @@ Route::controllers([
 	'password' => 'Auth\PasswordController',
 ]);
 
+Route::resource('dashboard','DashboardController');
 Route::resource('birth_details','BirthDetailController');
