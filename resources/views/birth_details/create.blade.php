@@ -6,14 +6,18 @@
    <div class="row">
     <div class="col-md-12">
         <ul class="nav nav-tabs">
-            <li class="active"><a data-toggle="tab" href="#tab1"><h4>Child Details</h4></a></li>
-            <li><a data-toggle="tab" href="#tab2"><h4>Parents Details</h4></a></li>
-            <li><a data-toggle="tab" href="#tab3"><h4>Informer Details</h4></a></li>
+            <li class="active"><a data-toggle="tab" href="#tab1"><h6>Child Details</h6></a></li>
+            <li><a data-toggle="tab" href="#tab2"><h6>Parents Details</h6></a></li>
+            <li><a data-toggle="tab" href="#tab3"><h6>Informer Details</h6></a></li>
         </ul>
 
         <div class="tab-content">
             <div class="tab-pane active" id="tab1">
                 {!! Form::open(['route'=>'birth_details.store']) !!}
+                <div class="col-lg-12">
+                    <legend>Personal Detail</legend>
+                </div>
+
                     <div class="form-group col-lg-6">
                         {!! Form::label('child_first_name','First Name') !!}
                         {!! Form::text('child_first_name',null,array('class'=>'form-control')) !!}
@@ -410,7 +414,9 @@
 
             </div>
             <div class="tab-pane" id="tab3">
-
+                <div class="col-lg-12">
+                    <legend>Personal Detail</legend>
+                </div>
                  <div class="form-group col-lg-6">
                     {!! Form::label('informer_first_name','First Name') !!}
                     {!! Form::text('informer_first_name',null,array('class'=>'form-control')) !!}

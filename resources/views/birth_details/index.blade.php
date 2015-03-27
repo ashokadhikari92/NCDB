@@ -3,15 +3,16 @@
 @section('content')
 
     <div class="col-md-10">
-      			<div class="content-box-large">
+      			<div class="content-box-large">s
       				<div class="panel-heading">
-    					<div class="panel-title"><h2>जन्म दता विवरण </h2></div>
-    				</div>
-    				 <div class="table-toolbar">
-                            <div class="btn-group">
-                                <a href="{!! route('birth_details.create') !!}"><button class="btn btn-success">नयाँ जन्म दता<i class="icon-plus icon-white"></i></button></a>
-                             </div>
-                            <div class="btn-group pull-right">
+      				<div class="panel-title col-md-12">
+                         <div class="row">
+                            <div class="col-md-6">
+                                <a href="{!! route('birth_details.create') !!}"><button class="btn btn-success">New Birth Registration<i class="icon-plus icon-white"></i></button></a>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="btn-group pull-right">
                                  <button data-toggle="dropdown" class="btn dropdown-toggle">Tools <span class="caret"></span></button>
                                  <ul class="dropdown-menu">
                                      <li><a href="#">Print</a></li>
@@ -19,7 +20,15 @@
                                      <li><a href="#">Export to Excel</a></li>
                                  </ul>
                              </div>
-                     </div>
+                            </div>
+
+                            </div>
+                        </div>
+      				</div>
+
+    				 <div class="table-toolbar">
+
+                    </div>
       				<div class="panel-body">
       					<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example">
     						<thead>
