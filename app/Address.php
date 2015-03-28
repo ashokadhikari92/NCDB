@@ -4,7 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Address extends Model {
 
-	public $table = 'location';
+	public $table = 'locations';
 
     public $guarded = [];
 
