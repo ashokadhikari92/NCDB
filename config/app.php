@@ -146,6 +146,13 @@ return [
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
 
+        /*
+         * Repository Service Providers...
+         */
+        'Repo\Providers\BirthDetailServiceProvider',
+        'Repo\Providers\AddressServiceProvider',
+        'Repo\Providers\ParentsDetailServiceProvider',
+
 	],
 
 	/*

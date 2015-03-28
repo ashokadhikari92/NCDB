@@ -5,10 +5,23 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
+use Repo\Repositories\BirthDetail\BirthDetailInterface as BirthDetail;
+use Repo\Repositories\Address\AddressInterface as Location;
 
 class BirthDetailController extends Controller {
 
-	/**
+    protected $birth;
+
+    protected $location;
+
+    function __construct(BirthDetail $birth,Location $location)
+    {
+        $this->birth = $birth;
+
+        $this->location = $location;
+    }
+
+    /**
 	 * Display a listing of the resource.
 	 *
 	 * @return Response
@@ -25,6 +38,10 @@ class BirthDetailController extends Controller {
 	 */
 	public function create()
 	{
+        $district = $this->location->getLocationByParentId(0);
+
+        //dd($district);
+
 		return view('birth_details.create');
 	}
 

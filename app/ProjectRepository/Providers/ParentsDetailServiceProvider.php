@@ -7,6 +7,7 @@
  */
 
 use Illuminate\Support\ServiceProvider;
+use Repo\Repositories\ParentsDetail\ParentsDetailRepository;
 
 
 /**
