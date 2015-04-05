@@ -58,7 +58,7 @@
                     </div>
                      <div class="form-group col-lg-6">
                          {!! Form::label('child_gender','Gender: ') !!}
-                           <select class="form-control">
+                           <select class="form-control" name="child_gender">
                                 <option value="Female">Female</option>
                                 <option value="Male">Male</option>
                                 <option value="Other">Other</option>
@@ -223,7 +223,7 @@
                      </div>
                     <div class="form-group col-lg-6">
                          {!! Form::label('father_occupation','Occupation : ') !!}
-                             <select class="form-control">
+                             <select class="form-control" name="father_occupation">
                                  <option value="">Teacher</option>
                                  <option value="">House Wife</option>
                              </select>
@@ -333,7 +333,7 @@
                      </div>
                     <div class="form-group col-lg-6">
                          {!! Form::label('mother_occupation','Occupation : ') !!}
-                             <select class="form-control">
+                             <select class="form-control" name="mother_occupation">
                                  <option value="">Teacher</option>
                                  <option value="">House Wife</option>
                              </select>

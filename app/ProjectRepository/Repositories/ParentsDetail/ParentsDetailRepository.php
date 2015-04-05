@@ -6,17 +6,22 @@
  * Time: 4:14 PM
  */
 
+use App\Parents;
+
     class ParentsDetailRepository implements ParentsDetailInterface{
 
+        public $parent;
 
-        function __construct()
+        function __construct(Parents $parent)
         {
-
+            $this->parent = $parent;
         }
 
         public function addParent($parent)
         {
-            // TODO: Implement addParent() method.
+            $parent_id = $this->parent->create($parent);
+
+            return $parent_id;
         }
 
         public function updateParent($parent)

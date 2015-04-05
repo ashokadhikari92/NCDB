@@ -54,7 +54,13 @@ class BirthDetailController extends Controller {
 	{
 		$input = Input::all();
 
-        var_dump($input);
+        $result = $this->birth->registerChild($input);
+
+        if($result['success'] == true){
+            //dd($result);
+            return redirect('birth_details');
+        }
+
 	}
 
 	/**

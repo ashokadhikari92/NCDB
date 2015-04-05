@@ -10,6 +10,7 @@
     <script src="{{asset('assets/bootstrap/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('assets/js/custom.js')}}"></script>
     <script src="{{asset('assets/js/DT_bootstrap.js')}}"></script>
+     <script src="{{asset('assets/js/angular.min.js')}}"></script>
     <title></title>
 </head>
 <body>

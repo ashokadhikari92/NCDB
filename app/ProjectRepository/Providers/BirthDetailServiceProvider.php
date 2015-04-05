@@ -8,6 +8,9 @@
 
     use Illuminate\Support\ServiceProvider;
     use Repo\Repositories\BirthDetail\BirthDetailRepository;
+    use Repo\Repositories\ParentsDetail\ParentsDetailRepository as Parentss;
+    use App\BirthDetail;
+    use App\Parents;
 
     class BirthDetailServiceProvider extends ServiceProvider{
 
@@ -20,7 +23,7 @@
         {
             $this->app->bind('Repo\Repositories\BirthDetail\BirthDetailInterface',function()
             {
-                return new BirthDetailRepository();
+                return new BirthDetailRepository(new Parentss(new Parents()),new BirthDetail());
             });
         }
     }

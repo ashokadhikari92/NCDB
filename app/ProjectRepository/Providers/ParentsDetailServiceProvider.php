@@ -8,12 +8,13 @@
 
 use Illuminate\Support\ServiceProvider;
 use Repo\Repositories\ParentsDetail\ParentsDetailRepository;
-
+use App\Parents;
 
 /**
  * Class ParentsDetailServiceProvider
  * @package Repo\Providers
  */
+
 class ParentsDetailServiceProvider extends ServiceProvider{
 
         /**
@@ -25,7 +26,7 @@ class ParentsDetailServiceProvider extends ServiceProvider{
         {
             $this->app->bind('Repo\Repositories\BirthDetail\ParentsDetailInterface',function()
             {
-                return new ParentsDetailRepository();
+                return new ParentsDetailRepository(new Parents());
             });
         }
     }

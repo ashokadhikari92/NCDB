@@ -2,9 +2,9 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class BirthDetail extends Model {
+class Parents extends Model {
 
-	protected  $table = 'birth_details';
+	protected  $table = 'parents';
 
     protected $guarded = array();
 
