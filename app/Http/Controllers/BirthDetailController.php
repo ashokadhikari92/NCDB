@@ -42,7 +42,7 @@ class BirthDetailController extends Controller {
 
         //dd($district);
 
-		return view('birth_details.create');
+		return view('birth_details.create2');
 	}
 
 	/**
