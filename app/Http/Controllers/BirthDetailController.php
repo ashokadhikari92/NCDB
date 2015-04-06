@@ -58,6 +58,7 @@ class BirthDetailController extends Controller {
 
         if($result['success'] == true){
             //dd($result);
+            return view('birth_details.birth_certificate');
             return redirect('birth_details');
         }
 
