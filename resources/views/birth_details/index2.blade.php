@@ -34,59 +34,50 @@
       					<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example">
     						<thead>
     							<tr>
-    							    <th>क्र.सं.</th>
-    								<th>पुरा नाम </th>
-    								<th>जन्म मिती </th>
-    								<th>लिङ्ग </th>
-    								<th>बाबु </th>
-    								<th>अामा </th>
+    							    <th>S.N.</th>
+    								<th>Full Name </th>
+    								<th>DOB </th>
+    								<th>Gender</th>
+    								<th>Father</th>
+    								<th>Mother</th>
     								<th>Details</th>
     							</tr>
     						</thead>
     						<tbody>
     							<tr class="odd gradeX">
-    								<td>१</td>
-    								<td>अषिम मानन्धर</td>
-    								<td>२०५०-०३-१३</td>
-    								<td class="center"> पुरूष</td>
-    								<td class="center">अषिमको बाबा</td>
-    								<td class="center">अषिमको अामा </td>
+    								<td>1</td>
+    								<td>Asheem Manandhar</td>
+    								<td>2050-09-12</td>
+    								<td class="center">Male</td>
+    								<td class="center">Father Manandhar</td>
+    								<td class="center">Mother Manandhar</td>
     								<td><a href="#"><i class="glyphicon glyphicon-saved"></i></a></td>
     							</tr>
                                 <tr class="odd gradeX">
-    								<td>२</td>
-    								<td>अशोक अधिकारी</td>
-    								<td>२०४९-०२-१९</td>
-    								<td class="center"> पुरूष</td>
-    								<td class="center">अशोकको वुबा </td>
-    								<td class="center">अशोकको अामा </td>
+    								<td>2</td>
+    								<td>Ashok Adhikari</td>
+    								<td>2049-02=19</td>
+    								<td class="center">Male</td>
+    								<td class="center">Father Adhikari</td>
+    								<td class="center">Mother Adhikari</td>
     								<td><a href="#"><i class="glyphicon glyphicon-saved"></i></a></td>
     							</tr>
                                 <tr class="odd gradeX">
-    								<td>३</td>
-    								<td>दिनेश शमा </td>
-    								<td>२०५०-११-२३</td>
-    								<td class="center"> पुरूष</td>
-    								<td class="center">दिनेशको बाबा </td>
-    								<td class="center">दिनेशको अामा </td>
+    								<td>3</td>
+    								<td>Dinesh Sharma</td>
+    								<td>2050-01-23</td>
+    								<td class="center">Male</td>
+    								<td class="center">Father Sharma</td>
+    								<td class="center">Mother Sharma</td>
     								<td><a href="#"><i class="glyphicon glyphicon-saved"></i></a></td>
     							</tr>
                                 <tr class="odd gradeX">
-    								<td>४</td>
-    								<td> सन्तोष ढुङगाना</td>
+    								<td>4</td>
+    								<td>Santosh Dhungana</td>
     								<td>२०४९-०३-०४</td>
-    								<td class="center"> पुरूष</td>
-    								<td class="center">सन्तोषको वुबा </td>
-    								<td class="center">सन्तोषको ममी</td>
-    								<td><a href="#"><i class="glyphicon glyphicon-saved"></i></a></td>
-    							</tr>
-                                <tr class="odd gradeX">
-    								<td>५</td>
-    								<td>दिपु श्रेषठ</td>
-    								<td>२०५०-०८-०२</td>
-    								<td class="center">महिला </td>
-    								<td class="center">दिपुको वुबा</td>
-    								<td class="center">दिपुको ममी </td>
+    								<td class="center">Male</td>
+    								<td class="center">Father Dhungana </td>
+    								<td class="center">Mother Dhungana</td>
     								<td><a href="#"><i class="glyphicon glyphicon-saved"></i></a></td>
     							</tr>
     						</tbody>

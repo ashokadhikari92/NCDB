@@ -26,10 +26,10 @@
                          {!! Form::label('child_last_name','Last Name') !!}
                          {!! Form::text('child_last_name',null,array('class'=>'form-control')) !!}
                     </div>
-                    <div class="form-group col-lg-12">
+                   {{-- <div class="form-group col-lg-12">
                          {!! Form::label('child_full_name','Full Name') !!}
                          {!! Form::text('child_full_name',null,array('class'=>'form-control')) !!}
-                    </div>
+                    </div>--}}
                     <div class="form-group col-lg-6">
                          {!! Form::label('child_birth_date_bs','Birth Date (B.S)') !!}
                          {!! Form::text('child_birth_date_bs',null,array('class'=>'form-control')) !!}
@@ -71,36 +71,53 @@
                     </div>
                      <div class="form-group col-lg-4">
                          {!! Form::label('child_birth_district','District: ') !!}
-                             <select class="form-control">
-                                 <option value="">District 1</option>
-                                 <option value="">District 2</option>
+                             <select class="form-control" name="birth_district">
+                                 <option value="Kathmandu">Kathmandu</option>
+                                 <option value="Lalitpur">Lalitpur</option>
+                                 <option value="Bhaktapur">Bhaktapur</option>
                              </select>
                      </div>
                      <div class="form-group col-lg-4">
                          {!! Form::label('child_birth_vdc','VDC/Municipality: ') !!}
-                             <select class="form-control">
-                                 <option value="">VDC 1</option>
-                                 <option value="">VDC 2</option>
+                             <select class="form-control" name="birth_vdc">
+                                 <option value="Kathmandu Metropolitan City">Kathmandu Metropolitan City</option>
+                                 <option value="Balambu VDC">Balambu VDC</option>
+                                 <option value="Budanilkantha VDC">Budanilkantha VDC</option>
+                                 <option value="Daxinkali VDC">Daxinkali VDC</option>
                              </select>
                      </div>
                      <div class="form-group col-lg-4">
                          {!! Form::label('child_birth_ward_no','Ward No: ') !!}
-                             <select class="form-control">
-                                 <option value="">01</option>
-                                 <option value="">02</option>
+                             <select class="form-control" name="birth_ward_no">
+                                 <option value="01">01</option>
+                                 <option value="02">02</option>
+                                 <option value="03">03</option>
+                                 <option value="04">04</option>
+                                 <option value="05">05</option>
+                                 <option value="06">06</option>
+                                 <option value="07">07</option>
+                                 <option value="08">08</option>
+                                 <option value="09">09</option>
+                                 <option value="10">10</option>
+                                 <option value="11">11</option>
+                                 <option value="12">12</option>
+                                 <option value="13">13</option>
+                                 <option value="14">14</option>
+
                              </select>
                      </div>
                      <div class="form-group col-lg-4">
                          {!! Form::label('child_birth_country','Country Name : ') !!}
-                             <select class="form-control">
-                                 <option value="">Country 1</option>
-                                 <option value="">Country 2</option>
+                             <select class="form-control" name="birth_country">
+                                 <option value="Nepal">Nepal</option>
+                                 <option value="India">India</option>
+                                 <option value="China">China</option>
                              </select>
                      </div>
-                    <div class="form-group col-lg-8">
+                   {{-- <div class="form-group col-lg-8">
                          {!! Form::label('child_birth_address','Full Address : ') !!}
                          {!! Form::text('child_birth_address',null,array('class'=>'form-control')) !!}
-                     </div>
+                     </div>--}}
 
             </div> {{--End of tab-pane tab1--}}
             <div class="tab-pane" id="tab2">
@@ -117,39 +134,55 @@
                          {!! Form::label('father_last_name','Last Name') !!}
                          {!! Form::text('father_last_name',null,array('class'=>'form-control')) !!}
                     </div>
-                    <div class="form-group col-lg-12">
+                   {{-- <div class="form-group col-lg-12">
                          {!! Form::label('father_full_name','Full Name') !!}
                          {!! Form::text('father_full_name',null,array('class'=>'form-control')) !!}
-                    </div>
+                    </div>--}}
                     <legend><h4>Address</h4></legend>
                      <div class="form-group col-lg-6">
                          {!! Form::label('father_district','District: ') !!}
-                             <select class="form-control">
-                                 <option value="">District 1</option>
-                                 <option value="">District 2</option>
+                             <select class="form-control" name="father_district">
+                                 <option value="Kathmandu">Kathmandu</option>
+                                 <option value="Lalitpur">Lalitpur</option>
+                                 <option value="Bhaktapur">Bhaktapur</option>
+
                              </select>
                      </div>
                      <div class="form-group col-lg-6">
                          {!! Form::label('father_vdc','VDC/Municipality: ') !!}
-                             <select class="form-control">
-                                 <option value="">VDC 1</option>
-                                 <option value="">VDC 2</option>
+                             <select class="form-control" name="father_vdc">
+                                  <option value="Kathmandu Metropolitan City">Kathmandu Metropolitan City</option>
+                                  <option value="Balambu VDC">Balambu VDC</option>
+                                  <option value="Budanilkantha VDC">Budanilkantha VDC</option>
+                                  <option value="Daxinkali VDC">Daxinkali VDC</option>
                              </select>
                      </div>
                      <div class="form-group col-lg-6">
                          {!! Form::label('father_ward_no','Ward No: ') !!}
-                             <select class="form-control">
-                                 <option value="">01</option>
-                                 <option value="">02</option>
+                             <select class="form-control" name="father_ward_no">
+                                  <option value="01">01</option>
+                                  <option value="02">02</option>
+                                  <option value="03">03</option>
+                                  <option value="04">04</option>
+                                  <option value="05">05</option>
+                                  <option value="06">06</option>
+                                  <option value="07">07</option>
+                                  <option value="08">08</option>
+                                  <option value="09">09</option>
+                                  <option value="10">10</option>
+                                  <option value="11">11</option>
+                                  <option value="12">12</option>
+                                  <option value="13">13</option>
+                                  <option value="14">14</option>
                              </select>
                      </div>
-                     <div class="form-group col-lg-6">
+   {{--                  <div class="form-group col-lg-6">
                          {!! Form::label('father_road','Tole / Roard : ') !!}
                              <select class="form-control">
                                  <option value="">Tole 1</option>
                                  <option value="">Tole 2</option>
                              </select>
-                     </div>
+                     </div>--}}
                     <legend></legend>
                     <div class="form-group col-lg-6">
                          {!! Form::label('father_citizenship_no','Citizenship No: ') !!}
@@ -161,7 +194,12 @@
                      </div>
                     <div class="form-group col-lg-6">
                          {!! Form::label('father_citizenship_issued_district','Citizenship Issued District : ') !!}
-                         {!! Form::text('father_citizenship_issued_district',null,array('class'=>'form-control')) !!}
+                        {{-- {!! Form::text('father_citizenship_issued_district',null,array('class'=>'form-control')) !!}--}}
+                             <select class="form-control" name="father_citizenship_issued_district">
+                                  <option value="Kathmandu">Kathmandu</option>
+                                  <option value="Lalitpur">Lalitpur</option>
+                                  <option value="Bhaktapur">Bhaktapur</option>
+                              </select>
                      </div>
                     <div class="form-group col-lg-6">
                          {!! Form::label('father_passport_no','Passport No (If Foreigner) : ') !!}
@@ -170,8 +208,8 @@
                     <div class="form-group col-lg-6">
                          {!! Form::label('father_country','Country Name (Citizenship Issued): ') !!}
                              <select class="form-control">
-                                 <option value="">Country 1</option>
-                                 <option value="">Country 2</option>
+                                 <option value="USA">USA</option>
+                                 <option value="India">India</option>
                              </select>
                      </div>
 
@@ -190,46 +228,58 @@
                         {!! Form::label('mother_last_name','Last Name') !!}
                         {!! Form::text('mother_last_name',null,array('class'=>'form-control')) !!}
                      </div>
-                     <div class="form-group col-lg-12">
+                    {{-- <div class="form-group col-lg-12">
                         {!! Form::label('mother_full_name','Full Name') !!}
                         {!! Form::text('mother_full_name',null,array('class'=>'form-control')) !!}
-                     </div>
+                     </div>--}}
 
                     <legend><h4>Address</h4></legend>
                      <div class="form-group col-lg-6">
                          {!! Form::label('mother_district','District: ') !!}
-                             <select class="form-control">
-                                 <option value="">District 1</option>
-                                 <option value="">District 2</option>
+                             <select class="form-control" name="mother_district">
+                                 <option value="Kathmandu">Kathmandu</option>
+                                 <option value="Lalitpur">Lalitpur</option>
+                                 <option value="Bhaktapur">Bhaktapur</option>
                              </select>
                      </div>
                      <div class="form-group col-lg-6">
                          {!! Form::label('mother_vdc','VDC/Municipality: ') !!}
-                             <select class="form-control">
-                                 <option value="">VDC 1</option>
-                                 <option value="">VDC 2</option>
+                             <select class="form-control" name="mother_vdc">
+                                 <option value="Kathmandu Metropolitan City">Kathmandu Metropolitan City</option>
+                                  <option value="Balambu VDC">Balambu VDC</option>
+                                  <option value="Budanilkantha VDC">Budanilkantha VDC</option>
+                                  <option value="Daxinkali VDC">Daxinkali VDC</option>
                              </select>
                      </div>
                      <div class="form-group col-lg-6">
                          {!! Form::label('mother_ward_no','Ward No: ') !!}
                              <select class="form-control">
-                                 <option value="">01</option>
-                                 <option value="">02</option>
+                                  <option value="01">01</option>
+                                  <option value="02">02</option>
+                                  <option value="03">03</option>
+                                  <option value="04">04</option>
+                                  <option value="05">05</option>
+                                  <option value="06">06</option>
+                                  <option value="07">07</option>
+                                  <option value="08">08</option>
+                                  <option value="09">09</option>
+                                  <option value="10">10</option>
+                                  <option value="11">11</option>
+                                  <option value="12">12</option>
+                                  <option value="13">13</option>
+                                  <option value="14">14</option>
                              </select>
                      </div>
-                     <div class="form-group col-lg-6">
+{{--                     <div class="form-group col-lg-6">
                          {!! Form::label('mother_road','Tole / Roard : ') !!}
                              <select class="form-control">
                                  <option value="">Tole 1</option>
                                  <option value="">Tole 2</option>
                              </select>
-                     </div>
+                     </div>--}}
 
                     <legend></legend>
-                    <div class="form-group col-lg-6">
-                         {!! Form::label('mother_age','Age (When Child was born) : ') !!}
-                         {!! Form::text('mother_age',null,array('class'=>'form-control')) !!}
-                    </div>
+
                     <div class="form-group col-lg-6">
                          {!! Form::label('mother_citizenship_no','Citizenship No: ') !!}
                          {!! Form::text('mother_citizenship_no',null,array('class'=>'form-control')) !!}
@@ -240,7 +290,12 @@
                      </div>
                     <div class="form-group col-lg-6">
                          {!! Form::label('mother_citizenship_issued_district','Citizenship Issued District : ') !!}
-                         {!! Form::text('mother_citizenship_issued_district',null,array('class'=>'form-control')) !!}
+                         {{--{!! Form::text('mother_citizenship_issued_district',null,array('class'=>'form-control')) !!}--}}
+                            <select class="form-control" name="mother_citizenship_issued_district">
+                                  <option value="Kathmandu">Kathmandu</option>
+                                  <option value="Lalitpur">Lalitpur</option>
+                                  <option value="Bhaktapur">Bhaktapur</option>
+                              </select>
                      </div>
                     <div class="form-group col-lg-6">
                          {!! Form::label('mother_passport_no','Passport No (If Foreigner) : ') !!}
@@ -248,9 +303,9 @@
                      </div>
                     <div class="form-group col-lg-6">
                          {!! Form::label('mother_country','Country Name (Citizenship Issued): ') !!}
-                             <select class="form-control">
-                                 <option value="">Country 1</option>
-                                 <option value="">Country 2</option>
+                             <select class="form-control" name="mother_country">
+                                 <option value="">USA</option>
+                                 <option value="">India</option>
                              </select>
                      </div>
 
@@ -259,14 +314,7 @@
                 <div class="col-lg-6">
                  <fieldset class="scheduler-border">
                     <legend class="scheduler-border"><h4>Common Details</h4></legend>
-                    <div class="form-group col-lg-6">
-                         {!! Form::label('common_child_no','Total Child No(Till now give Birth) : ') !!}
-                         {!! Form::text('common_child_no',null,array('class'=>'form-control')) !!}
-                    </div>
-                    <div class="form-group col-lg-6">
-                         {!! Form::label('common_alive_child_no','Total Child No(Alive Only) : ') !!}
-                         {!! Form::text('common_alive_child_no',null,array('class'=>'form-control')) !!}
-                    </div>
+
                     <div class="form-group col-lg-12">
                          {!! Form::label('common_marriage_registration_no','Marriage Registration No : ') !!}
                          {!! Form::text('common_marriage_registration_no',null,array('class'=>'form-control')) !!}
@@ -291,26 +339,26 @@
                          {!! Form::text('grand_father_first_name',null,array('class'=>'form-control','placeholder'=>'Grand Father')) !!}
                     </div>
                     <div class="form-group col-lg-6">
-                         {!! Form::label('grand_father_first_name','Last Name : ') !!}
-                         {!! Form::text('grand_father_first_name',null,array('class'=>'form-control','placeholder'=>'Grand Father')) !!}
+                         {!! Form::label('grand_father_last_name','Last Name : ') !!}
+                         {!! Form::text('grand_father_last_name',null,array('class'=>'form-control','placeholder'=>'Grand Father')) !!}
                     </div>
-                    <div class="form-group col-lg-12">
+                   {{-- <div class="form-group col-lg-12">
                          {!! Form::label('grand_father_full_name','Full Name : ') !!}
                          {!! Form::text('grand_father_full_name',null,array('class'=>'form-control','placeholder'=>'Grand Father')) !!}
-                    </div>
+                    </div>--}}
                     <legend></legend>
                     <div class="form-group col-lg-6">
                          {!! Form::label('grand_mother_first_name','First Name : ') !!}
                          {!! Form::text('grand_mother_first_name',null,array('class'=>'form-control','placeholder'=>'Grand Mother')) !!}
                     </div>
                     <div class="form-group col-lg-6">
-                         {!! Form::label('grand_mother_first_name','Last Name : ') !!}
-                         {!! Form::text('grand_mother_first_name',null,array('class'=>'form-control','placeholder'=>'Grand Mother')) !!}
+                         {!! Form::label('grand_mother_last_name','Last Name : ') !!}
+                         {!! Form::text('grand_mother_last_name',null,array('class'=>'form-control','placeholder'=>'Grand Mother')) !!}
                     </div>
-                    <div class="form-group col-lg-12">
+                   {{-- <div class="form-group col-lg-12">
                          {!! Form::label('grand_mother_full_name','Full Name : ') !!}
                          {!! Form::text('grand_mother_full_name',null,array('class'=>'form-control','placeholder'=>'Grand Mother')) !!}
-                    </div>
+                    </div>--}}
                  </fieldset>
                 </div>
 
@@ -327,57 +375,21 @@
                     {!! Form::label('informer_last_name','Last Name') !!}
                     {!! Form::text('informer_last_name',null,array('class'=>'form-control')) !!}
                  </div>
-                 <div class="form-group col-lg-12">
+                {{-- <div class="form-group col-lg-12">
                     {!! Form::label('informer_full_name','Full Name') !!}
                     {!! Form::text('informer_full_name',null,array('class'=>'form-control')) !!}
-                 </div>
+                 </div>--}}
                   <div class="form-group col-lg-12">
                     {!! Form::label('informer_relation','Relation with Child: ') !!}
                     <select class="form-control">
                         <option value="">Father</option>
                         <option value="">Mother</option>
+                        <option value="">Uncle</option>
+                        <option value="">Aunt</option>
+                        <option value="">Grand Father</option>
+                        <option value="">Grand Mother</option>
                     </select>
                   </div>
-                     <legend><h4>Address</h4></legend>
-                      <div class="form-group col-lg-6">
-                          {!! Form::label('informer_district','District: ') !!}
-                              <select class="form-control">
-                                  <option value="">District 1</option>
-                                  <option value="">District 2</option>
-                              </select>
-                      </div>
-                      <div class="form-group col-lg-6">
-                          {!! Form::label('informer_vdc','VDC/Municipality: ') !!}
-                              <select class="form-control">
-                                  <option value="">VDC 1</option>
-                                  <option value="">VDC 2</option>
-                              </select>
-                      </div>
-                      <div class="form-group col-lg-6">
-                          {!! Form::label('informer_ward_no','Ward No: ') !!}
-                              <select class="form-control">
-                                  <option value="">01</option>
-                                  <option value="">02</option>
-                              </select>
-                      </div>
-                      <div class="form-group col-lg-6">
-                          {!! Form::label('informer_road','Road/Highway: ') !!}
-                              <select class="form-control">
-                                  <option value="">Tole 1</option>
-                                  <option value="">Tole 2</option>
-                              </select>
-                      </div>
-                      <div class="form-group col-lg-6">
-                          {!! Form::label('informer_village','Tole/Village : ') !!}
-                              <select class="form-control">
-                                  <option value="">Village 1</option>
-                                  <option value="">Village 2</option>
-                              </select>
-                      </div>
-                      <div class="form-group col-lg-6">
-                          {!! Form::label('informer_home_no','Home No : ') !!}
-                          {!! Form::text('informer_home_no',null,array('class'=>'form-control')) !!}
-                      </div>
 
                        <div class="col-lg-12">
                         <legend></legend>

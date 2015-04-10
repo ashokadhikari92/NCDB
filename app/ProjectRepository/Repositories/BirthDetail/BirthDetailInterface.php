@@ -18,5 +18,9 @@
 
      public function getAllChildren();
 
+     public function getRules();
+
+     public function getCustomMessage();
+
 
  }

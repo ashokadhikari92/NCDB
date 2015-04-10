@@ -10,4 +10,8 @@ class BirthDetail extends Model {
 
     protected  $primaryKey = 'id';
 
+    public $rules = [];
+
+    public $customMessage = [];
+
 }

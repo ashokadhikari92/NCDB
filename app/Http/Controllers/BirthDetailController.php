@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Repo\Repositories\BirthDetail\BirthDetailInterface as BirthDetail;
 use Repo\Repositories\Address\AddressInterface as Location;
+use Illuminate\Validation\Validator;
 
 class BirthDetailController extends Controller {
 
@@ -28,7 +29,7 @@ class BirthDetailController extends Controller {
 	 */
 	public function index()
 	{
-		return view('birth_details.index');
+		return view('birth_details.index2');
 	}
 
 	/**
@@ -54,12 +55,16 @@ class BirthDetailController extends Controller {
 	{
 		$input = Input::all();
 
+        /*$validator = Validator::make($input,$this->birth->getRules(),$this->birth->getCustomMessage());
+
+        if($validator->fails()){
+            return Redirect::route('birth_details.create')->withInput()->withErrors($validator);
+        }*/
         $result = $this->birth->registerChild($input);
 
         if($result['success'] == true){
-            //dd($result);
-            return view('birth_details.birth_certificate');
-            return redirect('birth_details');
+            return view('birth_details.birth_certificate')->with('child',$result);
+            //return redirect('birth_details');
         }
 
 	}
