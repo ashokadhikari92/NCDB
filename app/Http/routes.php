@@ -11,7 +11,8 @@
 |
 */
 
-/*Route::get('/', 'WelcomeController@index');*/
+//Route::get('/', 'WelcomeController@index');
+Route::get('/', 'BirthDetailController@index');
 
 Route::get('home', 'HomeController@index');
 
@@ -20,5 +21,9 @@ Route::controllers([
 	'password' => 'Auth\PasswordController',
 ]);
 Route::get('/', 'BirthDetailController@index');
+
 Route::resource('dashboard','DashboardController');
+
 Route::resource('birth_details','BirthDetailController');
+Route::get('delete/birth_details/{id}','BirthDetailController@destroy');
+Route::get('birth/details',array('as'=>'birth/details','uses'=>'BirthDetailController@getAllData'));

@@ -14,8 +14,8 @@ class CreateHandicapTypesTable extends Migration {
 	{
 		Schema::create('handicap_types', function(Blueprint $table)
 		{
-			$table->increments('id');
-            $table->string('name',60);
+			$table->increments('hndy_id');
+            $table->string('hndy_name',60);
 			$table->timestamps();
 		});
 	}

@@ -8,6 +8,6 @@ class Parents extends Model {
 
     protected $guarded = array();
 
-    protected  $primaryKey = 'id';
+    protected  $primaryKey = 'prnt_id';
 
 }

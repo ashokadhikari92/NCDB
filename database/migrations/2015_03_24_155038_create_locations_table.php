@@ -14,11 +14,11 @@ class CreateLocationsTable extends Migration {
 	{
 		Schema::create('locations', function(Blueprint $table)
 		{
-			$table->increments('id');
-            $table->string('location_name');
-            $table->string('type');
-            $table->string('code');
-            $table->integer('parent_id');
+			$table->increments('locn_id');
+            $table->string('locn_name');
+            $table->string('locn_type');
+            $table->string('locn_code');
+            $table->integer('locn_parent_id');
 			$table->timestamps();
 		});
 	}

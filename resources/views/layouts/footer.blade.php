@@ -1,9 +1,9 @@
- <footer>
-         <div class="container">
+<div class="container credit"></div>
+<div class="container">
 
-            <div class="copy text-center">
-               &copy; Copyright 2014 <a href='#'></a>
-            </div>
+    <p class="text-center">
+        <strong><span class="glyphicon glyphicon-copyright-mark"></span>
+            Integrated Solutions Pvt. Ltd. 2014</strong>
 
-         </div>
- </footer>
+    </p>
+</div>

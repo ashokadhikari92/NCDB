@@ -14,8 +14,8 @@ class CreateEducationLevelsTable extends Migration {
 	{
 		Schema::create('education_levels', function(Blueprint $table)
 		{
-			$table->increments('id');
-            $table->string('name');
+			$table->increments('edlv_id');
+            $table->string('edlv_name');
 			$table->timestamps();
 		});
 	}

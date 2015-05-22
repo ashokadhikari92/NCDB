@@ -14,8 +14,8 @@ class CreateBirthPlacesTable extends Migration {
 	{
 		Schema::create('birth_places', function(Blueprint $table)
 		{
-			$table->increments('id');
-            $table->string('name',60);
+			$table->increments('plac_id');
+            $table->string('plac_name',60);
 			$table->timestamps();
 		});
 	}

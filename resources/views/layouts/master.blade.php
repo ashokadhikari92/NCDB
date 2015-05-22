@@ -1,30 +1,74 @@
-<!doctype html>
+<!DOCTYPE HTML>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <link href="{{asset('assets/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
-    <link href="{{asset('assets/css/styles.css')}}" rel="stylesheet">
-    <link href="{{asset('assets/css/DT_bootstrap.css')}}" rel="stylesheet">
-    {{--<link href="{{asset('assets/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">--}}
-    <script src="{{asset('assets/js/jquery-2.0.2.min.js')}}"></script>
-    <script src="{{asset('assets/bootstrap/js/bootstrap.min.js')}}"></script>
-    <script src="{{asset('assets/js/custom.js')}}"></script>
-    <script src="{{asset('assets/js/DT_bootstrap.js')}}"></script>
-     <script src="{{asset('assets/js/angular.min.js')}}"></script>
-    <title></title>
+<meta charset="UTF-8">
+<title>ADMIN</title>
+
+    <link rel="stylesheet" href="{{ asset('assets/bootstrap-3.1.1-dist/css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/bootstrap-3.1.1-dist/css/bootstrap-theme.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/DataTables-1.10.0/css/jquery.dataTables_themeroller.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/DataTables-1.10.0/css/jquery.dataTables.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/css/dashboard.css') }}" />
+
+
+
+<script>
+//base url for javascript ajax calls
+var base_url = "{!!URL::to('/')!!}";
+</script>          
+
+
 </head>
 <body>
+	<div class="container">
+		<!-- navigation start -->
 
-        @include('layouts.header')
+        @include('layouts.navbar')
+		<!--  end of navigation -->
+<!-- column 1 start-->
+<!-- accordian start-->
 
-        <div class="page-content">
-           <div class="row">
-                @include('layouts.side_menu')
-                @yield('content')
-            </div>
-        </div>
-        @include('layouts.footer')
-        @yield('js_section')
+    <div class="row">
+
+        @include('layouts.left_menu')
+<!-- accordion end -->
+<!-- column 1 end-->
+			
+			
+			<!-- - Column 2 start -->
+
+			<div class="col-md-10 maingrid maincontent">@yield('content')</div>
+			<!-- End of Column2 -->
+
+
+
+			<!-- Footer -->
+			<div id="footer">
+				<div class="container credit"></div>
+				<div class="container">
+
+					<p class="text-center">
+						<strong><span class="glyphicon glyphicon-copyright-mark"></span>
+							Ashok & Co. Group 2015</strong>
+
+					</p>
+				</div>
+				<!-- end of Footer -->
+			</div>
+		</div>
+	</div>
+	</div>
+
+
+
+	<script src="{{ asset('assets/jquery-1.11.1-dev/jquery-1.11.1.min.js') }}"></script>
+	<script src="{{ asset('assets/DataTables-1.10.0/js/jquery.dataTables.min.js') }}"></script>
+	<script src="{{ asset('assets/jquery-form-validator/jquery.form-validator.min.js') }}"></script>
+	<script src="{{ asset('assets/bootstrap-3.1.1-dist/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assets/js/bootbox/bootbox.min.js') }}"></script>
+    {{--<script src="{{ asset('assets/js/main.js') }}"></script>--}}
+
+	@yield('js_section')
 
 </body>
 </html>

@@ -1,0 +1,1 @@
+{!! $child->brth_first_name!!}

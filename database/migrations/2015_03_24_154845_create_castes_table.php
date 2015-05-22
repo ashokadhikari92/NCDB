@@ -14,8 +14,8 @@ class CreateCastesTable extends Migration {
 	{
 		Schema::create('castes', function(Blueprint $table)
 		{
-			$table->increments('id');
-            $table->string('name');
+			$table->increments('cast_id');
+            $table->string('cast_name');
 			$table->timestamps();
 		});
 	}

@@ -14,8 +14,8 @@ class CreateLastNamesTable extends Migration {
 	{
 		Schema::create('last_names', function(Blueprint $table)
 		{
-			$table->increments('id');
-            $table->string('name');
+			$table->increments('lnme_id');
+            $table->string('lnme_name');
 			$table->timestamps();
 		});
 	}

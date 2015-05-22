@@ -27,7 +27,7 @@ class CreateNativeLanguageTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('native_language');
+		Schema::drop('native_languages');
 	}
 
 }

@@ -14,29 +14,29 @@ class CreateBirthDetailsTable extends Migration {
 	{
 		Schema::create('birth_details', function(Blueprint $table)
 		{
-			$table->increments('id');
-            $table->string('registration_id');
-            $table->string('first_last',60);
-            $table->string('last_name',60);
-            $table->dateTime('birth_date');
-            $table->string('birth_place',60);
-            $table->string('birth_helper',60);
-            $table->string('gender',10);
-            $table->string('birth_type',10);
-            $table->string('caste',50);
-            $table->boolean('is_disable');
-            $table->string('disability_name',60);
-            $table->integer('birth_address');
-            $table->boolean('is_born_in_foreign');
-            $table->string('foreign_birth_country',60);
-            $table->string('foreign_birth_address',60);
-            $table->dateTime('registered_date');
-            $table->string('grand_father',100);
-            $table->string('grand_mother',100);
-            $table->integer('father');
-            $table->integer('mother');
-            $table->integer('registered_by');
-            $table->integer('informed_by');
+			$table->increments('brth_id');
+            $table->string('brth_registration_id');
+            $table->string('brth_first_last',60);
+            $table->string('brth_middle_name');
+            $table->string('brth_last_name',60);
+            $table->dateTime('brth_birth_date');
+            $table->string('brth_birth_place',60);
+            $table->string('brth_birth_helper',60);
+            $table->string('brth_gender',10);
+            $table->string('brth_birth_type',10);
+            $table->string('brth_caste',50);
+            $table->boolean('brth_handicap');
+            $table->string('brth_handicap_type',60);
+            $table->integer('brth_birth_address');
+            $table->boolean('brth_is_born_in_foreign');
+            $table->string('brth_country_name',60);
+            $table->dateTime('brth_registered_date');
+            $table->integer('brth_father');
+            $table->integer('brth_mother');
+            $table->string('brth_grand_father',100);
+            $table->string('brth_grand_mother',100);
+            $table->integer('brth_registered_by');
+            $table->integer('brth_informed_by');
 			$table->timestamps();
 		});
 	}

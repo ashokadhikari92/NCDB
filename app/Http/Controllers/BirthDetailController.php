@@ -46,20 +46,16 @@ class BirthDetailController extends Controller {
 		return view('birth_details.create2');
 	}
 
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
-	public function store()
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param Requests\CreateBirthDetailRequest $request
+     * @return Response
+     */
+	public function store(Requests\CreateBirthDetailRequest $request)
 	{
-		$input = Input::all();
+		$input = $request->all();
 
-        /*$validator = Validator::make($input,$this->birth->getRules(),$this->birth->getCustomMessage());
-
-        if($validator->fails()){
-            return Redirect::route('birth_details.create')->withInput()->withErrors($validator);
-        }*/
         $result = $this->birth->registerChild($input);
 
         if($result['success'] == true){
@@ -77,7 +73,9 @@ class BirthDetailController extends Controller {
 	 */
 	public function show($id)
 	{
-		//
+		$birth_detail = $this->birth->getChildById($id);
+
+        return view('birth_details.show')->with('child',$birth_detail);
 	}
 
 	/**
@@ -112,5 +110,10 @@ class BirthDetailController extends Controller {
 	{
 		//
 	}
+
+    public function getAllData()
+    {
+        return $this->birth->getAllChildren();
+    }
 
 }

@@ -2,7 +2,7 @@
     <div class="alert alert-warning alert-dismissable">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
         <ul>
-            {{ implode('',$errors->all('<li class="error">:message</li>')) }}
+            {!! implode('',$errors->all('<li class="error">:message</li>')) !!}
         </ul>
     </div>
 @endif
@@ -10,6 +10,6 @@
 
 <div class="alert alert-warning alert-dismissable">
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-    {{ Session::get('message') }}
+    {!! Session::get('message') !!}
 </div>
 @endif

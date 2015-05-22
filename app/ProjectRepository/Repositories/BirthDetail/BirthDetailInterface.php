@@ -18,9 +18,9 @@
 
      public function getAllChildren();
 
+     public function deleteBirthDetail();
+
      public function getRules();
 
      public function getCustomMessage();
-
-
  }

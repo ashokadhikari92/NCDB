@@ -14,8 +14,8 @@ class CreateRelationToChildTable extends Migration {
 	{
 		Schema::create('relation_to_child', function(Blueprint $table)
 		{
-			$table->increments('id');
-            $table->string('name',60);
+			$table->increments('rltn_id');
+            $table->string('rltn_name',60);
 			$table->timestamps();
 		});
 	}

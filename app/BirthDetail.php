@@ -8,7 +8,7 @@ class BirthDetail extends Model {
 
     protected $guarded = array();
 
-    protected  $primaryKey = 'id';
+    protected  $primaryKey = 'brth_id';
 
     public $rules = [];
 

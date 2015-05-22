@@ -14,8 +14,8 @@ class CreateBirthHelperTable extends Migration {
 	{
 		Schema::create('birth_helpers', function(Blueprint $table)
 		{
-			$table->increments('id');
-            $table->string('name');
+			$table->increments('hlpr_id');
+            $table->string('hlpr_name');
 			$table->timestamps();
 		});
 	}
