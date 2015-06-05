@@ -2,13 +2,14 @@
 <div class="sidemenu">
     <div class="panel-group" id="accordion">
         <div class="panel panel-default">
-            <div class="panel-heading">
+           {{-- <div class="panel-heading">
                 <h4 class="panel-title sidemenutitle">
                     <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span class="glyphicon glyphicon-folder-close">
                             </span>Administration</a>
                 </h4>
-            </div>
-            <div id="collapseOne" class="panel-collapse collapse in">
+            </div>--}}
+
+           {{-- <div id="collapseOne" class="panel-collapse collapse in">--}}
                 <div class="panel-body">
                     <table class="table">
                         <tr>
@@ -19,7 +20,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <a href="#"
+                                <a href="{{route('child_vaccines.index')}}"
                                    class="btn btn-primary custom-border-color">Vaccination</a>
                             </td>
                         </tr>
@@ -53,7 +54,7 @@
 
                     </table>
                 </div>
-            </div>
+          {{--  </div>--}}
         </div>
 
     </div>

@@ -152,6 +152,7 @@ return [
         'Repo\Providers\BirthDetailServiceProvider',
         'Repo\Providers\AddressServiceProvider',
         'Repo\Providers\ParentsDetailServiceProvider',
+        'Repo\Providers\ChildVaccineServiceProvider',
 
 	],
 

@@ -21,6 +21,10 @@ function deleteBirthRegistration(id)
 }
 
 $(document).ready(function () {
+
+    /*
+    Ajax to load the data on the data table.
+     */
     $('#data_table').dataTable({
         "bProcessing": true,
         "sAjaxSource": base_url + '/birth/details',
@@ -53,5 +57,25 @@ $(document).ready(function () {
                 }
             }
         ]
+    });
+
+
+    /*
+    Ajax for drop down of district
+     */
+    $.ajax({
+        dataType : "json",
+        url : base_url + '/location/district/1',
+        success : function(data) {
+            var district = document.getElementById('district');
+
+            var options;
+            $.each(data.district, function(key, val) {
+
+                options  += "<option value ='" + val.locn_id + "'>"+val.locn_name+"</option>"
+
+            });
+            $("#district").append(options);
+        }
     });
 });

@@ -74,35 +74,26 @@
                     </div>
                      <div class="form-group col-lg-4">
                          {!! Form::label('brth_birth_district','District: ') !!}
-                             <select class="form-control" name="brth_district">
-                                 <option value="Kathmandu">Kathmandu</option>
-                                 <option value="Lalitpur">Lalitpur</option>
-                                 <option value="Bhaktapur">Bhaktapur</option>
+                             <select class="form-control" name="brth_district" id="district">
+                                <option>Choose District</option>
                              </select>
                      </div>
                      <div class="form-group col-lg-4">
                          {!! Form::label('brth_birth_vdc','VDC/Municipality: ') !!}
-                             <select class="form-control" name="brth_vdc">
-                                 <option value="Kathmandu Metropolitan City">Kathmandu Metropolitan City</option>
-                                 <option value="Balambu VDC">Balambu VDC</option>
-                                 <option value="Budanilkantha VDC">Budanilkantha VDC</option>
-                                 <option value="Daxinkali VDC">Daxinkali VDC</option>
+                             <select class="form-control" name="brth_vdc" id="vdc">
+
                              </select>
                      </div>
                      <div class="form-group col-lg-4">
                          {!! Form::label('brth_birth_ward_no','Ward No: ') !!}
-                             <select class="form-control" name="brth_ward_no">
-                                 <option value="01">01</option>
-                                 <option value="02">02</option>
-                                 <option value="03">03</option>
+                             <select class="form-control" name="brth_ward_no" id="ward_no">
+
                              </select>
                      </div>
                      <div class="form-group col-lg-4">
                          {!! Form::label('brth_country_name','Country Name : ') !!}
-                             <select class="form-control" name="brth_country_name">
-                                 <option value="Nepal">Nepal</option>
-                                 <option value="India">India</option>
-                                 <option value="China">China</option>
+                             <select class="form-control" name="brth_country_name" id="country">
+                                <option>Choose Country</option>
                              </select>
                      </div>
 
@@ -237,10 +228,8 @@
                     <div class="form-group col-lg-6">
                          {!! Form::label('mother_citizenship_issued_district','Citizenship Issued District : ') !!}
                          {{--{!! Form::text('mother_citizenship_issued_district',null,array('class'=>'form-control')) !!}--}}
-                            <select class="form-control" name="mother_citizenship_issued_district">
-                                  <option value="Kathmandu">Kathmandu</option>
-                                  <option value="Lalitpur">Lalitpur</option>
-                                  <option value="Bhaktapur">Bhaktapur</option>
+                            <select class="form-control" name="mother_citizenship_issued_district" id="district">
+
                               </select>
                      </div>
                     <div class="form-group col-lg-6">
@@ -350,5 +339,5 @@
 @stop
 
 @section('js_section')
-
+    <script src="{{ asset('assets/ncdb/js/birth/create.js') }}"></script>
 @stop

@@ -60,7 +60,6 @@ class BirthDetailController extends Controller {
 
         if($result['success'] == true){
             return view('birth_details.birth_certificate')->with('child',$result);
-            //return redirect('birth_details');
         }
 
 	}

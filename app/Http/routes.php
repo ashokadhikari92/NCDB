@@ -24,6 +24,22 @@ Route::get('/', 'BirthDetailController@index');
 
 Route::resource('dashboard','DashboardController');
 
+/* ------------------------------------------------------------------------
+             Birth Details
+--------------------------------------------------------------------------*/
 Route::resource('birth_details','BirthDetailController');
 Route::get('delete/birth_details/{id}','BirthDetailController@destroy');
 Route::get('birth/details',array('as'=>'birth/details','uses'=>'BirthDetailController@getAllData'));
+
+/* ------------------------------------------------------------------------
+            Vaccination
+--------------------------------------------------------------------------*/
+Route::resource('child_vaccines','ChildVaccineController');
+Route::get('delete/child/vaccine/{id}','ChildVaccineController@destroy');
+Route::get('child/vaccines/details',array('as'=>'child/vaccines/details','uses'=>'ChildVaccineController@getAllChildVaccines'));
+
+
+/* ------------------------------------------------------------------------
+            Location (Address)
+--------------------------------------------------------------------------*/
+Route::get('location/district/{id}','LocationController@getDistrict');

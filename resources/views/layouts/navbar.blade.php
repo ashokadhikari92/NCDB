@@ -20,9 +20,10 @@
                 <li class="inactive menulist"><a href="#"><span
                             class="glyphicon glyphicon-home glyphnavmenu" title="Home"></span></a></li>
                 <li class="inactive menulist"><a href="#"><span
-                            class="glyphicon glyphicon-wrench glyphnavmenu" title="Configurations"></span></a></li>
+                            class="glyphicon glyphicon-folder-open glyphnavmenu" title="Reports"></span></a></li>
                 <li class="inactive menulist"><a href="#"><span
-                            class="glyphicon glyphicon-file glyphnavmenu" title="Reports"></span></a></li>
+                            class="glyphicon glyphicon-wrench glyphnavmenu" title="Configurations"></span></a></li>
+
             </ul>
             <ul class="nav navbar-nav navbar-right">
 
@@ -36,7 +37,7 @@
 
                     <div class="panel-body bodynotification dropdown-menu dropdown-messages">
                         <div class="list-group">
-                            <a href="#">
+                            <a href="#" class="">
                                 Change Password
                             </a>
                         </div>
