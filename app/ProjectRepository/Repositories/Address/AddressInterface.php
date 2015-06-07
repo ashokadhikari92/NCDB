@@ -9,7 +9,13 @@
 
     interface AddressInterface{
 
-        public function getLocationByType($ype);
+        public function getLocationNameById($id);
+
+        public function getLocationCodeById($id);
+
+        public function getLocationParentIdById($id);
+
+        public function getAllLocationByParentId($id);
 
         public function getLocationByParentId($id);
     }

@@ -14,6 +14,8 @@
 
      public function updateChild($child);
 
+     public function getRegistrationId($input);
+
      public function getChildById($id);
 
      public function getAllChildren();

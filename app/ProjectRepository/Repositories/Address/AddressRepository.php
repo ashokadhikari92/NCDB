@@ -8,14 +8,51 @@
 
     use App\Address as Location;
 
+    /**
+     * Class AddressRepository
+     * @package Repo\Repositories\Address
+     */
     class AddressRepository implements AddressInterface{
 
-        public function getLocationByType($type)
+
+        /**
+         * @param $id
+         * @return mixed
+         */
+        public function getLocationByParentId($id)
         {
-           return Location::where('type','=',$type)->get();
+            return Location::where('parent_id','=',$id);
         }
 
-        public function getLocationByParentId($id)
+        /**
+         * @param $id
+         */
+        public function getLocationNameById($id)
+        {
+            // TODO: Implement getLocationNameById() method.
+        }
+
+        /**
+         * @param $id
+         */
+        public function getLocationCodeById($id)
+        {
+            // TODO: Implement getLocationCodeById() method.
+        }
+
+        /**
+         * @param $id
+         */
+        public function getLocationParentIdById($id)
+        {
+            // TODO: Implement getLocationParentIdById() method.
+        }
+
+        /**
+         * @param $id
+         * @return mixed
+         */
+        public function getAllLocationByParentId($id)
         {
             return Location::where('parent_id','=',$id);
         }

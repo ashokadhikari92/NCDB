@@ -36,8 +36,9 @@ use App\BirthDetail as Child;
             );
             $father_id = $this->parent->addParent($father);
             $mother_id = $this->parent->addParent($mother);
+            $registration_id = $this->getRegistrationId($child);
             $children = array(
-                'brth_registration_id' => 'HE00989',
+                'brth_registration_id' => $registration_id,
                 'brth_first_name' => $child['brth_first_name'],
                 'brth_last_name' => $child['brth_last_name'],
                 'brth_birth_date' => $child['brth_birth_date'],
@@ -119,5 +120,11 @@ use App\BirthDetail as Child;
         public function deleteBirthDetail()
         {
             // TODO: Implement deleteBirthDetail() method.
+        }
+
+        public function getRegistrationId($input)
+        {
+
+            return "HER345";
         }
     }

@@ -116,16 +116,16 @@ background:	#E9E9E9
 }
 .navbar-inverse {
 	background-color: #ffffff;
-	/*changed by srijana 20012014 from black color*/
-	border-color: #ffffff; /*changed by srijana 20012014 from black color*/
+
+	border-color: #ffffff;
 }
 .label-default {
-	background-color: transparent; /*changed by srijana from #eeeeee 21012014*/
+	background-color: transparent;
 }
 
 h2 {
-	font-size: 10px; /*changed by srijana from 30px to 25px 21012014*/
-	text-align: left; /*added by srijana 21012014*/
+	font-size: 10px;
+	text-align: left;
 	-webkit-border-top-left-radius: 10px;
 	-webkit-border-top-right-radius: 10px;
 	-moz-border-radius-topleft: 10px;
@@ -659,7 +659,7 @@ padding:5px;
 }
 .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
     color: #ca7f35;
-    background-color:#cccccc;
+    background-color:#00628B;
 }
 .fa.fa-angle-right.readallmsgglyph {
     margin-left: 10px;
@@ -707,7 +707,7 @@ ul, ol {
 /*CSS for html , body and so on*/
 
 body {
-    background: #DCDDDF;
+    background: #E6E6DC;
     color: #000;
     font: 14px Arial;
     margin: 0 auto;
