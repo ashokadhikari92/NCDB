@@ -14,6 +14,13 @@
      */
     class AddressRepository implements AddressInterface{
 
+        protected $location;
+
+        function __construct(Location $location)
+        {
+            $this->location = $location;
+        }
+
 
         /**
          * @param $id
@@ -21,31 +28,40 @@
          */
         public function getLocationByParentId($id)
         {
-            return Location::where('parent_id','=',$id);
+            return $this->location->where('parent_id','=',$id);
         }
 
         /**
          * @param $id
+         * @return mixed
          */
         public function getLocationNameById($id)
         {
-            // TODO: Implement getLocationNameById() method.
+            $location = $this->location->find($id);
+
+            return $location['locn_name'];
         }
 
         /**
          * @param $id
+         * @return mixed
          */
         public function getLocationCodeById($id)
         {
-            // TODO: Implement getLocationCodeById() method.
+            $location = $this->location->find($id);
+
+            return $location['locn_code'];
         }
 
         /**
          * @param $id
+         * @return mixed
          */
         public function getLocationParentIdById($id)
         {
-            // TODO: Implement getLocationParentIdById() method.
+            $location = $this->location->find($id);
+
+            return $location['locn_parent_id'];
         }
 
         /**

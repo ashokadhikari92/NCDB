@@ -6,6 +6,7 @@
  * Time: 10:01 AM
  */
 
+use Repo\Repositories\Address\AddressRepository;
 use Repo\Repositories\ParentsDetail\ParentsDetailRepository as Parents;
 use App\BirthDetail as Child;
 
@@ -15,11 +16,15 @@ use App\BirthDetail as Child;
 
         public $child;
 
-        function __construct(Parents $parent,Child $child)
+        protected $location;
+
+        function __construct(Parents $parent,Child $child,AddressRepository $location)
         {
             $this->parent = $parent;
 
             $this->child = $child;
+
+            $this->location = $location;
         }
 
         public function registerChild($child)
@@ -122,9 +127,21 @@ use App\BirthDetail as Child;
             // TODO: Implement deleteBirthDetail() method.
         }
 
+        /**
+         * @param $input
+         * @internal param AddressRepository $location
+         * @return string
+         */
         public function getRegistrationId($input)
         {
+            $district = $this->location->getLocationNameById($input['brth_district']);
 
-            return "HER345";
+            $vdc = $this->location->getLocationNameById($input['brth_vdc']);
+
+            $ward_no = 32;//$input['brth_ward_no'];
+
+            $sn = 232;
+
+            return $district."-".$vdc."-".$ward_no."-071/72-".$sn;
         }
     }

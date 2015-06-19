@@ -20,6 +20,9 @@ Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
+Route::group(['middleware'=>['auth']],function(){
+
+
 Route::get('/', 'BirthDetailController@index');
 
 Route::resource('dashboard','DashboardController');
@@ -43,3 +46,29 @@ Route::get('child/vaccines/details',array('as'=>'child/vaccines/details','uses'=
             Location (Address)
 --------------------------------------------------------------------------*/
 Route::get('location/district/{id}','LocationController@getDistrict');
+
+/* -------------------------------------------------------------------------------
+ *  User management Module  Routes
+ * -------------------------------------------------------------------------------*/
+Route::resource('users','UserController');
+
+/* -------------------------------------------------------------------------------
+ *  User management Module  Routes
+ * ------------------------------------------------------------------------------- */
+
+    Route::resource('roles','RoleController');
+    Route::get('/role/getAll','RoleController@getAll');
+    Route:get('/assign/permissions/{id}','RoleController@assignPermission');
+
+/*------------------------------------------------------------------------------------
+ *  Role and Permission management
+ ------------------------------------------------------------------------------------*/
+
+    Route::resource('role_permission','RolePermissionController');
+    Route::get('getPermissions/{id}','RolePermissionController@getPermission');
+
+    /*
+     * Education Modules
+     */
+    Route::resource('educations','EducationController');
+});

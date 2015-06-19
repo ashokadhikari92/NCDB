@@ -8,6 +8,6 @@ class Address extends Model {
 
     public $guarded = [];
 
-    public $primaryKey = 'id';
+    public $primaryKey = 'locn_id';
 
 }

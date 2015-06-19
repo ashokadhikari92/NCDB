@@ -1,4 +1,13 @@
-/* css for accordion */
+
+body {
+    background: #EEEEEE;
+    color: #000;
+    font: 14px Arial;
+    margin: 0 auto;
+    padding: 0;
+    position: relative;
+}
+
 .glyphicon { margin-right:10px; }
 .panel-body { padding:0px; }
 .panel-body table tr td { padding-left: 15px }
@@ -8,7 +17,7 @@
     margin-left: 10px;
     text-align: left;
 }
-/*end css for accordion*/
+
 
 @CHARSET "ISO-8859-1";
 .notificationbar {
@@ -19,6 +28,14 @@ body {
     padding-bottom: 0 !important;
 }
 
+.my_footer {
+    background-color: #d9d9d9;
+
+}
+
+.panel-top{
+    background-color: #009DE6;
+}
 p{
 font-size:12px;
 }
@@ -54,14 +71,28 @@ margin:0!important;
 	text-align:center;
 }
 
-.panel-body {
-	background-color: #EEEEEE;
+.panel-left-menu {
+	background-color: #E8E8E8;
+    background-image:
+        linear-gradient(
+            to right,
+            #E8E8E8
+    );
 	padding: 5px;
+}
+
+.pull-down{
+    margin-top: 10px;
 }
 .panel-default {
     border-color: #DDDDDD;
-    box-shadow: 2px 2px 11px #CCCCCC;
+    box-shadow: 2px 2px 11px #EEEEEE;
     margin-top:5px;
+}
+.panel-body{
+    background-color: #FFFFFF;
+    padding: 5px;
+    margin-bottom: 10px;
 }
 
 .maingrid {
@@ -79,12 +110,14 @@ margin:0!important;
 	}
 
 .btn-primary {
-	color:#ca7f35; /*changed by srijana from white to red 21012014*/
+	color:#ca7f35;
 	background-color: #DDDDDD;
 	width:85%;
-	/*changed by srijana from blue to white 21012014*/
 }
 
+.btn-submit{
+    background-color: #00628B;
+}
 .btn-success {
 	background-color: #FD9B08;
 	border-color: #ee7600;
@@ -95,19 +128,19 @@ margin:0!important;
 .navbar {
 	position: relative;
 	min-height: 50px;
-	margin-bottom: 1px; /*changed by srijana 22012014 from 20px*/
+	margin-bottom: 1px;
 	border: 1px solid transparent;
 }
 
-@media ( min-width : 768px) {
+/*@media ( min-width : 768px) {
 	.navbar {
 		border-radius: 4px;
-		min-height: 5px; /*added by srijana 22012014*/
+		min-height: 5px;
 	}
-}
+}*/
 
 .navbar-default {
-background:	#E9E9E9
+background:	#D9D9D9;
 
 }
 
@@ -145,14 +178,11 @@ padding:2px;
 .container {
 	min-width: 100%;
 }
-nav {
-    margin-left: 15px;
-    margin-right: 15px;
-}
+
 .nav>li>a:hover,.nav>li>a:focus, .active_menu {
 	text-decoration: none;
 	color: orange;
-	background-color: #FFA500;/*hover background color for side menu in admin page*/
+	background-color: #FFA500;
 	border-color:#bbb;
 	}
 .glyphnavmenu {
@@ -160,16 +190,13 @@ nav {
     top: 7px !important;
 }
 .sidemenu{
-	padding:5px;
+	padding:0px 5px 5px 5px;
 }
 .rightbar{
 	/*min-height:500px;*/
 	min-width: 160px;
 }
-.notificationbar{
-	/*min-height:60px;
-	min-width:160px;*/
-}
+
 
 .row:before, .row:after {
     content: " ";
@@ -198,15 +225,6 @@ nav {
     margin-right:1px;
 }
 
-/*.Sidebar1{
-	height:500px;
-}
-.Sidebar2{
-	height:500px;
-}
-.Sidebar3{
-	height:500px;
-}*/
 .thumbnail {
     background-color: #F9F9F9;
     border: 1px solid #F2F2F2;
@@ -239,8 +257,7 @@ nav {
     text-shadow: 1px 2px 8px #bbb;
 }
 .col-sm-2 {
-    /*width: 25%;
-	display: -moz-inline-box;*/
+
 	display:inline;
 	display:initial;
 }
@@ -262,16 +279,8 @@ nav {
     color: #fff;
 }
 
-.welcomemsg {
-    color: #000000;
-    font-size: 100%!important;
-    line-height: 4;
- }
- .signoutbtn {
-    margin-bottom: 0!important;
-    margin-top: 5px;
-}
-/*added for freeichat by srijana 13032014*/
+
+
 .frei_options {
     background: none repeat scroll 0 0 #eeeeee!important;
     border: 1px solid #808080;
@@ -279,38 +288,7 @@ nav {
     margin-bottom: -10px;
     width: 199px;
 }
-.freichathead {
-  cursor: pointer;
-  padding-top: 3px;
-  padding-bottom: 3px;
-  -webkit-border-top-left-radius: 4px;
-  -webkit-border-top-right-radius: 4px;
-  -moz-border-radius-topleft: 4px;
-  -moz-border-radius-topright: 4px;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-  display: block;
-  margin-bottom: 0;
-  font-size: 13px;
-  line-height: 18px;
-  text-align: left;
-  vertical-align: middle;
-  cursor: pointer;
-  color: #ffffff;
-  text-shadow: 0 1px 0 #194b7e;
-background: -moz-linear-gradient(45deg,  rgba(252,255,244,0.91) 0%, rgba(234,236,229,0.91) 21%, rgba(204,204,204,0.95) 55%, rgba(204,204,204,1) 100%)!important; /* FF3.6+ */
-background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,rgba(252,255,244,0.91)), color-stop(21%,rgba(234,236,229,0.91)), color-stop(55%,rgba(204,204,204,0.95)), color-stop(100%,rgba(204,204,204,1)))!important; /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(45deg,  rgba(252,255,244,0.91) 0%,rgba(234,236,229,0.91) 21%,rgba(204,204,204,0.95) 55%,rgba(204,204,204,1) 100%)!important; /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(45deg,  rgba(252,255,244,0.91) 0%,rgba(234,236,229,0.91) 21%,rgba(204,204,204,0.95) 55%,rgba(204,204,204,1) 100%)!important; /* Opera 11.10+ */
-background: -ms-linear-gradient(45deg,  rgba(252,255,244,0.91) 0%,rgba(234,236,229,0.91) 21%,rgba(204,204,204,0.95) 55%,rgba(204,204,204,1) 100%)!important; /* IE10+ */
-background: linear-gradient(45deg,  rgba(252,255,244,0.91) 0%,rgba(234,236,229,0.91) 21%,rgba(204,204,204,0.95) 55%,rgba(204,204,204,1) 100%)!important; /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e8fcfff4', endColorstr='#cccccc',GradientType=1 )!important; /* IE6-9 fallback on horizontal gradient */
 
-  -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 1px 2px rgba(0,0,0,0.05);
-  -moz-box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 1px 2px rgba(0,0,0,0.05);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 1px 2px rgba(0,0,0,0.05);
-  width: 202px;
-}
 .user_freichat_head_content {
     color: #000000!important;
     font-weight: bold;
@@ -320,54 +298,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e8fcfff4', e
     padding-left: 10px;
 }
 
-/*emailpage css*/
-.container.emailpage {
-    min-width: 50%;
-}
-.top1{
-	background-color:#EEEEEE;
-}
-.top2{
-	background-color:#EEEEEE;
-}
 
-.emailnavbar{
-	background-color:#cccccc;
-}
-.btn-default .badge {
-    color: #000000;
-    background-color:#cccccc;
-}
-.btn-group, .btn-group-vertical {
-    display: inline-block;
-    position: relative;
-    vertical-align: middle;
-    /*width: 175px;*/
-}
-.btn .badge{
-	margin-left:20px;
-	margin-top:7px;
-}
-.btn-group-vertical {
-    margin-left: 10px;
-}
 .sidemenu{
-	min-height:500px;
-	background-color:#dddddd;
-	display: -moz-box;
+	min-height:800px;
+	background-color:#2a4e76;
 	display:-webkit-inline-flex;
 	display:table;
-}
-.emailmain{
-	min-height:500px;
-	background-color:#eeeeee;
-}
-.row .emailrow{
-	height:250px;
-}
-.row .emaildescrow{
-	height:250px;
-	background-color:#DEDEDE;
 }
 
 .col-md-2 {
@@ -383,14 +319,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e8fcfff4', e
     padding-left: 10px;
 }
 .glyphicon {
-    display: inline; /*changed on 30/10/2014 by srijana*/
+    display: inline;
     font-family: 'Glyphicons Halflings';
     font-style: normal;
     font-weight: normal;
     line-height: 1;
     position: relative;
     top: 1px;
-    color:#ca7f35;
+    color:#FFB469;
     font-size:18px;
    }
 .fa {
@@ -401,7 +337,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e8fcfff4', e
     line-height: 1!important;
     position:relative!important;
     top:2px!important;
-    color:#ca7f35;
+    color:#2a4e76;
 	font-weight:normal;
 }
 span.glyphicon-link {
@@ -415,7 +351,7 @@ span.glyphicon-link {
     line-height: 1;
     position: relative;
     top: 1px;
-    color:#555555;
+    color:#2a4e76;
     font-size:18px;
 
 }
@@ -493,7 +429,7 @@ a {
 
 
 body {
-    color: #333333;
+    color: #337ab7;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 14px;
     line-height: 1.42857;
@@ -524,33 +460,7 @@ html {
 }
 
 
-/*.inactive.menulist {
-    min-height: 57px;
-    min-width: 57px;
-}
 
-/*login page css*/
-.loginmain{
-	min-height:550px;
-	font-size:20px;
-	/*background:#eee;*/
-}
-legend{
-	font-size:25px;
-}
-.input-xlarge{
-	width:50%;
-	padding-left: 10px;
-}
-.loginsignout{
-	margin-left:100px;
-}
-/*END login page css*/
-/*.btn.custom-border-color {
-    border: 1px solid #ffffff;
-}*/
-
-/*Admin page css*/
 .btn {
     -moz-user-select: none;
     background-image: none;
@@ -565,7 +475,23 @@ legend{
     text-align: left;
     vertical-align: middle;
     white-space: nowrap;
-	width:100%;
+    width:15%;
+}
+.btnsidebar {
+    -moz-user-select: none;
+    background-image: none;
+    border: 1px solid rgba(0, 0, 0, 0);
+    border-radius: 10px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 1.42857;
+    padding: 6px 12px;
+    text-align: left;
+    vertical-align: middle;
+    white-space: nowrap;
+    width:100%;
 }
 table.dataTable tr.odd td.sorting_1 {
     background-color: #EEEEEE!important;
@@ -583,62 +509,13 @@ table.dataTable tr.even {
     background-color: #FFF !important;
 }
 a:hover, a:focus{
-	color:#ffb469;
-	text-decoration:none;
+    color:#ffb469;
+    text-decoration:none;
 }
 #data_table_filter input {
     border-radius: 10px;
 }
-/*END Admin page css*/
-/*
-    Component: Mailbox
-*/
-.mailbox .table-mailbox {
-  border-left: 1px solid #ddd;
-  border-right: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
-}
-.mailbox .table-mailbox tr.unread > td {
-  background-color: rgba(0, 0, 0, 0.05);
-  color: #000;
-  font-weight: 600;
-}
-.mailbox .table-mailbox tr > td > .fa.fa-star,
-.mailbox .table-mailbox tr > td > .fa.fa-star-o,
-.mailbox .table-mailbox tr > td > .glyphicon.glyphicon-star,
-.mailbox .table-mailbox tr > td > .glyphicon.glyphicon-star-empty {
-  color: #f39c12;
-  cursor: pointer;
-}
-.mailbox .table-mailbox tr > td.small-col {
-  width: 30px;
-}
-.mailbox .table-mailbox tr > td.name {
-  width: 150px;
-  font-weight: 600;
-}
-.mailbox .table-mailbox tr > td.time {
-  text-align: right;
-  width: 100px;
-}
-.mailbox .table-mailbox tr > td {
-  white-space: nowrap;
-}
-.mailbox .table-mailbox tr > td > a {
-  color: #444;
-}
-@media screen and (max-width: 767px) {
-  .mailbox .nav-stacked > li:not(.header) {
-    float: left;
-    width: 50%;
-  }
-  .mailbox .nav-stacked > li:not(.header).header {
-    border: 0!important;
-  }
-  .mailbox .search-form {
-    margin-top: 10px;
-  }
-}
+
 /*Start of navbar css*/
 .navbar-brand {
 padding:5px;
@@ -654,7 +531,7 @@ padding:5px;
 }
 .inactive.menulist > a {
     border-right: 2px solid #CCCCCC;
-    background:#dddddd;
+    background:#f1f1f1;
     text-align: left;
 }
 .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
@@ -706,14 +583,6 @@ ul, ol {
 
 /*CSS for html , body and so on*/
 
-body {
-    background: #E6E6DC;
-    color: #000;
-    font: 14px Arial;
-    margin: 0 auto;
-    padding: 0;
-    position: relative;
-}
 h1{ font-size:28px;}
 h2{ font-size:26px;}
 h3{ font-size:18px;}
@@ -829,3 +698,6 @@ form:after {
     z-index: -2;
 }
 
+.go-left{
+    margin:10px;
+}

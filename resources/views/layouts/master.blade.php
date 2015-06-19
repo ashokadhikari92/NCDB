@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{ asset('assets/bootstrap-3.1.1-dist/css/bootstrap-theme.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/DataTables-1.10.0/css/jquery.dataTables_themeroller.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/DataTables-1.10.0/css/jquery.dataTables.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/dashboard.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/css/ncdb_style.css') }}" />
 
 
 
@@ -30,7 +30,8 @@ var base_url = "{!!URL::to('/')!!}";
 
     <div class="row">
 
-        @include('layouts.left_menu')
+       {{-- @include('layouts.left_menu')--}}
+        @include('layouts.sideMenu')
 <!-- accordion end -->
 <!-- column 1 end-->
 			
@@ -43,9 +44,9 @@ var base_url = "{!!URL::to('/')!!}";
 
 
 			<!-- Footer -->
-			<div id="footer">
+			<div id="footer" class="">
 				<div class="container credit"></div>
-				<div class="container">
+				<div class="container my_footer">
 
 					<p class="text-center">
 						<strong><span class="glyphicon glyphicon-copyright-mark"></span>

@@ -1,4 +1,5 @@
 <?php namespace Repo\Repositories\BirthDetail;
+use Repo\Repositories\Address\AddressRepository;
 /**
  * Created by PhpStorm.
  * User: Ashok

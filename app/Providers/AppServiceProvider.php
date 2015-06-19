@@ -11,7 +11,9 @@ class AppServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		//
+		$middleware = [
+            'App\Http\Middleware\CheckPermission'
+        ];
 	}
 
 	/**
@@ -30,5 +32,22 @@ class AppServiceProvider extends ServiceProvider {
 			'App\Services\Registrar'
 		);
 	}
+
+    /**
+     * Build the application stack based on the provider properties.
+     *
+     * @return void
+     */
+    public function stack()
+    {
+        $this->app->stack(function(Stack $stack, Router $router)
+        {
+            return $stack
+                ->middleware($this->stack)->then(function($request) use ($router)
+                {
+                    return $router->dispatch($request);
+                });
+        });
+    }
 
 }

@@ -24,7 +24,7 @@
 						<div class="form-group">
 							<label class="col-md-4 control-label">Name</label>
 							<div class="col-md-6">
-								<input type="text" class="form-control" name="name" value="{{ old('name') }}">
+								<input type="text" class="form-control" name="user_name" value="{{ old('user_name') }}">
 							</div>
 						</div>
 
@@ -48,6 +48,21 @@
 								<input type="password" class="form-control" name="password_confirmation">
 							</div>
 						</div>
+
+						<div class="form-group">
+							<label class="col-md-4 control-label">User Role</label>
+							<div class="col-md-6">
+								{{--<input type="text" class="form-control" name="user_role" value="{{ old('user_role') }}">--}}
+								 {!! Form::select('user_role', $roles, array('class' => 'form-control'))!!}
+							</div>
+						</div>
+
+						{{--<div class="form-group">
+							<label class="col-md-4 control-label">Employee Name</label>
+							<div class="col-md-6">
+								<input type="text" class="form-control" name="employee_id" value="{{ old('employee_id') }}">
+							</div>
+						</div>--}}
 
 						<div class="form-group">
 							<div class="col-md-6 col-md-offset-4">

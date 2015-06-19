@@ -16,7 +16,7 @@ class CreateBirthDetailsTable extends Migration {
 		{
 			$table->increments('brth_id');
             $table->string('brth_registration_id');
-            $table->string('brth_first_last',60);
+            $table->string('brth_first_name',60);
             $table->string('brth_middle_name');
             $table->string('brth_last_name',60);
             $table->dateTime('brth_birth_date');

@@ -7,7 +7,7 @@
         {{--</div>--}}
     </div>
 
-<div class="panel-body">
+{{--<div class="panel-body">--}}
   <div class="content-box-large">
    <div class="row">
     <div class="col-md-12">
@@ -87,7 +87,8 @@
                      <div class="form-group col-lg-4">
                          {!! Form::label('brth_birth_ward_no','Ward No: ') !!}
                              <select class="form-control" name="brth_ward_no" id="ward_no">
-
+                                <option value="1">1</option>
+                                <option value="2">2</option>
                              </select>
                      </div>
                      <div class="form-group col-lg-4">
@@ -229,7 +230,9 @@
                          {!! Form::label('mother_citizenship_issued_district','Citizenship Issued District : ') !!}
                          {{--{!! Form::text('mother_citizenship_issued_district',null,array('class'=>'form-control')) !!}--}}
                             <select class="form-control" name="mother_citizenship_issued_district" id="district">
-
+                                     <option value="Kathmandu">Kathmandu</option>
+                                                                      <option value="Lalitpur">Lalitpur</option>
+                                                                      <option value="Bhaktapur">Bhaktapur</option>
                               </select>
                      </div>
                     <div class="form-group col-lg-6">
@@ -325,12 +328,12 @@
             </div>
 
             <div class="col-lg-12">
-            {!!Form::submit('Save',['class'=>'btn btn-primary']) !!}
+            {!!Form::submit('Save',['class'=>'btn btn-info']) !!}
             {!! Form::close() !!}
             <a href="{!!route('birth_details.index')!!}" ><button class="btn btn-warning">Cancel</button></a>
             </div>
 
-        </div>
+      {{--  </div>--}}
     </div>
 
    </div>

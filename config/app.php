@@ -145,6 +145,12 @@ return [
 		'App\Providers\ConfigServiceProvider',
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
+        'App\Providers\ComposerServiceProvider',
+
+        /*
+         * Package Service Providers...
+         */
+        'Zizaco\Entrust\EntrustServiceProvider',
 
         /*
          * Repository Service Providers...
@@ -153,6 +159,7 @@ return [
         'Repo\Providers\AddressServiceProvider',
         'Repo\Providers\ParentsDetailServiceProvider',
         'Repo\Providers\ChildVaccineServiceProvider',
+        'Repo\Providers\RoleServiceProvider',
 
 	],
 
@@ -203,6 +210,7 @@ return [
 		'View'      => 'Illuminate\Support\Facades\View',
         'Form'      => 'Illuminate\Html\FormFacade',
         'Html'      => 'Illuminate\Html\HtmlFacade',
+        'Entrust'   => 'Zizaco\Entrust\EntrustFacade',
 
 	],
 

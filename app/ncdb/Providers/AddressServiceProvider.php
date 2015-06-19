@@ -1,4 +1,5 @@
 <?php namespace Repo\Providers;
+use App\Address;
 use Illuminate\Support\ServiceProvider;
 use Repo\Repositories\Address\AddressRepository;
 
@@ -21,7 +22,7 @@ use Repo\Repositories\Address\AddressRepository;
         {
             $this->app->bind('Repo\Repositories\Address\AddressInterface',function()
             {
-                return new AddressRepository();
+                return new AddressRepository(new Address());
             });
         }
     }

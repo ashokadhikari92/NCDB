@@ -26,7 +26,7 @@
 
             </ul>
             <ul class="nav navbar-nav navbar-right">
-
+                {{--<h5>Welcome {{ \Auth::user()->user_name  }}</h5>--}}
                 <li class="dropdown">
                     <a class="dropdown-toggle"
                        data-toggle="dropdown" href="#">
@@ -37,8 +37,8 @@
 
                     <div class="panel-body bodynotification dropdown-menu dropdown-messages">
                         <div class="list-group">
-                            <a href="#" class="">
-                                Change Password
+                            <a href="{!! url('auth/logout') !!}" class="">
+                                Log Out
                             </a>
                         </div>
                     </div>
@@ -69,13 +69,13 @@
                 </li>
 
 
-
-                <li><a href="#">
-                        <button type="button" class="btn btn-primary form-group signoutbtn"
-                                title="Sign Out">
+{{--
+                <li><a href="{!! url('auth/logout') !!}">
+                        <button type="button" class="btnsidebar panel-body"
+                                title="Log Out">
                             <span class=" glyphicon glyphicon-log-out"></span>
                         </button></a>
-                </li>
+                </li>--}}
 
             </ul>
         </div>

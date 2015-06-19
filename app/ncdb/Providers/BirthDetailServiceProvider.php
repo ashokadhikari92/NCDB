@@ -6,9 +6,11 @@
  * Time: 4:08 PM
  */
 
+    use App\Address;
     use Illuminate\Support\ServiceProvider;
     use Repo\Repositories\BirthDetail\BirthDetailRepository;
     use Repo\Repositories\ParentsDetail\ParentsDetailRepository as Parentss;
+    use Repo\Repositories\Address\AddressRepository;
     use App\BirthDetail;
     use App\Parents;
 
@@ -23,7 +25,7 @@
         {
             $this->app->bind('Repo\Repositories\BirthDetail\BirthDetailInterface',function()
             {
-                return new BirthDetailRepository(new Parentss(new Parents()),new BirthDetail());
+                return new BirthDetailRepository(new Parentss(new Parents()),new BirthDetail(),new AddressRepository(new Address()));
             });
         }
     }

@@ -17,6 +17,8 @@ class BirthDetailController extends Controller {
 
     function __construct(BirthDetail $birth,Location $location)
     {
+        //$this->middleware('auth');
+
         $this->birth = $birth;
 
         $this->location = $location;

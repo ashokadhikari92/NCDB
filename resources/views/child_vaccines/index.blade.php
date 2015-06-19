@@ -1,17 +1,18 @@
 @extends('layouts.master')
 
 @section('content')
-    <div class="panel panel-default">
+    <div class="panel pull-down">
         <div class="panel-body">
-
+{{--
             <p>{!! link_to_route('child_vaccines.create', '',null,array('class'=>"glyphicon glyphicon-plus-sign is-add-button"))
-                !!} </p>
+                !!} </p>--}}
+                <span class="" > <a href="{!!route('child_vaccines.create')!!}" ><button class="btn btn-warning">Add New</button></a></span>
 
             @include('errors.error')
 
         </div>
     </div>
-
+ <div class="panel-body">
     <table id="data_table" class="table table-striped table-bordered">
         <thead class="dtHead">
         <tr class="dtThRow">
@@ -30,6 +31,7 @@
 
         </tbody>
     </table>
+ </div>
 @stop
 
 @section('js_section')

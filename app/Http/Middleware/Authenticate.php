@@ -2,6 +2,7 @@
 
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
+use Repo\Repositories\Role\RoleInterface as Role;
 
 class Authenticate {
 
@@ -12,15 +13,20 @@ class Authenticate {
 	 */
 	protected $auth;
 
-	/**
-	 * Create a new filter instance.
-	 *
-	 * @param  Guard  $auth
-	 * @return void
-	 */
-	public function __construct(Guard $auth)
+    protected $role;
+
+    /**
+     * Create a new filter instance.
+     *
+     * @param  Guard $auth
+     * @param Role $role
+     * @return \App\Http\Middleware\Authenticate
+     */
+	public function __construct(Guard $auth, Role $role)
 	{
 		$this->auth = $auth;
+
+        $this->role = $role;
 	}
 
 	/**
@@ -40,7 +46,8 @@ class Authenticate {
 			}
 			else
 			{
-				return redirect()->guest('auth/login');
+                $roles = $this->role->getRolesForDropDown();
+				return redirect()->guest('auth/login')->with('roles',$roles);
 			}
 		}
 

@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{{ asset('assets/DataTables-1.10.0/css/jquery.dataTables_themeroller.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/DataTables-1.10.0/css/jquery.dataTables.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/is/css/chat.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/is/css/dashboard.css') }}" />
+    <link rel="stylesheet" href="{{ asset(ncdb_style.css) }}" />
 
 
 
