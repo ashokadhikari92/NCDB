@@ -115,6 +115,18 @@ class AddressTableSeeder extends Seeder{
         App\Address::create(['locn_id'=>'86','locn_name'=>'Tokhachandeswori','locn_type'=>'vdc','locn_parent_id'=>'23','locn_code'=>'27058']);
         App\Address::create(['locn_id'=>'87','locn_name'=>'Tokhasarswoti','locn_type'=>'vdc','locn_parent_id'=>'23','locn_code'=>'27059']);
 
+        /*-------------------------------------------------- Ward Nos ---------------------------------------------------------*/
+        App\Address::create(['locn_id'=>'89','locn_name'=>'01','locn_type'=>'vdc','locn_parent_id'=>'59','locn_code'=>'2703101']);
+        App\Address::create(['locn_id'=>'90','locn_name'=>'02','locn_type'=>'vdc','locn_parent_id'=>'59','locn_code'=>'2703102']);
+        App\Address::create(['locn_id'=>'91','locn_name'=>'03','locn_type'=>'vdc','locn_parent_id'=>'59','locn_code'=>'2703103']);
+        App\Address::create(['locn_id'=>'92','locn_name'=>'04','locn_type'=>'vdc','locn_parent_id'=>'59','locn_code'=>'2703104']);
+        App\Address::create(['locn_id'=>'93','locn_name'=>'05','locn_type'=>'vdc','locn_parent_id'=>'59','locn_code'=>'2703105']);
+        App\Address::create(['locn_id'=>'94','locn_name'=>'06','locn_type'=>'vdc','locn_parent_id'=>'59','locn_code'=>'2703106']);
+        App\Address::create(['locn_id'=>'95','locn_name'=>'07','locn_type'=>'vdc','locn_parent_id'=>'59','locn_code'=>'2703107']);
+        App\Address::create(['locn_id'=>'96','locn_name'=>'08','locn_type'=>'vdc','locn_parent_id'=>'59','locn_code'=>'2703108']);
+        App\Address::create(['locn_id'=>'97','locn_name'=>'09','locn_type'=>'vdc','locn_parent_id'=>'59','locn_code'=>'2703109']);
+        App\Address::create(['locn_id'=>'98','locn_name'=>'10','locn_type'=>'vdc','locn_parent_id'=>'59','locn_code'=>'2703110']);
+
 
        /* App\Address::create(['locn_id'=>'2','locn_name'=>'Taplejung','locn_type'=>'District','locn_parent_id'=>'1','locn_code'=>'1']);
         App\Address::create(['locn_id'=>'3','locn_name'=>'Ambegudin','locn_type'=>'VDC','locn_parent_id'=>'2','locn_code'=>'1001']);
