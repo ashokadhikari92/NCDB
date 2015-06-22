@@ -15,16 +15,9 @@ class RoleTableSeeder extends Seeder{
     {
         DB::table('roles')->delete();
 
-        $owner = new Role();
-        $owner->name         = 'owner';
-        $owner->display_name = 'Project Owner'; // optional
-        $owner->description  = 'User is the owner of a given project'; // optional
-        $owner->save();
+        App\Role::create(['id'=>'1','name'=>'super admin','display_name'=>'Super Admin','description'=>'Admin with all the permissions']);
+        App\Role::create(['id'=>'2','name'=>'owner','display_name'=>'Project Owner','description'=>'User is the owner of a given project']);
+        App\Role::create(['id'=>'3','name'=>'admin','display_name'=>'User Administrator','description'=>'User is allowed to manage and edit other users']);
 
-        $admin = new Role();
-        $admin->name         = 'admin';
-        $admin->display_name = 'User Administrator'; // optional
-        $admin->description  = 'User is allowed to manage and edit other users'; // optional
-        $admin->save();
     }
 }

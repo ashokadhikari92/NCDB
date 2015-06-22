@@ -41,6 +41,9 @@ Route::resource('child_vaccines','ChildVaccineController');
 Route::get('delete/child/vaccine/{id}','ChildVaccineController@destroy');
 Route::get('child/vaccines/details',array('as'=>'child/vaccines/details','uses'=>'ChildVaccineController@getAllChildVaccines'));
 
+    Route::resource('vaccination/program','VaccinationProgramController');
+    Route::get('vaccination/program/vaccine/list/{id}',['as'=>'vaccination/program/vaccine/list','uses'=>'VaccinationProgramController@vaccineList']);
+
 
 /* ------------------------------------------------------------------------
             Location (Address)

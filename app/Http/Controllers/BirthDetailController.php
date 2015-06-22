@@ -45,7 +45,7 @@ class BirthDetailController extends Controller {
 
         //dd($district);
 
-		return view('birth_details.create2');
+		return view('birth_details.create');
 	}
 
     /**
@@ -57,7 +57,7 @@ class BirthDetailController extends Controller {
 	public function store(Requests\CreateBirthDetailRequest $request)
 	{
 		$input = $request->all();
-
+dd($input);
         $result = $this->birth->registerChild($input);
 
         if($result['success'] == true){

@@ -461,7 +461,7 @@ html {
 
 
 
-.btn {
+/*.btn {
     -moz-user-select: none;
     background-image: none;
     border: 1px solid rgba(0, 0, 0, 0);
@@ -476,7 +476,8 @@ html {
     vertical-align: middle;
     white-space: nowrap;
     width:15%;
-}
+}*/
+
 .btnsidebar {
     -moz-user-select: none;
     background-image: none;
@@ -700,4 +701,22 @@ form:after {
 
 .go-left{
     margin:10px;
+}
+
+.back-banner{
+    background-color: #ebcccc;
+    height: 40px;
+    margin: 10px;
+}
+
+hr {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #EEEEEE -moz-use-text-color #FFFFFF;
+    border-style: solid none;
+    border-width: 1px 0;
+    margin: 18px 0;
 }

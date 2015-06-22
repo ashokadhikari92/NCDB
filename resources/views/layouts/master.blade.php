@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <title>ADMIN</title>
 
-    <link rel="stylesheet" href="{{ asset('assets/bootstrap-3.1.1-dist/css/bootstrap.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/bootstrap-3.1.1-dist/css/bootstrap-theme.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/bootstrap-3.3.5-dist/css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/bootstrap-3.3.5-dist/css/bootstrap-theme.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/DataTables-1.10.0/css/jquery.dataTables_themeroller.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/DataTables-1.10.0/css/jquery.dataTables.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/ncdb_style.css') }}" />
 
-
+    @yield('css')
 
 <script>
 //base url for javascript ajax calls
@@ -65,7 +65,7 @@ var base_url = "{!!URL::to('/')!!}";
 	<script src="{{ asset('assets/jquery-1.11.1-dev/jquery-1.11.1.min.js') }}"></script>
 	<script src="{{ asset('assets/DataTables-1.10.0/js/jquery.dataTables.min.js') }}"></script>
 	<script src="{{ asset('assets/jquery-form-validator/jquery.form-validator.min.js') }}"></script>
-	<script src="{{ asset('assets/bootstrap-3.1.1-dist/js/bootstrap.min.js') }}"></script>
+	<script src="{{ asset('assets/bootstrap-3.3.5-dist/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('assets/js/bootbox/bootbox.min.js') }}"></script>
     {{--<script src="{{ asset('assets/js/main.js') }}"></script>--}}
 

@@ -13,7 +13,7 @@ class CheckPermission {
 	 */
 	public function handle($request, Closure $next)
 	{
-        dd($request->route());
+        //dd($request->route());
 		return $next($request);
 	}
 

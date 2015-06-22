@@ -19,7 +19,7 @@ $(document).ready(function () {
                 options  += "<option value ='" + val.locn_id + "'>"+val.locn_name+"</option>"
 
             });
-            $("#district").append(options);
+            $("district").append(options);
         }
     });
 
@@ -32,7 +32,6 @@ $(document).ready(function () {
             dataType : "json",
             url : base_url + '/location/district/'+ id,
             success : function(data) {
-                var district = document.getElementById('vdc');
                 var options = null;
                 $.each(data, function(key, val) {
 

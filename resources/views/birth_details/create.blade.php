@@ -1,522 +1,369 @@
-@extends('...layouts1.master')
-
+@extends('layouts.master')
+@section('css')
+    <link rel="stylesheet" href="{{asset('assets/css/jquery.sliderTabs.min.css')}}">
+@stop
 @section('content')
- <div class="col-md-10">
-  <div class="content-box-large">
-   <div class="row">
-    <div class="col-md-12">
-        <ul class="nav nav-tabs">
-            <li class="active"><a data-toggle="tab" href="#tab1"><h6>Child Details</h6></a></li>
-            <li><a data-toggle="tab" href="#tab2"><h6>Parents Details</h6></a></li>
-            <li><a data-toggle="tab" href="#tab3"><h6>Informer Details</h6></a></li>
-        </ul>
+ <div class="panel panel-default">
+      @include('errors.error')
+ </div>
 
-        <div class="tab-content">
-            <div class="tab-pane active" id="tab1">
+ <div class="content-box-large">
+    <ul class="nav nav-tabs responsive nav-justified" id="myTab">
+      <li class="active"><a href="#child_detail">Child Details</a></li>
+      <li><a href="#birth_address">Birth Address</a></li>
+      <li><a href="#father">Father</a></li>
+      <li><a href="#mother">Mother</a></li>
+      <li><a href="#grand_parent">Grand Parents</a></li>
+      <li><a href="#informer">Informer</a></li>
+    </ul>
+
+    <div class="tab-content responsive">
+
+      <div class="tab-pane active" id="child_details">
                 {!! Form::open(['route'=>'birth_details.store']) !!}
                 <div class="col-lg-12">
-                    <legend>Personal Detail</legend>
+                    <legend class="header">Child Details</legend>
                 </div>
-
-                    <div class="form-group col-lg-6">
-                        {!! Form::label('child_first_name','First Name') !!}
-                        {!! Form::text('child_first_name',null,array('class'=>'form-control')) !!}
-                    </div>
-                    <div class="form-group col-lg-6">
-                         {!! Form::label('child_last_name','Last Name') !!}
-                         {!! Form::text('child_last_name',null,array('class'=>'form-control')) !!}
-                    </div>
-                    <div class="form-group col-lg-12">
-                         {!! Form::label('child_full_name','Full Name') !!}
-                         {!! Form::text('child_full_name',null,array('class'=>'form-control')) !!}
-                    </div>
-                    <div class="form-group col-lg-6">
-                         {!! Form::label('child_birth_date_bs','Birth Date (B.S)') !!}
-                         {!! Form::text('child_birth_date_bs',null,array('class'=>'form-control')) !!}
-                    </div>
-                    <div class="form-group col-lg-6">
-                        {!! Form::label('child_birth_date_ad','Birth Date (A.D)') !!}
-                        {!! Form::text('child_birth_date_ad',null,array('class'=>'form-control')) !!}
-                    </div>
-                    <div class="form-group col-lg-6">
-                        {!! Form::label('child_birth_place','Birth Place: ') !!}
-                            <select class="form-control">
-                                 <option value="">Choose Birth Place</option>
-                                 <option value="Home">Home</option>
-                                 <option value="Hospital">Hospital</option>
-                                 <option value="Other">Other</option>
-                             </select>
-                    </div>
-                    <div class="form-group col-lg-6">
-                         {!! Form::label('child_birth_helper','Birth Helper: ') !!}
-                           <select class="form-control">
-                                <option value="">Choose Birth Helper</option>
-                                <option value="People at Home">People at Home</option>
-                                <option value="Nurse">Nurse</option>
-                                <option value="Doctor">Doctor</option>
-                            </select>
-                    </div>
-                     <div class="form-group col-lg-6">
-                         {!! Form::label('child_gender','Gender: ') !!}
-                           <select class="form-control" name="child_gender">
-                                <option value="Female">Female</option>
-                                <option value="Male">Male</option>
-                                <option value="Other">Other</option>
-                            </select>
-                     </div>
-                    <div class="form-group col-lg-6">
-                        {!! Form::label('child_caste','Caste : ') !!}
-                        <select class="form-control">
-                            <option value="">Choose Cast</option>
-                            <option value="Cast 1">Cast 1</option>
-                            <option value="Cast 2">Cast 2</option>
+                <div class="form-group col-lg-6">
+                    {!! Form::label('brth_first_name','First Name') !!}
+                    {!! Form::text('brth_first_name',null,array('class'=>'form-control')) !!}
+                </div>
+                <div class="form-group col-lg-6">
+                     {!! Form::label('brth_last_name','Last Name') !!}
+                     {!! Form::text('brth_last_name',null,array('class'=>'form-control')) !!}
+                </div>
+                <div class="form-group col-lg-12">
+                     {!! Form::label('brth_full_name','Full Name') !!}
+                     {!! Form::text('brth_full_name',null,array('class'=>'form-control','placeholder'=>'नेपालीमा')) !!}
+                </div>
+                <div class="form-group col-lg-6">
+                     {!! Form::label('brth_birth_date','Date of Birth (B.S.)') !!}
+                     {!! Form::text('brth_birth_date',null,array('class'=>'form-control','id'=>'date_bs')) !!}
+                </div>
+                <div class="form-group col-lg-6">
+                     {!! Form::label('brth_birth_date_es','Date of Birth(E.S.)') !!}
+                     {!! Form::text('brth_birth_date_es',null,array('class'=>'form-control','id'=>'date_es')) !!}
+                </div>
+                <div class="form-group col-lg-6">
+                     {!! Form::label('brth_birth_place','Birth Place') !!}
+                    {{-- {!! Form::text('brth_first_name',null,array('class'=>'form-control')) !!}--}}
+                      <select class="form-control" name="brth_birth_place" id="birth_place">
+                        <option>Choose Birth Place</option>
+                      </select>
+                </div>
+                <div class="form-group col-lg-6">
+                     {!! Form::label('brth_birth_helper','Birth Helper') !!}
+                     {{--{!! Form::text('brth_birth_helper',null,array('class'=>'form-control')) !!}--}}
+                      <select class="form-control" name="brth_birth_helper" id="birth_helper">
+                       <option>Choose Birth Helper</option>
+                      </select>
+                </div>
+                <div class="form-group col-lg-6">
+                      {!! Form::label('brth_gender','Gender') !!}
+                      {{--{!! Form::text('brth_gender',null,array('class'=>'form-control')) !!}--}}
+                       <select class="form-control" name="brth_gender">
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                       </select>
+                </div>
+                <div class="form-group col-lg-6">
+                      {!! Form::label('brth_caste','Caste') !!}
+                      {{--{!! Form::text('brth_caste',null,array('class'=>'form-control')) !!}--}}
+                       <select class="form-control" name="brth_caste" id="caste">
+                            <option>Choose Caste</option>
+                            <option value="Braman">Braman</option>
+                            <option value="Newar">Newar</option>
+                       </select>
+                </div>
+                <div class="form-group col-lg-6">
+                      {!! Form::label('brth_birth_type','Birth Type') !!}
+                      {{--{!! Form::text('brth_birth_type',null,array('class'=>'form-control')) !!}--}}
+                       <select class="form-control" name="brth_birth_type">
+                            <option value="Single">Single</option>
+                            <option value="Twins">Twins</option>
+                            <option value="Triplets">Triplets</option>
+                       </select>
+                </div>
+                <div class="form-group col-lg-6">
+                      {!! Form::label('brth_handicap','Handicap') !!}
+                      {{--{!! Form::text('brth_handicap',null,array('class'=>'form-control')) !!}--}}
+                        <select class="form-control" name="brth_handicap" id="handicap">
+                             <option value="None">None</option>
+                             <option value="Vision Loss and Blindness">Vision Loss and Blindness</option>
+                             <option value="Hearing Loss">Hearing Loss and Deafness</option>
                         </select>
-                    </div>
-                     <div class="form-group col-lg-12">
-                        <legend></legend>
-                     </div>
-                     <div class="form-group col-lg-6">
-                         {!! Form::label('child_birth_type','Birth Type: ') !!}
-                            <select class="form-control">
-                                <option value="Religion 1">Single</option>
-                                <option value="Religion 2">Twins</option>
-                                <option value="Religion 3">Thrice</option>
-                            </select>
-                     </div>
-                     <div class="form-group col-lg-6">
-                         {!! Form::label('child_is_handicap','Any Disability: ') !!}
-                             <select class="form-control">
-                                 <option value="">No</option>
-                                 <option value="">Yes</option>
-                             </select>
-                     </div>
-                    <div class="form-group col-lg-6">
-                         {!! Form::label('child_handicap_type','Disability Name : ') !!}
-                            <select class="form-control">
-                                <option value="">Name 1</option>
-                                <option value="">Name 2</option>
-                                <option value="">Name 3</option>
-                            </select>
-                     </div>
-
-                     <div class="form-group col-lg-12">
-                        <legend><h4>Child Birth Address</h4></legend>
-                    </div>
-                     <div class="form-group col-lg-4">
-                         {!! Form::label('child_birth_district','District: ') !!}
-                             <select class="form-control">
-                                 <option value="">District 1</option>
-                                 <option value="">District 2</option>
-                             </select>
-                     </div>
-                     <div class="form-group col-lg-4">
-                         {!! Form::label('child_birth_vdc','VDC/Municipality: ') !!}
-                             <select class="form-control">
-                                 <option value="">VDC 1</option>
-                                 <option value="">VDC 2</option>
-                             </select>
-                     </div>
-                     <div class="form-group col-lg-4">
-                         {!! Form::label('child_birth_ward_no','Ward No: ') !!}
-                             <select class="form-control">
-                                 <option value="">01</option>
-                                 <option value="">02</option>
-                             </select>
-                     </div>
-                     <div class="form-group col-lg-4">
-                         {!! Form::label('child_birth_country','Country Name : ') !!}
-                             <select class="form-control">
-                                 <option value="">Country 1</option>
-                                 <option value="">Country 2</option>
-                             </select>
-                     </div>
-                    <div class="form-group col-lg-8">
-                         {!! Form::label('child_birth_address','Full Address : ') !!}
-                         {!! Form::text('child_birth_address',null,array('class'=>'form-control')) !!}
-                     </div>
-
-            </div> {{--End of tab-pane tab1--}}
-            <div class="tab-pane" id="tab2">
-
-                <div class="col-lg-6">
-                 <fieldset class="scheduler-border">
-                    <legend class="scheduler-border"><h4>Father Details </h4></legend>
-
-                    <div class="form-group col-lg-6">
-                        {!! Form::label('father_first_name','First Name') !!}
-                        {!! Form::text('father_first_name',null,array('class'=>'form-control')) !!}
-                    </div>
-                    <div class="form-group col-lg-6">
-                         {!! Form::label('father_last_name','Last Name') !!}
-                         {!! Form::text('father_last_name',null,array('class'=>'form-control')) !!}
-                    </div>
-                    <div class="form-group col-lg-12">
-                         {!! Form::label('father_full_name','Full Name') !!}
-                         {!! Form::text('father_full_name',null,array('class'=>'form-control')) !!}
-                    </div>
-                    <legend><h4>Address</h4></legend>
-                     <div class="form-group col-lg-6">
-                         {!! Form::label('father_district','District: ') !!}
-                             <select class="form-control">
-                                 <option value="">District 1</option>
-                                 <option value="">District 2</option>
-                             </select>
-                     </div>
-                     <div class="form-group col-lg-6">
-                         {!! Form::label('father_vdc','VDC/Municipality: ') !!}
-                             <select class="form-control">
-                                 <option value="">VDC 1</option>
-                                 <option value="">VDC 2</option>
-                             </select>
-                     </div>
-                     <div class="form-group col-lg-6">
-                         {!! Form::label('father_ward_no','Ward No: ') !!}
-                             <select class="form-control">
-                                 <option value="">01</option>
-                                 <option value="">02</option>
-                             </select>
-                     </div>
-                     <div class="form-group col-lg-6">
-                         {!! Form::label('father_road','Tole / Roard : ') !!}
-                             <select class="form-control">
-                                 <option value="">Tole 1</option>
-                                 <option value="">Tole 2</option>
-                             </select>
-                     </div>
-                    <legend></legend>
-                    <div class="form-group col-lg-6">
-                         {!! Form::label('father_age','Age (When Child was born) : ') !!}
-                         {!! Form::text('father_age',null,array('class'=>'form-control')) !!}
-                    </div>
-                    <div class="form-group col-lg-6">
-                         {!! Form::label('father_citizenship_no','Citizenship No: ') !!}
-                         {!! Form::text('father_citizenship_no',null,array('class'=>'form-control')) !!}
-                     </div>
-                    <div class="form-group col-lg-6">
-                         {!! Form::label('father_citizenship_issued_date','Citizenship Issued Date : ') !!}
-                         {!! Form::text('father_citizenship_issued_date',null,array('class'=>'form-control')) !!}
-                     </div>
-                    <div class="form-group col-lg-6">
-                         {!! Form::label('father_citizenship_issued_district','Citizenship Issued District : ') !!}
-                         {!! Form::text('father_citizenship_issued_district',null,array('class'=>'form-control')) !!}
-                     </div>
-                    <div class="form-group col-lg-6">
-                         {!! Form::label('father_passport_no','Passport No (If Foreigner) : ') !!}
-                         {!! Form::text('father_passport_no',null,array('class'=>'form-control')) !!}
-                     </div>
-                    <div class="form-group col-lg-6">
-                         {!! Form::label('father_country','Country Name (Citizenship Issued): ') !!}
-                             <select class="form-control">
-                                 <option value="">Country 1</option>
-                                 <option value="">Country 2</option>
-                             </select>
-                     </div>
-
-                      <legend></legend>
-
-                    <div class="form-group col-lg-6">
-                         {!! Form::label('father_education_level','Education Level : ') !!}
-                             <select class="form-control">
-                                 <option value="">SLC</option>
-                                 <option value="">+2 Level</option>
-                             </select>
-                     </div>
-                    <div class="form-group col-lg-6">
-                         {!! Form::label('father_occupation','Occupation : ') !!}
-                             <select class="form-control" name="father_occupation">
-                                 <option value="">Teacher</option>
-                                 <option value="">House Wife</option>
-                             </select>
-                     </div>
-                    <div class="form-group col-lg-6">
-                         {!! Form::label('father_religion','Religion : ') !!}
-                             <select class="form-control">
-                                 <option value="">Hindu</option>
-                                 <option value="">Muslim</option>
-                             </select>
-                     </div>
-                    <div class="form-group col-lg-6">
-                         {!! Form::label('father_native_language','Native Language : ') !!}
-                             <select class="form-control">
-                                 <option value="">Nepali</option>
-                                 <option value="">Newari</option>
-                             </select>
-                     </div>
-
-                </fieldset>
                 </div>
 
-                <div class="col-lg-6">
-                 <fieldset class="scheduler-border">
-                 <legend class="scheduler-border"><h4>Mother Details  </h4></legend>
+      </div>
 
-                     <div class="form-group col-lg-6">
-                        {!! Form::label('mother_first_name','First Name') !!}
-                        {!! Form::text('mother_first_name',null,array('class'=>'form-control')) !!}
-                     </div>
-                     <div class="form-group col-lg-6">
-                        {!! Form::label('mother_last_name','Last Name') !!}
-                        {!! Form::text('mother_last_name',null,array('class'=>'form-control')) !!}
-                     </div>
-                     <div class="form-group col-lg-12">
-                        {!! Form::label('mother_full_name','Full Name') !!}
-                        {!! Form::text('mother_full_name',null,array('class'=>'form-control')) !!}
-                     </div>
+      <div class="tab-pane" id="birth_address">
 
-                    <legend><h4>Address</h4></legend>
-                     <div class="form-group col-lg-6">
-                         {!! Form::label('mother_district','District: ') !!}
-                             <select class="form-control">
-                                 <option value="">District 1</option>
-                                 <option value="">District 2</option>
-                             </select>
-                     </div>
-                     <div class="form-group col-lg-6">
-                         {!! Form::label('mother_vdc','VDC/Municipality: ') !!}
-                             <select class="form-control">
-                                 <option value="">VDC 1</option>
-                                 <option value="">VDC 2</option>
-                             </select>
-                     </div>
-                     <div class="form-group col-lg-6">
-                         {!! Form::label('mother_ward_no','Ward No: ') !!}
-                             <select class="form-control">
-                                 <option value="">01</option>
-                                 <option value="">02</option>
-                             </select>
-                     </div>
-                     <div class="form-group col-lg-6">
-                         {!! Form::label('mother_road','Tole / Roard : ') !!}
-                             <select class="form-control">
-                                 <option value="">Tole 1</option>
-                                 <option value="">Tole 2</option>
-                             </select>
-                     </div>
-
-                    <legend></legend>
-                    <div class="form-group col-lg-6">
-                         {!! Form::label('mother_age','Age (When Child was born) : ') !!}
-                         {!! Form::text('mother_age',null,array('class'=>'form-control')) !!}
-                    </div>
-                    <div class="form-group col-lg-6">
-                         {!! Form::label('mother_citizenship_no','Citizenship No: ') !!}
-                         {!! Form::text('mother_citizenship_no',null,array('class'=>'form-control')) !!}
-                     </div>
-                    <div class="form-group col-lg-6">
-                         {!! Form::label('mother_citizenship_issued_date','Citizenship Issued Date : ') !!}
-                         {!! Form::text('mother_citizenship_issued_date',null,array('class'=>'form-control')) !!}
-                     </div>
-                    <div class="form-group col-lg-6">
-                         {!! Form::label('mother_citizenship_issued_district','Citizenship Issued District : ') !!}
-                         {!! Form::text('mother_citizenship_issued_district',null,array('class'=>'form-control')) !!}
-                     </div>
-                    <div class="form-group col-lg-6">
-                         {!! Form::label('mother_passport_no','Passport No (If Foreigner) : ') !!}
-                         {!! Form::text('mother_passport_no',null,array('class'=>'form-control')) !!}
-                     </div>
-                    <div class="form-group col-lg-6">
-                         {!! Form::label('mother_country','Country Name (Citizenship Issued): ') !!}
-                             <select class="form-control">
-                                 <option value="">Country 1</option>
-                                 <option value="">Country 2</option>
-                             </select>
-                     </div>
-
-                      <legend></legend>
-
-                    <div class="form-group col-lg-6">
-                         {!! Form::label('mother_education_level','Education Level : ') !!}
-                             <select class="form-control">
-                                 <option value="">SLC</option>
-                                 <option value="">+2 Level</option>
-                             </select>
-                     </div>
-                    <div class="form-group col-lg-6">
-                         {!! Form::label('mother_occupation','Occupation : ') !!}
-                             <select class="form-control" name="mother_occupation">
-                                 <option value="">Teacher</option>
-                                 <option value="">House Wife</option>
-                             </select>
-                     </div>
-                    <div class="form-group col-lg-6">
-                         {!! Form::label('mother_religion','Religion : ') !!}
-                             <select class="form-control">
-                                 <option value="">Hindu</option>
-                                 <option value="">Muslim</option>
-                             </select>
-                     </div>
-                    <div class="form-group col-lg-6">
-                         {!! Form::label('mother_native_language','Native Language : ') !!}
-                             <select class="form-control">
-                                 <option value="">Nepali</option>
-                                 <option value="">Newari</option>
-                             </select>
-                     </div>
-                </fieldset>
-                </div>
-                <div class="col-lg-6">
-                 <fieldset class="scheduler-border">
-                    <legend class="scheduler-border"><h4>Common Details</h4></legend>
-                    <div class="form-group col-lg-6">
-                         {!! Form::label('common_child_no','Total Child No(Till now give Birth) : ') !!}
-                         {!! Form::text('common_child_no',null,array('class'=>'form-control')) !!}
-                    </div>
-                    <div class="form-group col-lg-6">
-                         {!! Form::label('common_alive_child_no','Total Child No(Alive Only) : ') !!}
-                         {!! Form::text('common_alive_child_no',null,array('class'=>'form-control')) !!}
-                    </div>
-                    <div class="form-group col-lg-12">
-                         {!! Form::label('common_marriage_registration_no','Marriage Registration No : ') !!}
-                         {!! Form::text('common_marriage_registration_no',null,array('class'=>'form-control')) !!}
-                    </div>
-                    <div class="form-group col-lg-6">
-                         {!! Form::label('common_marriage_date_ad','Marriage Date (A.D) : ') !!}
-                         {!! Form::text('common_marriage_date_ad',null,array('class'=>'form-control')) !!}
-                    </div>
-                    <div class="form-group col-lg-6">
-                         {!! Form::label('common_marriage_date_bs','Marriage Date (B.S) : ') !!}
-                         {!! Form::text('common_marriage_date_bs',null,array('class'=>'form-control')) !!}
-                    </div>
-
-                 </fieldset>
-                </div>
-
-                <div class="col-lg-6">
-                 <fieldset class="scheduler-border">
-                    <legend class="scheduler-border"><h4>Grand Parents Details</h4></legend>
-                    <div class="form-group col-lg-6">
-                         {!! Form::label('grand_father_first_name','First Name : ') !!}
-                         {!! Form::text('grand_father_first_name',null,array('class'=>'form-control','placeholder'=>'Grand Father')) !!}
-                    </div>
-                    <div class="form-group col-lg-6">
-                         {!! Form::label('grand_father_first_name','Last Name : ') !!}
-                         {!! Form::text('grand_father_first_name',null,array('class'=>'form-control','placeholder'=>'Grand Father')) !!}
-                    </div>
-                    <div class="form-group col-lg-12">
-                         {!! Form::label('grand_father_full_name','Full Name : ') !!}
-                         {!! Form::text('grand_father_full_name',null,array('class'=>'form-control','placeholder'=>'Grand Father')) !!}
-                    </div>
-                    <legend></legend>
-                    <div class="form-group col-lg-6">
-                         {!! Form::label('grand_mother_first_name','First Name : ') !!}
-                         {!! Form::text('grand_mother_first_name',null,array('class'=>'form-control','placeholder'=>'Grand Mother')) !!}
-                    </div>
-                    <div class="form-group col-lg-6">
-                         {!! Form::label('grand_mother_first_name','Last Name : ') !!}
-                         {!! Form::text('grand_mother_first_name',null,array('class'=>'form-control','placeholder'=>'Grand Mother')) !!}
-                    </div>
-                    <div class="form-group col-lg-12">
-                         {!! Form::label('grand_mother_full_name','Full Name : ') !!}
-                         {!! Form::text('grand_mother_full_name',null,array('class'=>'form-control','placeholder'=>'Grand Mother')) !!}
-                    </div>
-                 </fieldset>
-                </div>
-
-            </div>
-            <div class="tab-pane" id="tab3">
                 <div class="col-lg-12">
-                    <legend>Personal Detail</legend>
+                    <legend class="header">Birth Address</legend>
                 </div>
-                 <div class="form-group col-lg-6">
-                    {!! Form::label('informer_first_name','First Name') !!}
-                    {!! Form::text('informer_first_name',null,array('class'=>'form-control')) !!}
-                 </div>
-                 <div class="form-group col-lg-6">
-                    {!! Form::label('informer_last_name','Last Name') !!}
-                    {!! Form::text('informer_last_name',null,array('class'=>'form-control')) !!}
-                 </div>
-                 <div class="form-group col-lg-12">
-                    {!! Form::label('informer_full_name','Full Name') !!}
-                    {!! Form::text('informer_full_name',null,array('class'=>'form-control')) !!}
-                 </div>
-                  <div class="form-group col-lg-12">
-                    {!! Form::label('informer_relation','Relation with Child: ') !!}
-                    <select class="form-control">
-                        <option value="">Father</option>
-                        <option value="">Mother</option>
-                    </select>
-                  </div>
-                     <legend><h4>Address</h4></legend>
-                      <div class="form-group col-lg-6">
-                          {!! Form::label('informer_district','District: ') !!}
-                              <select class="form-control">
-                                  <option value="">District 1</option>
-                                  <option value="">District 2</option>
-                              </select>
-                      </div>
-                      <div class="form-group col-lg-6">
-                          {!! Form::label('informer_vdc','VDC/Municipality: ') !!}
-                              <select class="form-control">
-                                  <option value="">VDC 1</option>
-                                  <option value="">VDC 2</option>
-                              </select>
-                      </div>
-                      <div class="form-group col-lg-6">
-                          {!! Form::label('informer_ward_no','Ward No: ') !!}
-                              <select class="form-control">
-                                  <option value="">01</option>
-                                  <option value="">02</option>
-                              </select>
-                      </div>
-                      <div class="form-group col-lg-6">
-                          {!! Form::label('informer_road','Road/Highway: ') !!}
-                              <select class="form-control">
-                                  <option value="">Tole 1</option>
-                                  <option value="">Tole 2</option>
-                              </select>
-                      </div>
-                      <div class="form-group col-lg-6">
-                          {!! Form::label('informer_village','Tole/Village : ') !!}
-                              <select class="form-control">
-                                  <option value="">Village 1</option>
-                                  <option value="">Village 2</option>
-                              </select>
-                      </div>
-                      <div class="form-group col-lg-6">
-                          {!! Form::label('informer_home_no','Home No : ') !!}
-                          {!! Form::text('informer_home_no',null,array('class'=>'form-control')) !!}
-                      </div>
+               {{-- <div class="form-group col-lg-6">
+                       {!! Form::label('brth_birth_district','Region : ') !!}
+                       <select class="form-control" name="brth_region" id="region">
+                       <option>Choose Region</option>
+                       </select>
+                 </div>--}}
+                <div class="form-group col-lg-6">
+                      {!! Form::label('brth_birth_district','District : ') !!}
+                      <select class="form-control" name="brth_district" id="district">
+                      <option>Choose District</option>
+                      </select>
+                </div>
+                <div class="form-group col-lg-6">
+                      {!! Form::label('brth_birth_vdc','VDC/Municipality: ') !!}
+                      <select class="form-control" name="brth_vdc" id="vdc">
 
-                      <legend><h4>Citizenship Detail(If not Foreigner)</h4></legend>
+                      </select>
+                </div>
+                <div class="form-group col-lg-6">
+                      {!! Form::label('brth_birth_ward_no','Ward No: ') !!}
+                      <select class="form-control" name="brth_ward_no" id="ward_no">
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      </select>
+                </div>
+                <div class="col-lg-12">
+                    <h3>If Child was born in Foreign</h3>
+                </div>
+                <div class="form-group col-lg-6">
+                      {!! Form::label('brth_country_name','Country Name : ') !!}
+                      <select class="form-control" name="brth_country_name" id="country">
+                      <option>Choose Country</option>
+                      </select>
+                </div>
+
+      </div>
+
+      <div class="tab-pane" id="father">
+               <div class="col-lg-12">
+                    <legend class="header">Father Details</legend>
+               </div>
+
+               <div class="form-group col-lg-6">
+                    {!! Form::label('father_first_name','First Name') !!}
+                    {!! Form::text('father_first_name',null,array('class'=>'form-control')) !!}
+               </div>
+               <div class="form-group col-lg-6">
+                    {!! Form::label('father_last_name','Last Name') !!}
+                    {!! Form::text('father_last_name',null,array('class'=>'form-control')) !!}
+               </div>
+               <div class="form-group col-lg-12">
+                     {!! Form::label('father_full_name','Full Name') !!}
+                     {!! Form::text('father_full_name',null,array('class'=>'form-control','placeholder'=>'नेपालीमा')) !!}
+               </div>
+               <hr>
+                <div class="col-lg-12">
+                    <h3>Address</h3>
+                </div>
+              {{--  <div class="form-group col-lg-6">
+                       {!! Form::label('father_district','Region : ') !!}
+                       <select class="form-control" name="father_region" id="region">
+                       <option>Choose Region</option>
+                       </select>
+                 </div>--}}
+                <div class="form-group col-lg-6">
+                      {!! Form::label('father_district','District : ') !!}
+                      <select class="form-control" name="father_district" id="district">
+                      <option>Choose District</option>
+                      </select>
+                </div>
+                <div class="form-group col-lg-6">
+                      {!! Form::label('father_vdc','VDC/Municipality: ') !!}
+                      <select class="form-control" name="father_vdc" id="vdc">
+
+                      </select>
+                </div>
+                <div class="form-group col-lg-6">
+                      {!! Form::label('father_ward_no','Ward No: ') !!}
+                      <select class="form-control" name="father_ward_no" id="ward_no">
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      </select>
+                </div>
+                <div class="col-lg-12">
+                     <h3>Citizenship Certificate Detail</h3>
+                </div>
+                <div class="form-group col-lg-6">
+                      {!! Form::label('father_citizenship_no','Citizenship No: ') !!}
+                      {!! Form::text('father_citizenship_no',null,array('class'=>'form-control')) !!}
+                </div>
+                <div class="form-group col-lg-6">
+                       {!! Form::label('father_citizenship_issued_district','Issued District : ') !!}
+                       <select class="form-control" name="father_citizenship_issued_district" id="district">
+                       <option>Choose District</option>
+                       </select>
+                </div>
+
+      </div>
+
+      <div class="tab-pane" id="mother">
+               <div class="col-lg-12">
+                    <legend class="header">Mother Details</legend>
+               </div>
+
+               <div class="form-group col-lg-6">
+                    {!! Form::label('mother_first_name','First Name') !!}
+                    {!! Form::text('mother_first_name',null,array('class'=>'form-control')) !!}
+               </div>
+               <div class="form-group col-lg-6">
+                    {!! Form::label('mother_last_name','Last Name') !!}
+                    {!! Form::text('mother_last_name',null,array('class'=>'form-control')) !!}
+               </div>
+               <div class="form-group col-lg-12">
+                     {!! Form::label('mother_full_name','Full Name') !!}
+                     {!! Form::text('mother_full_name',null,array('class'=>'form-control','placeholder'=>'नेपालीमा')) !!}
+               </div>
+               <hr>
+                <div class="col-lg-12">
+                    <h3>Address</h3>
+                </div>
+               {{-- <div class="form-group col-lg-6">
+                       {!! Form::label('mother_district','Region : ') !!}
+                       <select class="form-control" name="mother_region" id="region">
+                       <option>Choose Region</option>
+                       </select>
+                 </div>--}}
+                <div class="form-group col-lg-6">
+                      {!! Form::label('mother_district','District : ') !!}
+                      <select class="form-control" name="mother_district" id="district1">
+                      <option>Choose District</option>
+                      </select>
+                </div>
+                <div class="form-group col-lg-6">
+                      {!! Form::label('mother_vdc','VDC/Municipality: ') !!}
+                      <select class="form-control" name="mother_vdc" id="vdc1">
+
+                      </select>
+                </div>
+                <div class="form-group col-lg-6">
+                      {!! Form::label('mother_ward_no','Ward No: ') !!}
+                      <select class="form-control" name="mother_ward_no" id="ward_no">
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      </select>
+                </div>
+               <div class="col-lg-12">
+                     <h3>Citizenship Certificate Detail</h3>
+                </div>
+                <div class="form-group col-lg-6">
+                      {!! Form::label('mother_citizenship_no','Citizenship No: ') !!}
+                      {!! Form::text('mother_citizenship_no',null,array('class'=>'form-control')) !!}
+                </div>
+                <div class="form-group col-lg-6">
+                       {!! Form::label('mother_citizenship_issued_district','Issued District : ') !!}
+                       <select class="form-control" name="mother_citizenship_issued_district" id="district">
+                       <option>Choose District</option>
+                       </select>
+                </div>
+
+      </div>
+     <div class="tab-pane" id="grand_parent">
+               <div class="col-lg-12">
+                    <legend class="header">Grand Father</legend>
+               </div>
+
+               <div class="form-group col-lg-6">
+                    {!! Form::label('gfather_first_name','First Name') !!}
+                    {!! Form::text('gfather_first_name',null,array('class'=>'form-control')) !!}
+               </div>
+               <div class="form-group col-lg-6">
+                    {!! Form::label('gfather_last_name','Last Name') !!}
+                    {!! Form::text('gfather_last_name',null,array('class'=>'form-control')) !!}
+               </div>
+               <div class="form-group col-lg-6">
+                    {!! Form::label('gfather_full_name','Last Name') !!}
+                    {!! Form::text('gfather_full_name',null,array('class'=>'form-control','placeholder'=>'नेपालीमा')) !!}
+               </div>
+               <div class="col-lg-12">
+                     <h3>Citizenship Certificate Detail</h3>
+                </div>
+                <div class="form-group col-lg-6">
+                      {!! Form::label('gfather_citizenship_no','Citizenship No: ') !!}
+                      {!! Form::text('gfather_citizenship_no',null,array('class'=>'form-control')) !!}
+                </div>
+                <div class="form-group col-lg-6">
+                       {!! Form::label('gfather_citizenship_issued_district','Issued District : ') !!}
+                       <select class="form-control" name="gfather_citizenship_issued_district" id="district">
+                       <option>Choose District</option>
+                       </select>
+                </div>
+
+      </div>
+
+
+
+      <div class="tab-pane" id="informer">
+        <div class="col-lg-12">
+                            <legend class="header">Informer</legend>
+                       </div>
+
                        <div class="form-group col-lg-6">
-                           {!! Form::label('informer_citizenship_no','Citizenship No: ') !!}
-                           {!! Form::text('informer_citizenship_no',null,array('class'=>'form-control')) !!}
+                            {!! Form::label('informer_first_name','First Name') !!}
+                            {!! Form::text('informer_first_name',null,array('class'=>'form-control')) !!}
                        </div>
                        <div class="form-group col-lg-6">
-                           {!! Form::label('informer_citizenship_issued_date','Citizenship Issued Date: ') !!}
-                           {!! Form::text('informer_citizenship_issued_date',null,array('class'=>'form-control')) !!}
-                       </div>
-                     <legend><h4>Passport Detail(If Foreigner)</h4></legend>
-                       <div class="form-group col-lg-6">
-                           {!! Form::label('informer_passport_no','Passport No : ') !!}
-                           {!! Form::text('informer_passport_no',null,array('class'=>'form-control')) !!}
+                            {!! Form::label('informer_last_name','Last Name') !!}
+                            {!! Form::text('informer_last_name',null,array('class'=>'form-control')) !!}
                        </div>
                        <div class="form-group col-lg-6">
-                           {!! Form::label('informer_country_name','Country Name : ') !!}
-                           {!! Form::text('informer_country_name',null,array('class'=>'form-control')) !!}
-                       </div>
+                             {!! Form::label('informer_full_name','Full Name') !!}
+                             {!! Form::text('informer_full_name',null,array('class'=>'form-control','placeholder'=>'नेपालीमा')) !!}
+                        </div>
+
                        <div class="col-lg-12">
-                        <legend></legend>
-                       </div>
-                       <div class="form-group col-lg-6">
-                           {!! Form::label('form_filled_date','Form Filled Date : ') !!}
-                           {!! Form::text('form_filled_date',null,array('class'=>'form-control')) !!}
-                       </div>
-            </div>
-            <div class="col-lg-12">
-            {!!Form::submit('Save',['class'=>'btn btn-primary']) !!}
-            {!! Form::close() !!}
-            <a href="{!!route('birth_details.index')!!}" ><button class="btn btn-warning">Cancel</button></a>
-            </div>
+                             <h3>Citizenship Certificate Detail</h3>
+                        </div>
+                        <div class="form-group col-lg-6">
+                              {!! Form::label('informer_citizenship_no','Citizenship No: ') !!}
+                              {!! Form::text('informer_citizenship_no',null,array('class'=>'form-control')) !!}
+                        </div>
 
-        </div>
+      </div>
+
+
+               <div class="col-lg-12">
+                {!!Form::submit('Save',['class'=>'btn btn-info']) !!}
+                {!! Form::close() !!}
+                <a href="{!!route('birth_details.index')!!}" ><button class="btn btn-warning">Cancel</button></a>
+                </div>
+
     </div>
 
-   </div>
-</div>
-</div>
+
+ </div>
+
+
 @stop
 
 @section('js_section')
+     <script src="{{ asset('assets/ncdb/js/birth/create.js') }}"></script>
+     <script src="{{asset('assets/js/responsive-tabs.js')}}"></script>
+     <script type="text/javascript">
+           $( '#myTab a' ).click( function ( e ) {
+             e.preventDefault();
+             $( this ).tab( 'show' );
+           } );
 
+           ( function( $ ) {
+               // Test for making sure event are maintained
+               $( '.js-alert-test' ).click( function () {
+                 alert( 'Button Clicked: Event was maintained' );
+               } );
+               fakewaffle.responsiveTabs( [ 'xs', 'sm' ] );
+           } )( jQuery );
+
+         </script>
+         <script src="{{asset('assets/js/jquery.sliderTabs.min.js')}}"></script>
+         <script type="text/javascript">
+            var slider = $("div#myTabs").sliderTabs({
+              autoplay: true,
+              mousewheel: false,
+              position: "bottom"
+            });
+         </script>
 @stop
