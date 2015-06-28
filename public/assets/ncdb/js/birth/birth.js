@@ -34,7 +34,7 @@ $(document).ready(function () {
         "aoColumns": [
             { "mData": "brth_registration_id"},
             { "mData": "brth_first_name"},
-            { "mData": "brth_birth_date" },
+            { "mData": "brth_birth_date_bs" },
             { "mData": "brth_gender" },
             { "mData": "brth_father" },
             { "mData": "brth_mother" },
@@ -42,12 +42,6 @@ $(document).ready(function () {
                 "mData": null,
                 "mRender": function (data, type, full) {
                     return '<a href="javascript: viewBirthRegistration(' + full['brth_id'] + ')"><i class="glyphicon glyphicon-search"></a>';
-                }
-            },
-            {
-                "mData": null,
-                "mRender": function (data, type, full) {
-                    return '<a href="javascript: editBirthRegistration(' + full['brth_id'] + ')"><i class="glyphicon glyphicon-edit"></a>';
                 }
             },
             {

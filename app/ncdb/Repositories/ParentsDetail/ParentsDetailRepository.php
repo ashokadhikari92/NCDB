@@ -7,14 +7,19 @@
  */
 
 use App\Parents;
+use Repo\Repositories\Address\AddressRepository;
 
     class ParentsDetailRepository implements ParentsDetailInterface{
 
         public $parent;
 
-        function __construct(Parents $parent)
+        public $location;
+
+        function __construct(Parents $parent,AddressRepository $location)
         {
             $this->parent = $parent;
+
+            $this->location = $location;
         }
 
         public function addParent($parent)
@@ -31,6 +36,26 @@ use App\Parents;
 
         public function getParentById($id)
         {
-            // TODO: Implement getParentById() method.
+            return $this->parent->find($id);
+        }
+
+        public function getParentNameById($id)
+        {
+            $parent = $this->parent->find($id);
+
+            $name = $parent['prnt_first_name']." ".$parent['prnt_last_name'];
+
+            return $name;
+        }
+
+        public function getAllParentDetails($id)
+        {
+            $parent = $this->parent->find($id);
+
+            $address = $this->location->getFullAddress($parent['prnt_address']);
+
+            $parent['address'] = $address;
+
+            return $parent;
         }
     }

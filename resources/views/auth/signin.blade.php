@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>ADMIN</title>
+<title>LOGIN</title>
 
     <link rel="stylesheet" href="{{ asset('assets/bootstrap-3.3.5-dist/css/bootstrap.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/bootstrap-3.3.5-dist/css/bootstrap-theme.min.css') }}" />
@@ -16,7 +16,7 @@
 <script>
 //base url for javascript ajax calls
 var base_url = "{!!URL::to('/')!!}";
-</script>          
+</script>
 
 
 </head>
@@ -24,28 +24,19 @@ var base_url = "{!!URL::to('/')!!}";
 	<div class="container">
 		<!-- navigation start -->
     <div class="row">
-        @include('layouts.navbar')
+        @include('auth.navbar')
     </div>
 
-		<!--  end of navigation -->
-<!-- column 1 start-->
-<!-- accordian start-->
 
-    <div class="row">
-       {{-- <div class="col-lg-3">--}}
-       {{-- @include('layouts.left_menu')--}}
-        @include('layouts.sideMenu')
-    {{--    </div>--}}
-<!-- accordion end -->
-<!-- column 1 end-->
-			
-			
-			<!-- - Column 2 start -->
-            <div class="row">
-			<div class="col-lg-10 maingrid maincontent">@yield('content')</div>
-			<!-- End of Column2 -->
-            </div>
-
+    <form class="form-signin">
+           <h2 class="form-signin-heading">Please sign in</h2>
+           <input type="text" class="input-block-level" placeholder="Email address">
+           <input type="password" class="input-block-level" placeholder="Password">
+           <label class="checkbox">
+             <input type="checkbox" value="remember-me"> Remember me
+           </label>
+           <button class="btn btn-large btn-primary" type="submit">Sign in</button>
+         </form>
 
 			<!-- Footer -->
 			<div id="footer" class="">
@@ -62,8 +53,6 @@ var base_url = "{!!URL::to('/')!!}";
 			</div>
 		</div>
 	</div>
-	</div>
-
 
 
 	<script src="{{ asset('assets/jquery-1.11.1-dev/jquery-1.11.1.min.js') }}"></script>

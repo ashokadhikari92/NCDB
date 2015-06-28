@@ -48,7 +48,8 @@ Route::get('child/vaccines/details',array('as'=>'child/vaccines/details','uses'=
 /* ------------------------------------------------------------------------
             Location (Address)
 --------------------------------------------------------------------------*/
-Route::get('location/district/{id}','LocationController@getDistrict');
+    Route::get('location/district/{id}','LocationController@getDistrict');
+    Route::get('location/zone','LocationController@getZone');
 
 /* -------------------------------------------------------------------------------
  *  User management Module  Routes

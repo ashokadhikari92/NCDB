@@ -16,37 +16,37 @@ class AddressTableSeeder extends Seeder{
         DB::table('locations')->delete();
 
         /*-------------------------------------------------- Regions ---------------------------------------------------------*/
-        App\Address::create(['locn_id'=>'1','locn_name'=>'Eastern Region','locn_type'=>'Region','locn_parent_id'=>'0','locn_code'=>'']);
-        App\Address::create(['locn_id'=>'2','locn_name'=>'Central Region','locn_type'=>'Region','locn_parent_id'=>'0','locn_code'=>'']);
-        App\Address::create(['locn_id'=>'3','locn_name'=>'Western Region','locn_type'=>'Region','locn_parent_id'=>'0','locn_code'=>'']);
-        App\Address::create(['locn_id'=>'4','locn_name'=>'Mid-Western Region','locn_type'=>'Region','locn_parent_id'=>'0','locn_code'=>'']);
-        App\Address::create(['locn_id'=>'5','locn_name'=>'Far-Western Region','locn_type'=>'Region','locn_parent_id'=>'0','locn_code'=>'']);
+        App\Address::create(['locn_id'=>'1','locn_name'=>'Eastern Region','locn_type'=>'Region','locn_parent_id'=>'0','locn_code'=>'R01']);
+        App\Address::create(['locn_id'=>'2','locn_name'=>'Central Region','locn_type'=>'Region','locn_parent_id'=>'0','locn_code'=>'R02']);
+        App\Address::create(['locn_id'=>'3','locn_name'=>'Western Region','locn_type'=>'Region','locn_parent_id'=>'0','locn_code'=>'R03']);
+        App\Address::create(['locn_id'=>'4','locn_name'=>'Mid-Western Region','locn_type'=>'Region','locn_parent_id'=>'0','locn_code'=>'R04']);
+        App\Address::create(['locn_id'=>'5','locn_name'=>'Far-Western Region','locn_type'=>'Region','locn_parent_id'=>'0','locn_code'=>'R05']);
 
         /*-------------------------------------------------- Zones ---------------------------------------------------------*/
-        App\Address::create(['locn_id'=>'6','locn_name'=>'Kosi','locn_type'=>'Zone','locn_parent_id'=>'1','locn_code'=>'']);
-        App\Address::create(['locn_id'=>'7','locn_name'=>'Mechi','locn_type'=>'Zone','locn_parent_id'=>'1','locn_code'=>'']);
-        App\Address::create(['locn_id'=>'8','locn_name'=>'Sagarmatha','locn_type'=>'Zone','locn_parent_id'=>'1','locn_code'=>'']);
-        App\Address::create(['locn_id'=>'9','locn_name'=>'Bagmati','locn_type'=>'Zone','locn_parent_id'=>'2','locn_code'=>'']);
-        App\Address::create(['locn_id'=>'10','locn_name'=>'Janakpur','locn_type'=>'Zone','locn_parent_id'=>'2','locn_code'=>'']);
-        App\Address::create(['locn_id'=>'11','locn_name'=>'Narayani','locn_type'=>'Zone','locn_parent_id'=>'2','locn_code'=>'']);
-        App\Address::create(['locn_id'=>'12','locn_name'=>'Dhawalagiri','locn_type'=>'Zone','locn_parent_id'=>'3','locn_code'=>'']);
-        App\Address::create(['locn_id'=>'13','locn_name'=>'Gandaki','locn_type'=>'Zone','locn_parent_id'=>'3','locn_code'=>'']);
-        App\Address::create(['locn_id'=>'14','locn_name'=>'Lumbini','locn_type'=>'Zone','locn_parent_id'=>'3','locn_code'=>'']);
-        App\Address::create(['locn_id'=>'15','locn_name'=>'Bheri','locn_type'=>'Zone','locn_parent_id'=>'4','locn_code'=>'']);
-        App\Address::create(['locn_id'=>'16','locn_name'=>'Karnali','locn_type'=>'Zone','locn_parent_id'=>'4','locn_code'=>'']);
-        App\Address::create(['locn_id'=>'17','locn_name'=>'Rapti','locn_type'=>'Zone','locn_parent_id'=>'4','locn_code'=>'']);
-        App\Address::create(['locn_id'=>'18','locn_name'=>'Mahakali','locn_type'=>'Zone','locn_parent_id'=>'5','locn_code'=>'']);
-        App\Address::create(['locn_id'=>'19','locn_name'=>'Seti','locn_type'=>'Zone','locn_parent_id'=>'5','locn_code'=>'']);
+        App\Address::create(['locn_id'=>'6','locn_name'=>'Kosi','locn_type'=>'Zone','locn_parent_id'=>'1','locn_code'=>'R01Z01']);
+        App\Address::create(['locn_id'=>'7','locn_name'=>'Mechi','locn_type'=>'Zone','locn_parent_id'=>'1','locn_code'=>'R01Z02']);
+        App\Address::create(['locn_id'=>'8','locn_name'=>'Sagarmatha','locn_type'=>'Zone','locn_parent_id'=>'1','locn_code'=>'R01Z03']);
+        App\Address::create(['locn_id'=>'9','locn_name'=>'Bagmati','locn_type'=>'Zone','locn_parent_id'=>'2','locn_code'=>'R02Z01']);
+        App\Address::create(['locn_id'=>'10','locn_name'=>'Janakpur','locn_type'=>'Zone','locn_parent_id'=>'2','locn_code'=>'R02Z02']);
+        App\Address::create(['locn_id'=>'11','locn_name'=>'Narayani','locn_type'=>'Zone','locn_parent_id'=>'2','locn_code'=>'R02Z03']);
+        App\Address::create(['locn_id'=>'12','locn_name'=>'Dhawalagiri','locn_type'=>'Zone','locn_parent_id'=>'3','locn_code'=>'R03Z01']);
+        App\Address::create(['locn_id'=>'13','locn_name'=>'Gandaki','locn_type'=>'Zone','locn_parent_id'=>'3','locn_code'=>'R03Z02']);
+        App\Address::create(['locn_id'=>'14','locn_name'=>'Lumbini','locn_type'=>'Zone','locn_parent_id'=>'3','locn_code'=>'R03Z03']);
+        App\Address::create(['locn_id'=>'15','locn_name'=>'Bheri','locn_type'=>'Zone','locn_parent_id'=>'4','locn_code'=>'R04Z01']);
+        App\Address::create(['locn_id'=>'16','locn_name'=>'Karnali','locn_type'=>'Zone','locn_parent_id'=>'4','locn_code'=>'R04Z02']);
+        App\Address::create(['locn_id'=>'17','locn_name'=>'Rapti','locn_type'=>'Zone','locn_parent_id'=>'4','locn_code'=>'R04Z03']);
+        App\Address::create(['locn_id'=>'18','locn_name'=>'Mahakali','locn_type'=>'Zone','locn_parent_id'=>'5','locn_code'=>'R05Z01']);
+        App\Address::create(['locn_id'=>'19','locn_name'=>'Seti','locn_type'=>'Zone','locn_parent_id'=>'5','locn_code'=>'R05Z02']);
 
         /*-------------------------------------------------- Districts ---------------------------------------------------------*/
-        App\Address::create(['locn_id'=>'20','locn_name'=>'Bhaktapur','locn_type'=>'District','locn_parent_id'=>'9','locn_code'=>'']);
-        App\Address::create(['locn_id'=>'21','locn_name'=>'Dhading','locn_type'=>'District','locn_parent_id'=>'9','locn_code'=>'']);
-        App\Address::create(['locn_id'=>'22','locn_name'=>'Lalitpur','locn_type'=>'District','locn_parent_id'=>'9','locn_code'=>'']);
-        App\Address::create(['locn_id'=>'23','locn_name'=>'Kathmandu','locn_type'=>'District','locn_parent_id'=>'9','locn_code'=>'']);
-        App\Address::create(['locn_id'=>'24','locn_name'=>'Kavrepalanchok','locn_type'=>'District','locn_parent_id'=>'9','locn_code'=>'']);
-        App\Address::create(['locn_id'=>'25','locn_name'=>'Nuwakot','locn_type'=>'District','locn_parent_id'=>'9','locn_code'=>'']);
-        App\Address::create(['locn_id'=>'26','locn_name'=>'Rasuwa','locn_type'=>'District','locn_parent_id'=>'9','locn_code'=>'']);
-        App\Address::create(['locn_id'=>'27','locn_name'=>'Sindhupalanchok','locn_type'=>'District','locn_parent_id'=>'9','locn_code'=>'']);
+        App\Address::create(['locn_id'=>'20','locn_name'=>'Bhaktapur','locn_type'=>'District','locn_parent_id'=>'9','locn_code'=>'26']);
+        App\Address::create(['locn_id'=>'21','locn_name'=>'Dhading','locn_type'=>'District','locn_parent_id'=>'9','locn_code'=>'30']);
+        App\Address::create(['locn_id'=>'22','locn_name'=>'Lalitpur','locn_type'=>'District','locn_parent_id'=>'9','locn_code'=>'25']);
+        App\Address::create(['locn_id'=>'23','locn_name'=>'Kathmandu','locn_type'=>'District','locn_parent_id'=>'9','locn_code'=>'27']);
+        App\Address::create(['locn_id'=>'24','locn_name'=>'Kavrepalanchok','locn_type'=>'District','locn_parent_id'=>'9','locn_code'=>'24']);
+        App\Address::create(['locn_id'=>'25','locn_name'=>'Nuwakot','locn_type'=>'District','locn_parent_id'=>'9','locn_code'=>'28']);
+        App\Address::create(['locn_id'=>'26','locn_name'=>'Rasuwa','locn_type'=>'District','locn_parent_id'=>'9','locn_code'=>'29']);
+        App\Address::create(['locn_id'=>'27','locn_name'=>'Sindhupalanchok','locn_type'=>'District','locn_parent_id'=>'9','locn_code'=>'23']);
 
         /*-------------------------------------------------- VDCs/Municipality ---------------------------------------------------------*/
 

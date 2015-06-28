@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Repo\Repositories\BirthDetail\BirthDetailInterface as BirthDetail;
 use Repo\Repositories\Address\AddressInterface as Location;
+use Repo\Repositories\ParentsDetail\ParentsDetailRepository as Parents;
 use Illuminate\Validation\Validator;
 
 class BirthDetailController extends Controller {
@@ -15,13 +16,15 @@ class BirthDetailController extends Controller {
 
     protected $location;
 
-    function __construct(BirthDetail $birth,Location $location)
-    {
-        //$this->middleware('auth');
+    protected $parent;
 
+    function __construct(BirthDetail $birth,Location $location,Parents $parent)
+    {
         $this->birth = $birth;
 
         $this->location = $location;
+
+        $this->parent = $parent;
     }
 
     /**
@@ -57,7 +60,7 @@ class BirthDetailController extends Controller {
 	public function store(Requests\CreateBirthDetailRequest $request)
 	{
 		$input = $request->all();
-dd($input);
+
         $result = $this->birth->registerChild($input);
 
         if($result['success'] == true){
@@ -76,7 +79,17 @@ dd($input);
 	{
 		$birth_detail = $this->birth->getChildById($id);
 
-        return view('birth_details.show')->with('child',$birth_detail);
+        $address = $this->location->getFullAddress($birth_detail['brth_address']);
+
+        $father_details = $this->parent->getAllParentDetails($birth_detail['brth_father']);
+
+        $mother_details = $birth_detail['brth_mother'];
+
+        return view('birth_details.show')
+            ->with('child',$birth_detail)
+            ->with('address',$address)
+            ->with('father',$father_details)
+            ->with('mother',$mother_details);
 	}
 
 	/**

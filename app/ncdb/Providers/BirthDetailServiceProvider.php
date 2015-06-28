@@ -25,7 +25,7 @@
         {
             $this->app->bind('Repo\Repositories\BirthDetail\BirthDetailInterface',function()
             {
-                return new BirthDetailRepository(new Parentss(new Parents()),new BirthDetail(),new AddressRepository(new Address()));
+                return new BirthDetailRepository(new Parentss(new Parents(),new AddressRepository(new Address())),new BirthDetail(),new AddressRepository(new Address()));
             });
         }
     }

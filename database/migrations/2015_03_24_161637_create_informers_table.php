@@ -19,6 +19,7 @@ class CreateInformersTable extends Migration {
             $table->integer('infr_parent_id');
             $table->string('infr_first_name',60);
             $table->string('infr_last_name',60);
+            $table->string('infr_full_name_nepali',60);
             $table->string('infr_relation',60);
             $table->boolean('infr_is_foreigner');
             $table->string('infr_citizenship_no');

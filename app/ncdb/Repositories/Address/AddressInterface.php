@@ -18,4 +18,8 @@
         public function getAllLocationByParentId($id);
 
         public function getLocationByParentId($id);
+
+        public function getFullAddress($id);
+
+        public function getLocationById($id);
     }

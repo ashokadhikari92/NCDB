@@ -4,7 +4,7 @@
     <div class="panel pull-down">
         <div class="panel-body">
 
-            <span class="" > <a href="{!!route('birth_details.create')!!}" ><button class="btn btn-warning">Add New</button></a></span>
+            <span class="" > <a href="{!!route('users.create')!!}" ><button class="btn btn-warning">Add New</button></a></span>
 
             @include('errors.error')
 
@@ -14,14 +14,10 @@
         <table id="data_table" class="table table-striped table-bordered">
                 <thead class="dtHead">
                 <tr class="dtThRow">
-            	    <th>Registration No</th>
             		<th>Full Name </th>
-            		<th>DOB </th>
-            		<th>Gender</th>
-            	    <th>Father</th>
-            		<th>Mother</th>
+            		<th>Email</th>
+            		<th>Role</th>
             		<th>Details</th>
-            		<th>Delete</th>
                 </tr>
                 </thead>
                 <tbody class="dtBody">

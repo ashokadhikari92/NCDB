@@ -1,6 +1,7 @@
 @extends('layouts.master')
 @section('css')
-    <link rel="stylesheet" href="{{asset('assets/css/jquery.sliderTabs.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/datepicker.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/nepali.datepicker.css')}}">
 @stop
 @section('content')
  <div class="panel panel-default">
@@ -9,7 +10,7 @@
 
  <div class="content-box-large">
     <ul class="nav nav-tabs responsive nav-justified" id="myTab">
-      <li class="active"><a href="#child_detail">Child Details</a></li>
+      <li class="active"><a href="#child_details">Child Details</a></li>
       <li><a href="#birth_address">Birth Address</a></li>
       <li><a href="#father">Father</a></li>
       <li><a href="#mother">Mother</a></li>
@@ -24,6 +25,7 @@
                 <div class="col-lg-12">
                     <legend class="header">Child Details</legend>
                 </div>
+
                 <div class="form-group col-lg-6">
                     {!! Form::label('brth_first_name','First Name') !!}
                     {!! Form::text('brth_first_name',null,array('class'=>'form-control')) !!}
@@ -34,15 +36,15 @@
                 </div>
                 <div class="form-group col-lg-12">
                      {!! Form::label('brth_full_name','Full Name') !!}
-                     {!! Form::text('brth_full_name',null,array('class'=>'form-control','placeholder'=>'नेपालीमा')) !!}
+                    <font face="Nepali">{!! Form::text('brth_full_name',null,array('class'=>'form-control','placeholder'=>'नेपालीमा')) !!}</font>
                 </div>
                 <div class="form-group col-lg-6">
-                     {!! Form::label('brth_birth_date','Date of Birth (B.S.)') !!}
-                     {!! Form::text('brth_birth_date',null,array('class'=>'form-control','id'=>'date_bs')) !!}
+                     {!! Form::label('brth_birth_dat_bs','Date of Birth (B.S.)') !!}
+                     {!! Form::text('brth_birth_date_bs',null,array('class'=>'form-control nepali-calendar','id'=>'date_bs')) !!}
                 </div>
                 <div class="form-group col-lg-6">
-                     {!! Form::label('brth_birth_date_es','Date of Birth(E.S.)') !!}
-                     {!! Form::text('brth_birth_date_es',null,array('class'=>'form-control','id'=>'date_es')) !!}
+                     {!! Form::label('brth_birth_date_ad','Date of Birth(A.D.)') !!}
+                     {!! Form::text('brth_birth_date_ad',null,array('class'=>'form-control datepicker','id'=>'date_ad')) !!}
                 </div>
                 <div class="form-group col-lg-6">
                      {!! Form::label('brth_birth_place','Birth Place') !!}
@@ -109,22 +111,27 @@
                        </select>
                  </div>--}}
                 <div class="form-group col-lg-6">
+                      {!! Form::label('brth_birth_zone','Zone : ') !!}
+                      <select class="form-control zone" name="brth_zone" id="zone">
+                      <option>Choose A Zone</option>
+                      </select>
+                </div>
+                <div class="form-group col-lg-6">
                       {!! Form::label('brth_birth_district','District : ') !!}
-                      <select class="form-control" name="brth_district" id="district">
-                      <option>Choose District</option>
+                      <select class="form-control district" name="brth_district" id="district">
+
                       </select>
                 </div>
                 <div class="form-group col-lg-6">
                       {!! Form::label('brth_birth_vdc','VDC/Municipality: ') !!}
-                      <select class="form-control" name="brth_vdc" id="vdc">
+                      <select class="form-control vdc" name="brth_vdc" id="vdc">
 
                       </select>
                 </div>
                 <div class="form-group col-lg-6">
                       {!! Form::label('brth_birth_ward_no','Ward No: ') !!}
-                      <select class="form-control" name="brth_ward_no" id="ward_no">
-                      <option value="1">1</option>
-                      <option value="2">2</option>
+                      <select class="form-control ward_no" name="brth_ward_no" id="ward_no">
+
                       </select>
                 </div>
                 <div class="col-lg-12">
@@ -154,7 +161,7 @@
                </div>
                <div class="form-group col-lg-12">
                      {!! Form::label('father_full_name','Full Name') !!}
-                     {!! Form::text('father_full_name',null,array('class'=>'form-control','placeholder'=>'नेपालीमा')) !!}
+                     <font face="Nepali">{!! Form::text('father_full_name',null,array('class'=>'form-control','placeholder'=>'नेपालीमा')) !!}</font>
                </div>
                <hr>
                 <div class="col-lg-12">
@@ -167,22 +174,27 @@
                        </select>
                  </div>--}}
                 <div class="form-group col-lg-6">
+                       {!! Form::label('father_zone','Zone : ') !!}
+                          <select class="form-control zone" name="father_zone" id="father_zone">
+                          <option>Choose Zone</option>
+                          </select>
+                </div>
+                <div class="form-group col-lg-6">
                       {!! Form::label('father_district','District : ') !!}
-                      <select class="form-control" name="father_district" id="district">
-                      <option>Choose District</option>
+                      <select class="form-control district" name="father_district" id="father_district">
+
                       </select>
                 </div>
                 <div class="form-group col-lg-6">
                       {!! Form::label('father_vdc','VDC/Municipality: ') !!}
-                      <select class="form-control" name="father_vdc" id="vdc">
+                      <select class="form-control vdc" name="father_vdc" id="father_vdc">
 
                       </select>
                 </div>
                 <div class="form-group col-lg-6">
                       {!! Form::label('father_ward_no','Ward No: ') !!}
-                      <select class="form-control" name="father_ward_no" id="ward_no">
-                      <option value="1">1</option>
-                      <option value="2">2</option>
+                      <select class="form-control ward_no" name="father_ward_no" id="father_ward_no">
+
                       </select>
                 </div>
                 <div class="col-lg-12">
@@ -194,9 +206,13 @@
                 </div>
                 <div class="form-group col-lg-6">
                        {!! Form::label('father_citizenship_issued_district','Issued District : ') !!}
-                       <select class="form-control" name="father_citizenship_issued_district" id="district">
+                       <select class="form-control issued-district" name="father_citizenship_issued_district" id="district">
                        <option>Choose District</option>
                        </select>
+                </div>
+                <div class="form-group col-lg-6">
+                       {!! Form::label('father_citizenship_issued_date','Citizenship Issued Date: ') !!}
+                       {!! Form::text('father_citizenship_issued_date',null,array('class'=>'form-control nepali-calendar')) !!}
                 </div>
 
       </div>
@@ -216,33 +232,33 @@
                </div>
                <div class="form-group col-lg-12">
                      {!! Form::label('mother_full_name','Full Name') !!}
-                     {!! Form::text('mother_full_name',null,array('class'=>'form-control','placeholder'=>'नेपालीमा')) !!}
+                     <font face="Nepali">{!! Form::text('mother_full_name',null,array('class'=>'form-control','placeholder'=>'नेपालीमा')) !!}</font>
                </div>
                <hr>
                 <div class="col-lg-12">
                     <h3>Address</h3>
                 </div>
-               {{-- <div class="form-group col-lg-6">
-                       {!! Form::label('mother_district','Region : ') !!}
-                       <select class="form-control" name="mother_region" id="region">
+                <div class="form-group col-lg-6">
+                       {!! Form::label('mother_zone','Zone : ') !!}
+                       <select class="form-control zone" name="mother_zone" id="mother_zone">
                        <option>Choose Region</option>
                        </select>
-                 </div>--}}
+                 </div>
                 <div class="form-group col-lg-6">
                       {!! Form::label('mother_district','District : ') !!}
-                      <select class="form-control" name="mother_district" id="district1">
+                      <select class="form-control district" name="mother_district" id="mother_district">
                       <option>Choose District</option>
                       </select>
                 </div>
                 <div class="form-group col-lg-6">
                       {!! Form::label('mother_vdc','VDC/Municipality: ') !!}
-                      <select class="form-control" name="mother_vdc" id="vdc1">
+                      <select class="form-control vdc" name="mother_vdc" id="mother_vdc">
 
                       </select>
                 </div>
                 <div class="form-group col-lg-6">
                       {!! Form::label('mother_ward_no','Ward No: ') !!}
-                      <select class="form-control" name="mother_ward_no" id="ward_no">
+                      <select class="form-control ward_no" name="mother_ward_no" id="mother_ward_no">
                       <option value="1">1</option>
                       <option value="2">2</option>
                       </select>
@@ -260,6 +276,10 @@
                        <option>Choose District</option>
                        </select>
                 </div>
+               <div class="form-group col-lg-6">
+                        {!! Form::label('mother_citizenship_issued_date','Citizenship Issued Date: ') !!}
+                        {!! Form::text('mother_citizenship_issued_date',null,array('class'=>'form-control nepali-calendar issued-district')) !!}
+               </div>
 
       </div>
      <div class="tab-pane" id="grand_parent">
@@ -277,7 +297,7 @@
                </div>
                <div class="form-group col-lg-6">
                     {!! Form::label('gfather_full_name','Last Name') !!}
-                    {!! Form::text('gfather_full_name',null,array('class'=>'form-control','placeholder'=>'नेपालीमा')) !!}
+                    <font face="Nepali">{!! Form::text('gfather_full_name',null,array('class'=>'form-control','placeholder'=>'नेपालीमा')) !!}</font>
                </div>
                <div class="col-lg-12">
                      <h3>Citizenship Certificate Detail</h3>
@@ -288,7 +308,7 @@
                 </div>
                 <div class="form-group col-lg-6">
                        {!! Form::label('gfather_citizenship_issued_district','Issued District : ') !!}
-                       <select class="form-control" name="gfather_citizenship_issued_district" id="district">
+                       <select class="form-control issued-district" name="gfather_citizenship_issued_district" id="district">
                        <option>Choose District</option>
                        </select>
                 </div>
@@ -310,9 +330,9 @@
                             {!! Form::label('informer_last_name','Last Name') !!}
                             {!! Form::text('informer_last_name',null,array('class'=>'form-control')) !!}
                        </div>
-                       <div class="form-group col-lg-6">
+                       <div class="form-group col-lg-12">
                              {!! Form::label('informer_full_name','Full Name') !!}
-                             {!! Form::text('informer_full_name',null,array('class'=>'form-control','placeholder'=>'नेपालीमा')) !!}
+                             <font face="Nepali">{!! Form::text('informer_full_name',null,array('class'=>'form-control','placeholder'=>'नेपालीमा')) !!}</font>
                         </div>
 
                        <div class="col-lg-12">
@@ -321,6 +341,10 @@
                         <div class="form-group col-lg-6">
                               {!! Form::label('informer_citizenship_no','Citizenship No: ') !!}
                               {!! Form::text('informer_citizenship_no',null,array('class'=>'form-control')) !!}
+                        </div>
+                        <div class="form-group col-lg-6">
+                              {!! Form::label('form_filled_date','Form Filled Date') !!}
+                              {!! Form::text('form_filled_date',null,array('class'=>'form-control nepali-calendar' )) !!}
                         </div>
 
       </div>
@@ -343,6 +367,8 @@
 @section('js_section')
      <script src="{{ asset('assets/ncdb/js/birth/create.js') }}"></script>
      <script src="{{asset('assets/js/responsive-tabs.js')}}"></script>
+     <script src="{{asset('assets/js/bootstrap-datepicker.js')}}"></script>
+     <script src="{{asset('assets/js/nepali.datepicker.min.js')}}"></script>
      <script type="text/javascript">
            $( '#myTab a' ).click( function ( e ) {
              e.preventDefault();
@@ -358,12 +384,10 @@
            } )( jQuery );
 
          </script>
-         <script src="{{asset('assets/js/jquery.sliderTabs.min.js')}}"></script>
+
+
          <script type="text/javascript">
-            var slider = $("div#myTabs").sliderTabs({
-              autoplay: true,
-              mousewheel: false,
-              position: "bottom"
-            });
+            $( ".datepicker" ).datepicker();
+            $( ".nepali-calendar" ).nepaliDatePicker();
          </script>
 @stop

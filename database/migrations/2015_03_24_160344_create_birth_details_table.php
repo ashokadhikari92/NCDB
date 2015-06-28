@@ -19,7 +19,9 @@ class CreateBirthDetailsTable extends Migration {
             $table->string('brth_first_name',60);
             $table->string('brth_middle_name');
             $table->string('brth_last_name',60);
-            $table->dateTime('brth_birth_date');
+            $table->string('brth_full_name_nepali',60);
+            $table->date('brth_birth_date_bs');
+            $table->date('brth_birth_date_ad');
             $table->string('brth_birth_place',60);
             $table->string('brth_birth_helper',60);
             $table->string('brth_gender',10);

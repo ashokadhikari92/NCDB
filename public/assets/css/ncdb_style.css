@@ -720,3 +720,40 @@ hr {
     border-width: 1px 0;
     margin: 18px 0;
 }
+
+/*
+css for birth display page*/
+
+.small-border{
+    border-top:2px solid #4cae4c;
+}
+
+.px-margin-top{
+    margin-top:30px;
+}
+.margin-top{
+    margin-top: 15px;
+}
+.back-white{
+    background: #ffffff;
+}
+
+.timestamps{
+    color:#888888;
+    font-size:11px;
+    padding-left:15px;
+}
+.white-text {
+    color: #cccccc;
+}
+.bold{
+    font-weight: bold;
+
+}
+.padding-left-right{
+    padding:0 10px 0 10px;
+}
+.green-back{
+    background-color:#39b3d7;
+    color: #0000C2;
+}

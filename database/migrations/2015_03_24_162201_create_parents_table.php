@@ -17,6 +17,7 @@ class CreateParentsTable extends Migration {
 			$table->increments('prnt_id');
             $table->string('prnt_first_name',60);
             $table->string('prnt_last_name',60);
+            $table->string('prnt_full_name_nepali',60);
             $table->string('prnt_gender',10);
             $table->string('prnt_occupation',60);
             $table->string('prnt_religion',60);

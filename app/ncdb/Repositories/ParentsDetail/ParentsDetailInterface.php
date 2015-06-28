@@ -14,4 +14,8 @@
         public function updateParent($parent);
 
         public function getParentById($id);
+
+        public function getParentNameById($id);
+
+        public function getAllParentDetails($id);
     }
