@@ -1,9 +1,9 @@
-<div class="col-md-2 sidegrid">
+
 <div class="panel-group">
     <div class="panel-group" id="accordion">
         <div class="panel panel-default">
 
-                <div class="panel-left-menu">
+                <div class="panel-left-menu table-responsive">
                     <table class="table">
                     @foreach($menus as $menu)
                        @if($menu->parent_id == 0)
@@ -22,4 +22,3 @@
 
     </div>
 </div><!-- end sidemenu-->
-</div><!-- end sidegrid-->

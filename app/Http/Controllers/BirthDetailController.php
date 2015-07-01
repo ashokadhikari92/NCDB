@@ -3,6 +3,7 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\Http\Requests\UpdateBirthDetailRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Repo\Repositories\BirthDetail\BirthDetailInterface as BirthDetail;
@@ -83,13 +84,14 @@ class BirthDetailController extends Controller {
 
         $father_details = $this->parent->getAllParentDetails($birth_detail['brth_father']);
 
-        $mother_details = $birth_detail['brth_mother'];
+        $mother_details = $this->parent->getAllParentDetails($birth_detail['brth_mother']);
+
 
         return view('birth_details.show')
             ->with('child',$birth_detail)
             ->with('address',$address)
-            ->with('father',$father_details)
-            ->with('mother',$mother_details);
+            ->with('father',$father_details->toArray())
+            ->with('mother',$mother_details->toArray());
 	}
 
 	/**
@@ -100,18 +102,23 @@ class BirthDetailController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+		$child = $this->birth->getChildById($id);
+
+        return view('birth_details.edit')->with('child',$child);
 	}
 
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param UpdateBirthDetailRequest $request
+     * @param  int $id
+     * @return Response
+     */
+	public function update(UpdateBirthDetailRequest $request,$id)
 	{
-		//
+        $result = $this->birth->updateChild($request->all(),$id);
+
+        return redirect('birth_details')->with('message',$result['message']);
 	}
 
 	/**
@@ -130,4 +137,10 @@ class BirthDetailController extends Controller {
         return $this->birth->getAllChildren();
     }
 
+    public function getChildLocation($id)
+    {
+       $address = $this->birth->getChildLocation($id);
+
+        return json_encode($address);
+    }
 }

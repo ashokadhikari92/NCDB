@@ -6,7 +6,9 @@
  * Time: 4:08 PM
  */
 
+use App\Address;
 use Illuminate\Support\ServiceProvider;
+use Repo\Repositories\Address\AddressRepository;
 use Repo\Repositories\ParentsDetail\ParentsDetailRepository;
 use App\Parents;
 
@@ -26,7 +28,7 @@ class ParentsDetailServiceProvider extends ServiceProvider{
         {
             $this->app->bind('Repo\Repositories\BirthDetail\ParentsDetailInterface',function()
             {
-                return new ParentsDetailRepository(new Parents());
+                return new ParentsDetailRepository(new Parents(),new AddressRepository(new Address()));
             });
         }
     }

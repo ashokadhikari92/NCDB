@@ -151,6 +151,7 @@ return [
          * Package Service Providers...
          */
         'Zizaco\Entrust\EntrustServiceProvider',
+        'Khill\Lavacharts\Laravel\LavachartsServiceProvider',
 
         /*
          * Repository Service Providers...
@@ -160,6 +161,7 @@ return [
         'Repo\Providers\ParentsDetailServiceProvider',
         'Repo\Providers\ChildVaccineServiceProvider',
         'Repo\Providers\RoleServiceProvider',
+        'Repo\Providers\VaccineServiceProvider',
 
 	],
 

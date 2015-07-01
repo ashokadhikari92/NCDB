@@ -13,7 +13,7 @@ use Repo\Repositories\Address\AddressRepository;
 
      public function registerChild($child);
 
-     public function updateChild($child);
+     public function updateChild($child,$id);
 
      public function getRegistrationId($input);
 
@@ -26,4 +26,8 @@ use Repo\Repositories\Address\AddressRepository;
      public function getRules();
 
      public function getCustomMessage();
+
+     public function getChildLocation($id);
+
+     public function getChildByRegistrationId($id);
  }

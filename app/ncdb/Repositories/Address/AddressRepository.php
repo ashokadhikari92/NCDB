@@ -100,4 +100,27 @@
         {
             return $this->location->find($id);
         }
+
+        public function getChildLocationInJson($id)
+        {
+            $address = array();
+
+            $ward = $this->getLocationById($id);
+
+            $vdc = $this->getLocationById($ward['locn_parent_id']);
+
+            $district = $this->getLocationById($vdc['locn_parent_id']);
+
+            $zone = $this->getLocationById($district['locn_parent_id']);
+
+            $address['zone'] = ['zone_id'=>$zone['locn_id'],'zone_name'=>$zone['locn_name']];
+
+            $address['district'] = ['district_id'=>$district['locn_id'],'district_name'=>$district['locn_name']];
+
+            $address['vdc'] = ['vdc_id'=>$vdc['locn_id'],'vdc_name'=>$vdc['locn_name']];
+
+            $address['ward_no'] = ['ward_no_id'=>$ward['locn_id'],'ward_no_name'=>$ward['locn_name']];
+
+            return ($address);
+        }
     }

@@ -20,6 +20,7 @@ class PermissionTableSeeder extends Seeder{
         App\Permission::create(['id'=>'9','name'=>'education','display_name'=>'Education','type'=>'main','url'=>'/educations','parent_id'=>'0']);
         App\Permission::create(['id'=>'10','name'=>'user_management','display_name'=>'User Management','type'=>'main','url'=>'/users','parent_id'=>'0']);
         App\Permission::create(['id'=>'11','name'=>'Roles','display_name'=>'Roles','type'=>'main','url'=>'/roles','parent_id'=>'0']);
+        App\Permission::create(['id'=>'12','name'=>'Vaccine','display_name'=>'Vaccine','type'=>'main','url'=>'/vaccines','parent_id'=>'0']);
 
     }
 }

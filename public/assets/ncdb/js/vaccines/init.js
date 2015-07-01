@@ -1,54 +1,54 @@
 /**
  * Created by Ashok on 5/18/2015.
  */
-function viewBirthRegistration(id)
+function viewDoseInterval(id)
 {
-    window.location = base_url + '/birth_details/'+id;
+    window.location = base_url + '/vaccines/'+id+'/edit';
+}
+function editVaccine(id)
+{
+    window.location = base_url + '/vaccines/'+id+'/edit';
 }
 
-function editBirthRegistration(id)
-{
-    window.location = base_url + '/birth_details/'+id+'/edit';
-}
-
-function deleteBirthRegistration(id)
+function deleteVaccine(id)
 {
     bootbox.confirm("Are you sure?", function (result) {
         if (result == true) {
-            window.location = '/delete/birth_details/'+id;
+            window.location = '/delete/vaccine/'+id;
         }
     });
 }
 
 $(document).ready(function () {
 
-
     /*
-    Ajax to load the data on the data table.
+     Ajax to load the data on the data table.
      */
     $('#data_table').dataTable({
         "bProcessing": true,
-        "sAjaxSource": base_url + '/birth/details',
+        "sAjaxSource": base_url + '/getAll/vaccines',
         "bJQueryUI": true,
         "sPaginationType": "full_numbers",
         "sAjaxDataProp": '',
         "aoColumns": [
-            { "mData": "brth_registration_id"},
-            { "mData": "brth_first_name"},
-            { "mData": "brth_birth_date_bs" },
-            { "mData": "brth_gender" },
-            { "mData": "brth_father" },
-            { "mData": "brth_mother" },
+            { "mData": "vcin_name"},
+            { "mData": "vcin_dose"},
             {
                 "mData": null,
                 "mRender": function (data, type, full) {
-                    return '<a href="javascript: viewBirthRegistration(' + full['brth_id'] + ')"><i class="glyphicon glyphicon-search"></a>';
+                    return '<a href="javascript: viewDoseInterval(' + full['vcin_id'] + ')"><i class="glyphicon glyphicon-search"></a>';
                 }
             },
             {
                 "mData": null,
                 "mRender": function (data, type, full) {
-                    return '<a href="javascript: deleteBirthRegistration(' + full['brth_id'] + ')"><i class="glyphicon glyphicon-trash"></a>';
+                    return '<a href="javascript: editVaccine(' + full['vcin_id'] + ')"><i class="glyphicon glyphicon-edit"></a>';
+                }
+            },
+            {
+                "mData": null,
+                "mRender": function (data, type, full) {
+                    return '<a href="javascript: deleteVaccine(' + full['vcin_id'] + ')"><i class="glyphicon glyphicon-trash"></a>';
                 }
             }
         ]
@@ -56,7 +56,7 @@ $(document).ready(function () {
 
 
     /*
-    Ajax for drop down of district
+     Ajax for drop down of district
      */
     $.ajax({
         dataType : "json",

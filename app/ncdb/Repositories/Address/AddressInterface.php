@@ -22,4 +22,6 @@
         public function getFullAddress($id);
 
         public function getLocationById($id);
+
+        public function getChildLocationInJson($id);
     }

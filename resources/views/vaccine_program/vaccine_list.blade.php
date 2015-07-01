@@ -7,7 +7,7 @@
         </div>
     </div>
 
- <div class="panel-body">
+  <div class="panel-body table-responsive">
     <table id="data_table" class="table table-striped table-bordered">
         <thead class="dtHead">
         <tr class="dtThRow">
@@ -23,7 +23,6 @@
         </tbody>
     </table>
  </div>
-
 @stop
 
 @section('js_section')

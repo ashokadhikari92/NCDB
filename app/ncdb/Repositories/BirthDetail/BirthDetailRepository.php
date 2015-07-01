@@ -6,6 +6,7 @@
  * Time: 10:01 AM
  */
 
+use League\Flysystem\Exception;
 use Repo\Repositories\Address\AddressRepository;
 use Repo\Repositories\ParentsDetail\ParentsDetailRepository as Parents;
 use App\BirthDetail as Child;
@@ -121,9 +122,24 @@ use App\BirthDetail as Child;
 
         }
 
-        public function updateChild($child)
+        public function updateChild($child,$id)
         {
-            // TODO: Implement updateChild() method.
+            $result = array();
+            try{
+                $result['child'] = $this->child->find($id)->update($child);
+
+                $result['success'] = true;
+
+                $result['message'] = "Successfully Updated";
+            }catch (Exception $e){
+
+                $result['success'] = false;
+
+                $result['message'] = "Something gone wrong while updating";
+
+                $result['exception'] = $e;
+        }
+            return $result;
         }
 
         public function getChildById($id)
@@ -176,5 +192,18 @@ use App\BirthDetail as Child;
             $sn = 232;
 
             return $zone."-".$ward_no."-071/72-".$sn;
+        }
+
+        public function getChildLocation($id)
+        {
+            $child = $this->child->find($id);
+
+            return $this->location->getChildLocationInJson($child->brth_birth_address);
+
+        }
+
+        public function getChildByRegistrationId($id)
+        {
+            return \DB::table('birth_details')->where('brth_registration_id',$id)->first();
         }
     }

@@ -55,4 +55,11 @@ $(document).ready(function () {
             }
         ]
     });
+
+    $('#bth_find_child').on('click',function()
+    {
+        var child_reg_id = $('#registration_id').val();
+
+        window.location = base_url + '/load/child/detail/'+child_reg_id;
+    });
 });

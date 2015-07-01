@@ -17,9 +17,9 @@
             <ul class="nav navbar-nav">
                 <li class="inactive menulist"><a href="#"><span
                             class="glyphicon glyphicon-th-large glyphnavmenu" title="Dashboard"></span> </a></li>
-                <li class="inactive menulist"><a href="#"><span
+                <li class="inactive menulist"><a href="{!!url('home') !!}"><span
                             class="glyphicon glyphicon-home glyphnavmenu" title="Home"></span></a></li>
-                <li class="inactive menulist"><a href="#"><span
+                <li class="inactive menulist"><a href="{!! url('birth_registration_reports') !!}"><span
                             class="glyphicon glyphicon-folder-open glyphnavmenu" title="Reports"></span></a></li>
                 <li class="inactive menulist"><a href="#"><span
                             class="glyphicon glyphicon-wrench glyphnavmenu" title="Configurations"></span></a></li>

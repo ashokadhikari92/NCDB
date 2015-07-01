@@ -24,6 +24,12 @@
                                    class="btnsidebar btn-primary custom-border-color">Vaccination</a>
                             </td>
                         </tr>
+                         <tr>
+                            <td>
+                                <a href="{{route('vaccines.index')}}"
+                                   class="btnsidebar btn-primary custom-border-color">Vaccine</a>
+                                </td>
+                        </tr>
                         <tr>
                             <td>
                                 <a href="#"

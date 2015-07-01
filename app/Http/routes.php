@@ -12,7 +12,7 @@
 */
 
 //Route::get('/', 'WelcomeController@index');
-Route::get('/', 'BirthDetailController@index');
+Route::get('/', 'HomeController@index');
 
 Route::get('home', 'HomeController@index');
 
@@ -23,26 +23,33 @@ Route::controllers([
 Route::group(['middleware'=>['auth']],function(){
 
 
-Route::get('/', 'BirthDetailController@index');
+/*Route::get('/', 'BirthDetailController@index');*/
 
 Route::resource('dashboard','DashboardController');
 
 /* ------------------------------------------------------------------------
              Birth Details
 --------------------------------------------------------------------------*/
-Route::resource('birth_details','BirthDetailController');
-Route::get('delete/birth_details/{id}','BirthDetailController@destroy');
-Route::get('birth/details',array('as'=>'birth/details','uses'=>'BirthDetailController@getAllData'));
+    Route::resource('birth_details','BirthDetailController');
+    Route::get('delete/birth_details/{id}','BirthDetailController@destroy');
+    Route::get('birth/details',array('as'=>'birth/details','uses'=>'BirthDetailController@getAllData'));
+    Route::get('get/child/location/{id}','BirthDetailController@getChildLocation');
+
+    Route::resource('parents','ParentController');
 
 /* ------------------------------------------------------------------------
             Vaccination
 --------------------------------------------------------------------------*/
-Route::resource('child_vaccines','ChildVaccineController');
-Route::get('delete/child/vaccine/{id}','ChildVaccineController@destroy');
-Route::get('child/vaccines/details',array('as'=>'child/vaccines/details','uses'=>'ChildVaccineController@getAllChildVaccines'));
-
+    Route::resource('child_vaccines','ChildVaccineController');
+    Route::get('delete/child/vaccine/{id}','ChildVaccineController@destroy');
+    Route::get('child/vaccines/details',array('as'=>'child/vaccines/details','uses'=>'ChildVaccineController@getAllChildVaccines'));
     Route::resource('vaccination/program','VaccinationProgramController');
     Route::get('vaccination/program/vaccine/list/{id}',['as'=>'vaccination/program/vaccine/list','uses'=>'VaccinationProgramController@vaccineList']);
+    Route::get('/load/child/detail/{id}','ChildVaccineController@loadChild');
+    Route::resource('vaccine_doses','VaccineDoseController');
+
+    Route::resource('vaccines','VaccineController');
+    Route::get('getAll/vaccines','VaccineController@getAllVaccines');
 
 
 /* ------------------------------------------------------------------------
@@ -75,4 +82,14 @@ Route::resource('users','UserController');
      * Education Modules
      */
     Route::resource('educations','EducationController');
-});
+
+
+
+    /* -------------------------------------------------------------------------------------------------------------
+     * Report ROutings
+     ----------------------------------------------------------------------------------------------------------------*/
+    Route::resource('birth_registration_reports','BirthRegistrationReportController');
+    Route::resource('vaccination_reports','VaccinationReportController');
+
+
+    });
