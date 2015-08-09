@@ -212,7 +212,9 @@ use App\BirthDetail as Child;
 
         public function getChildByRegistrationId($id)
         {
-            return \DB::table('birth_details')->where('brth_registration_id',$id)->first();
+            $childs = \DB::table('birth_details')->where('brth_registration_id',$id)->first();
+
+            return $this->child->where('brth_registration_id',$id)->first();
         }
 
         public function viewBirthCertificate($id)

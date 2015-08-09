@@ -54,11 +54,12 @@ class VaccineProgramRepository implements VaccineProgramInterface
 
         foreach($vaccines as $vaccine)
         {
-            $givenVaccine = DB::table('child_vaccine')
+            $givenVaccine = \DB::table('child_vaccines')
             ->where('chld_vcin_registration_id',$id)
             ->where('chld_vcin_vaccine_id')
             ->first();
-            $vaccineDetail = DB::table('vaccines')->where('vcin_id',$vaccine->vcin_id);
+            $vaccine['which_dose_no'] = 1;
+            $vaccineDetail = \DB::table('vaccines')->where('vcin_id',$vaccine->vcin_id);
             if($givenVaccine!= null)
             {
                 if($vaccineDetail->vcin_dose>$givenVaccine->chld_vcin_dose_no)
@@ -69,7 +70,15 @@ class VaccineProgramRepository implements VaccineProgramInterface
 
                 $vaccine['previous_date'] = $givenVaccine->chld_vcin_date;
             }
-            //$vaccine['dose'] = count($doseCount);
+
+            $nextDate = \DB::table('vaccine_doses')->where('dose_vaccine_id',$vaccine->vcin_id)
+                ->where('dose_vaccine_dose_no',$vaccine['which_dose_no'])->get();
+
+            foreach($nextDate as $next)
+            {
+                $vaccine['next_date'] = $next->dose_interval;
+            }
+
         }
         return $vaccines;
     }

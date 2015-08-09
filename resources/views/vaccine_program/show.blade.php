@@ -21,10 +21,10 @@
         <tbody class="dtBody">
             @foreach($vaccines as $vaccine)
              <tr class="dtThRow">
-                <th>{!!$vaccine->vcin_name!!}</th>
-                <th></th>
-                <th></th>
-                <th></th>
+                 <th>{!!$vaccine->vcin_name!!}</th>
+                <th>{!!$vaccine->which_dose_no!!}</th>
+                <th>{!!$vaccine->previous_date!!}</th>
+                <th>{!!$vaccine->next_date!!}</th>
                 <th>
                     {!! link_to_route('provide.vaccine','Provide Now', array($vaccine->vcin_id,$child_id), array('class' => 'btn btn-warning'))!!}
                 </th>
