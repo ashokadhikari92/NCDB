@@ -4,7 +4,7 @@
 
     <div class="px-margin-top"></div>
 
-       <div class="row">
+
 
 
                <div class="col-lg-3 col-sm-4 small-border back-white">
@@ -18,7 +18,7 @@
                               <table class="table table-striped ">
                                   <tbody>
                                      <tr><td>Born On: </td><td>{!!$child->brth_birth_date_bs." "!!}B.S</td></tr>
-                                     <tr><td>View :</td><td><a href="#">Birth Certificate</a> </td></tr>
+                                     <tr><td>View :</td><td> {!! link_to_route('view.certificate','Birth Certificate', array($child->brth_id), array('class' => 'btn btn-warning'))!!} </td></tr>
                                   </tbody>
                               </table>
                           </div>
@@ -89,38 +89,38 @@
                                           </div>
                                         <table class="table table-hover">
                                             <tbody>
-                                            <tr><td class="bold">Full Name:</td><td>{!!$father['prnt_first_name']!!}</td></tr>
-                                            <tr><td class="bold">Full Name(Devnagari):</td><td>{!!$child->brth_last_name !!}</td></tr>
+                                            <tr><td class="bold">Full Name:</td><td>{!!$father['prnt_first_name']!!}{!!" ".$father['prnt_last_name']!!}</td></tr>
+                                            <tr><td class="bold">Full Name(Devnagari):</td><td><font face="Nepali">{!!$father['prnt_full_name_nepali']!!}</font></td></tr>
                                             <br>
-                                            <tr><td class="bold">Zone:</td><td>Nawalparasi</td></tr>
-                                            <tr><td class="bold">District:</td><td>{!!$child->brth_birth_date_bs !!}B.S</td></tr>
-                                            <tr><td class="bold">VDC/MC:</td><td>madhu.wordpress.com</td></tr>
-                                            <tr><td class="bold">Ward No:</td><td>Nawalparasi</td></tr>
+                                            <tr><td class="bold">Zone:</td><td>{!!$father['address']['zone']!!}</td></tr>
+                                            <tr><td class="bold">District:</td><td>{!!$father['address']['district']!!}</td></tr>
+                                            <tr><td class="bold">VDC/MC:</td><td>{!!$father['address']['vdc']!!}</td></tr>
+                                            <tr><td class="bold">Ward No:</td><td>{!!$father['address']['ward_no']!!}</td></tr>
                                             <br>
-                                            <tr><td class="bold">Citizenship No:</td><td>{!!$child->brth_birth_date_bs !!}B.S</td></tr>
-                                            <tr><td class="bold">Citizenship Issued District:</td><td>madhu.wordpress.com</td></tr>
+                                            <tr><td class="bold">Citizenship No:</td><td>{!!$father['prnt_citizenship_no']!!}</td></tr>
+                                            <tr><td class="bold">Citizenship Issued District:</td><td>{!!$father['prnt_citizenship_issued_district']!!}</td></tr>
                                             </tbody>
                                         </table>
                                    </div>
                                    <div class="col-md-6 col-xs-12">
                                    <div class="col-md-10 col-xs-22"><h2><i class="fa fa-user fa-1x"> </i> Mother</h2></div>
                                         <div class="col-md-2 col-xs-2">
-                                           {!! link_to_route('birth_details.edit','Edit', array($child->brth_id), array('class' => 'btn btn-warning margin-top'))!!}
+                                           {!! link_to_route('parents.edit','Edit', array($mother['prnt_id']), array('class' => 'btn btn-warning margin-top'))!!}
                                          </div>
-                                         <table class="table table-hover">
-                                             <tbody>
-                                             <tr><td class="bold">Full Name:</td><td>{!!$child->brth_first_name!!}{!!" ".$child->brth_last_name!!}</td></tr>
-                                             <tr><td class="bold">Full Name(Devnagari):</td><td>{!!$child->brth_last_name !!}</td></tr>
-                                             <br>
-                                             <tr><td class="bold">Zone:</td><td>Nawalparasi</td></tr>
-                                             <tr><td class="bold">District:</td><td>{!!$child->brth_birth_date_bs !!}B.S</td></tr>
-                                             <tr><td class="bold">VDC/MC:</td><td>madhu.wordpress.com</td></tr>
-                                             <tr><td class="bold">Ward No:</td><td>Nawalparasi</td></tr>
-                                             <br>
-                                             <tr><td class="bold">Citizenship No:</td><td>{!!$child->brth_birth_date_bs !!}B.S</td></tr>
-                                             <tr><td class="bold">Citizenship Issued District:</td><td>madhu.wordpress.com</td></tr>
-                                             </tbody>
-                                         </table>
+                                        <table class="table table-hover">
+                                            <tbody>
+                                            <tr><td class="bold">Full Name:</td><td>{!!$mother['prnt_first_name']!!}{!!" ".$mother['prnt_last_name']!!}</td></tr>
+                                            <tr><td class="bold">Full Name(Devnagari):</td><td><font face="Nepali">{!!$mother['prnt_full_name_nepali']!!}</font></td></tr>
+                                            <br>
+                                            <tr><td class="bold">Zone:</td><td>{!!$mother['address']['zone']!!}</td></tr>
+                                            <tr><td class="bold">District:</td><td>{!!$mother['address']['district']!!}</td></tr>
+                                            <tr><td class="bold">VDC/MC:</td><td>{!!$mother['address']['vdc']!!}</td></tr>
+                                            <tr><td class="bold">Ward No:</td><td>{!!$mother['address']['ward_no']!!}</td></tr>
+                                            <br>
+                                            <tr><td class="bold">Citizenship No:</td><td>{!!$mother['prnt_citizenship_no']!!}</td></tr>
+                                            <tr><td class="bold">Citizenship Issued District:</td><td>{!!$mother['prnt_citizenship_issued_district']!!}</td></tr>
+                                            </tbody>
+                                        </table>
                                    </div>
                                </div>
 
@@ -132,14 +132,11 @@
                        </div>{{-- tab 3 ends--}}
                        <div class="tab-pane fade" id="tab4">
                         <div class="col-md-6">
-                                                               <h2><i class="glyphicon glyphicon-education"></i> Education</h2>
-                                                               <table class="table table-hover">
-                                                                   <tr> <td><i class="fa fa-circle-o"></i> Bachelor's degree, E-Commerce/Electronic Commerce at UCLA<br/><p class="timestamps">March 2013 ~ Now</p></td> </tr>
-                                                                   <tr><td> <i class="fa fa-circle-o"></i> Student at Web Design Education<br/> <p class="timestamps">March 2013 ~ Now</p></td> </tr>
-                                                                   <tr> <td><i class="fa fa-circle-o"></i> Student at St. Louis High School<br/> <p class="timestamps">March 2013 ~ Now</p></td> </tr>
-                                                                   <tr><td> <i class="fa fa-circle-o"></i> Student at St. Monica Junior High School<br/> <p class="timestamps">March 2013 ~ Now</p></td> </tr>
-                                                               </table>
-                                                           </div>
+                           <h2><i class="glyphicon glyphicon-education"></i> Education</h2>
+                           <table class="table table-hover">
+
+                           </table>
+                       </div>
                    </div>{{-- tab 4 ends--}}
                    <div class="tab-pane fade" id="tab5">
 
@@ -147,7 +144,7 @@
 
                </div>
            </div>
-       </div>
+
 
 @stop
 

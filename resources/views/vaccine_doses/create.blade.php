@@ -13,13 +13,31 @@
                     {!! Form::open(['route'=>'vaccine_doses.store']) !!}
                     <div class="col-lg-12">
                         <legend class="header">Vaccine and Dose Interval</legend>
+                        <span class="pull-left">Vaccine Name : {{$vaccine->vcin_name}}</span>
                     </div>
+                    {!! Form::hidden('vaccine_id',$vaccine->vcin_id)!!}
+                    <div class="label-info"></div>
+                    @for($i=1;$i<=$vaccine->vcin_dose;$i++)
+                        <div class="panel-group">
+                           <div class="label col-lg-12">
+                               <span>Vaccine Dose No {{$i}}</span>
+                               {!! Form::hidden('dose_no[]',$i)!!}
+                           </div>
+                            <div class="form-group col-lg-4">
+                                {!! Form::label('years','Years ') !!}
+                                {!! Form::text('years[]',null,array('class'=>'form-control')) !!}
+                            </div>
+                            <div class="form-group col-lg-4">
+                                {!! Form::label('months','Months ') !!}
+                                {!! Form::text('months[]',null,array('class'=>'form-control')) !!}
+                            </div>
+                            <div class="form-group col-lg-4">
+                                {!! Form::label('days','Days ') !!}
+                                {!! Form::text('days[]',null,array('class'=>'form-control')) !!}
+                            </div>
+                        </div>
 
-                    <div class="form-group col-lg-6">
-                        {!! Form::label('dose_interval','Dose No ') !!}{!!$i+1 !!}
-                        {!! Form::text('dose_interval',null,array('class'=>'form-control')) !!}
-                    </div>
-
+                    @endfor
                    <div class="col-lg-12">
                     {!!Form::submit('Save',['class'=>'btn btn-info']) !!}
                     {!! Form::close() !!}

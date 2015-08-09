@@ -30,4 +30,6 @@ use Repo\Repositories\Address\AddressRepository;
      public function getChildLocation($id);
 
      public function getChildByRegistrationId($id);
+
+     public function viewBirthCertificate($id);
  }

@@ -11,4 +11,6 @@ interface VaccineInterface
     public function getAllVaccines();
 
     public function getVaccineById($id);
+
+    public function delete($id);
 }

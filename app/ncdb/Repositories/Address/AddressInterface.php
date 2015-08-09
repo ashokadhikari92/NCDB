@@ -24,4 +24,6 @@
         public function getLocationById($id);
 
         public function getChildLocationInJson($id);
+
+        public function getLocationsByLocnType($type);
     }

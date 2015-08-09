@@ -13,6 +13,8 @@ class ComposerServiceProvider extends ServiceProvider {
 	public function boot()
 	{
         View::composer('layouts.sideMenu','App\Http\Composers\SideMenuComposer');
+		View::composer('layouts.*','App\Http\Composers\SideMenuComposer');
+		View::composer('auth.register','App\Http\Composers\RegisterUserComposer');
 	}
 
 	/**

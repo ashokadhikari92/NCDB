@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.configuration.master')
 
  @section('content')
      <div class="panel pull-down">

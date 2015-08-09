@@ -3,7 +3,7 @@
  */
 function viewDoseInterval(id)
 {
-    window.location = base_url + '/vaccines/'+id+'/edit';
+    window.location = base_url + '/vaccines/dose/interval/'+id;
 }
 function editVaccine(id)
 {

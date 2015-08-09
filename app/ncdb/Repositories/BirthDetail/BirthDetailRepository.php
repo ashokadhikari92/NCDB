@@ -44,9 +44,9 @@ use App\BirthDetail as Child;
                 'prnt_last_name'  => $child['mother_last_name'],
                 'prnt_full_name_nepali' => $child['mother_full_name'],
                 'prnt_gender'     => "Female",
-                'prnt_address' => '',
-                'prnt_citizenship_no' => '',
-                'prnt_citizenship_issued_district' => ''
+                'prnt_address' => $child['mother_ward_no'],
+                'prnt_citizenship_no' => $child['mother_citizenship_no'],
+                'prnt_citizenship_issued_district' => $child['mother_citizenship_issued_district']
             );
             $gfather = array(
                 'prnt_first_name' => $child['gfather_first_name'],
@@ -55,8 +55,10 @@ use App\BirthDetail as Child;
                 'prnt_gender'     => "Male",
                 'prnt_address' => '',
                 'prnt_citizenship_no' => '',
-                'prnt_citizenship_issued_district' => ''
+                'prnt_citizenship_issued_district' => $child['gfather_citizenship_issued_district']
             );
+
+
             $father = $this->parent->addParent($father);
             $mother = $this->parent->addParent($mother);
             $gfather = $this->parent->addParent($gfather);
@@ -73,50 +75,56 @@ use App\BirthDetail as Child;
                 'brth_mother'    => $mother['prnt_id'],
                 'brth_grand_father' => $gfather['prnt_id'],
                 'brth_birth_address' =>$child['brth_ward_no'],
-                'brth_registered_date' => $child['form_filled_date']
+                'brth_informed_by' => $child['brth_informer'],
+                'brth_registered_date' => date('Y-m-d')
 
             );
 
             $child_id = Child::create($children);
 
+            $father_address = $this->location->getFullAddress($father['prnt_address']);
+
+            $child_address = $this->location->getFullAddress($child_id['brth_birth_address']);
 
             $result = [
                 'success' => true,
-                'father_name'  => $father['prnt_first_name']." ".$father['prtn_last_name'],
-                'mother_name'  => $mother['prtn_first_name']." ".$mother['prnt_last_name'],
+                'father_name'  => $father['prnt_first_name']." ".$father['prnt_last_name'],
+                'mother_name'  => $mother['prnt_first_name']." ".$mother['prnt_last_name'],
                 'child_name'   => $child_id['brth_first_name']." ".$child_id['brth_last_name'],
-                'grand_father' => $child_id['brth_grand_father'],
-                'grand_mother' => $child_id['brth_grand_mother'],
-                'birth_date_bs' => $child['brth_birth_date_bs'],
-                'birth_date_ad' => $child['brth_birth_date_ad'],
-                'birth_district' => $child['brth_district'],
-                'birth_vdc' => $child['brth_vdc'],
-                'birth_ward_no' => $child['brth_ward_no'],
-                'birth_address' => $child['brth_vdc']." Ward No ".$child['brth_ward_no'].$child['brth_district']." District ",
+                'grand_father' => $gfather['prnt_first_name']." ".$gfather['prnt_last_name'],
+                'birth_date_bs' => $child_id['brth_birth_date_bs'],
+                'birth_date_ad' => $child_id['brth_birth_date_ad'],
+                'birth_district' => $child_address['district'],
+                'birth_vdc' => $child_address['vdc'],
+                'birth_ward_no' => $child_address['ward_no'],
+                'birth_address' => $child_address['vdc']." Ward No ".$child_address['ward_no'].$child_address['district']." District ",
                 'registration' => $child_id['brth_registration_id'],
-                'registered_date' => $child['form_filled_date'],
-                'informer_name' => $child['informer_first_name']." ".$child['informer_last_name'],
-                'father_district' => $child['father_district'],
-                'father_vdc' => $child['father_vdc'],
-                'father_ward_no' => $child['father_ward_no'],
-                'father_citizenship_issued_district' => $child['father_citizenship_issued_district'],
-                'father_citizenship_issued_date' => $child['father_citizenship_issued_date'],
-                'father_citizenship_no' => $child['father_citizenship_no'],
-                'mother_citizenship_issued_district' => $child['mother_citizenship_issued_district'],
-                'mother_citizenship_issued_date' => $child['mother_citizenship_issued_date'],
-                'mother_citizenship_no' => $child['mother_citizenship_no']
+                'registered_date' => $child_id['brth_registered_date'],
+                'informer_name' => $child_id['brth_informer'],
+                'father_district' => $father_address['district'],
+                'father_vdc' => $father_address['vdc'],
+                'father_ward_no' => $father_address['ward_no'],
+                'father_citizenship_issued_district' => $father['prnt_citizenship_issued_district'],
+                'father_citizenship_issued_date' => $father['prnt_citizenship_issued_date'],
+                'father_citizenship_no' => $father['prnt_citizenship_no'],
+                'mother_citizenship_issued_district' => $mother['prnt_citizenship_issued_district'],
+                'mother_citizenship_issued_date' => $mother['prnt_citizenship_issued_date'],
+                'mother_citizenship_no' => $mother['prnt_citizenship_no']
             ];
             if($child_id['brth_gender'] === "Female"){
                 $result['g_son_daughter'] = "granddaughter";
                 $result['son_daughter'] = "daughter";
+                $result['miss.mr'] = "Miss.";
             }
             else if($child_id['brth_gender'] === "Male"){
                 $result['g_son_daughter'] = "grandson";
                 $result['son_daughter'] = "son";
+                $result['miss.mr'] = "Mr.";
             }
             else{
                 $result['g_son_daughter'] = "grand child";
                 $result['son_daughter'] = "child";
+                $result['miss.mr'] = "Mr./Miss.";
             }
             return $result;
 
@@ -184,14 +192,14 @@ use App\BirthDetail as Child;
          */
         public function getRegistrationId($input)
         {
-            dd($input);
-            $zone = $this->location->getLocationCodeById($input['brth_zone']);
+            //dd($input);
+            //$zone = $this->location->getLocationCodeById($input['brth_zone']);
 
             $ward_no = $this->location->getLocationCodeById($input['brth_ward_no']);;//$input['brth_ward_no'];
 
-            $sn = 232;
+            $sn = \DB::table('birth_details')->max('brth_id');;
 
-            return $zone."-".$ward_no."-071/72-".$sn;
+            return $ward_no."-071-72-".$sn;
         }
 
         public function getChildLocation($id)
@@ -205,5 +213,62 @@ use App\BirthDetail as Child;
         public function getChildByRegistrationId($id)
         {
             return \DB::table('birth_details')->where('brth_registration_id',$id)->first();
+        }
+
+        public function viewBirthCertificate($id)
+        {
+            $child_id = $this->getChildById($id);
+
+            $father = $this->parent->getParentById($child_id['brth_father']);
+
+            $mother = $this->parent->getParentById($child_id['brth_mother']);
+
+            $gfather = $this->parent->getParentById($child_id['brth_grand_father']);
+
+            $father_address = $this->location->getFullAddress($father['prnt_address']);
+
+            $child_address = $this->location->getFullAddress($child_id['brth_birth_address']);
+
+            $result = [
+                'success' => true,
+                'father_name'  => $father['prnt_first_name']." ".$father['prnt_last_name'],
+                'mother_name'  => $mother['prnt_first_name']." ".$mother['prnt_last_name'],
+                'child_name'   => $child_id['brth_first_name']." ".$child_id['brth_last_name'],
+                'grand_father' => $gfather['prnt_first_name']." ".$gfather['prnt_last_name'],
+                'birth_date_bs' => $child_id['brth_birth_date_bs'],
+                'birth_date_ad' => $child_id['brth_birth_date_ad'],
+                'birth_district' => $child_address['district'],
+                'birth_vdc' => $child_address['vdc'],
+                'birth_ward_no' => $child_address['ward_no'],
+                'birth_address' => $child_address['vdc']." Ward No ".$child_address['ward_no'].$child_address['district']." District ",
+                'registration' => $child_id['brth_registration_id'],
+                'registered_date' => $child_id['brth_registered_date'],
+                'informer_name' => $child_id['brth_informed_by'],
+                'father_district' => $father_address['district'],
+                'father_vdc' => $father_address['vdc'],
+                'father_ward_no' => $father_address['ward_no'],
+                'father_citizenship_issued_district' => $father['prnt_citizenship_issued_district'],
+                'father_citizenship_issued_date' => $father['prnt_citizenship_issued_date'],
+                'father_citizenship_no' => $father['prnt_citizenship_no'],
+                'mother_citizenship_issued_district' => $mother['prnt_citizenship_issued_district'],
+                'mother_citizenship_issued_date' => $mother['prnt_citizenship_issued_date'],
+                'mother_citizenship_no' => $mother['prnt_citizenship_no']
+            ];
+            if($child_id['brth_gender'] === "Female"){
+                $result['g_son_daughter'] = "granddaughter";
+                $result['son_daughter'] = "daughter";
+                $result['miss.mr'] = "Miss.";
+            }
+            else if($child_id['brth_gender'] === "Male"){
+                $result['g_son_daughter'] = "grandson";
+                $result['son_daughter'] = "son";
+                $result['miss.mr'] = "Mr.";
+            }
+            else{
+                $result['g_son_daughter'] = "grand child";
+                $result['son_daughter'] = "child";
+                $result['miss.mr'] = "Mr./Miss.";
+            }
+            return $result;
         }
     }

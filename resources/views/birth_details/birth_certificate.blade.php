@@ -25,8 +25,8 @@
                      Government of Nepal <br/>
                      Ministry of Aederal Affairs and Local Development<br/>
                       <b class="bold-text">Offiace of Local Registrar</b> <br/>
-                      Kathmandu Metropolitan City Office<br/>
-                      Kathmandu <br/>
+                      {{$child['birth_vdc']}}<br/>
+                     {{$child['birth_district']}}<br/>
                       <b class="bold-text flat">Birth Registration Certificate</b>
                   </p>
 				  
@@ -68,9 +68,9 @@
      <div class="description">
       
         <p>
-        This is to certify as per the birth register mainteined at this office and the information provided by Mr./Mrs.
-        {!!$child['informer_name'] !!} in the information form of schedule2 that miss {!!$child['child_name'] !!} , daughter of Mr. {!! $child['father_name']!!} and Mrs. {!! $child['mother_name']!!}, grand
-        daughter of Mr. {!! $child['grand_father']!!} pun, a resident of {!! $child['father_vdc']!!} ward no. {!! $child['father_ward_no']!!} {!! $child['father_district']!!} District , was born on {!! $child['birth_date_bs']!!} (BS) {!!$child['birth_date_ad']!!}(A.D.)
+        This is to certify as per the birth register maintained at this office and the information provided by
+        {!!$child['informer_name'] !!} in the information form of schedule2 that {!!$child['miss.mr']!!} {!!$child['child_name'] !!} , {!!$child['son_daughter'] !!} of Mr. {!! $child['father_name']!!} and Mrs. {!! $child['mother_name']!!}, {!!$child['g_son_daughter'] !!}
+         of  {!! $child['grand_father']!!}, a resident of {!! $child['father_vdc']!!} ward no. {!! $child['father_ward_no']!!} {!! $child['father_district']!!} District , was born on {!! $child['birth_date_bs']!!} (BS) {{--{!!$child['birth_date_ad']!!}(A.D.)--}}
         at {!!$child['birth_address'] !!} .
         </p>
      </div>

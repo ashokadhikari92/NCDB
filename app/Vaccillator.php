@@ -4,7 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Vaccillator extends Model {
 
-    protected  $table = 'vaccillator';
+    protected  $table = 'vaccillators';
 
     protected $guarded = array();
 

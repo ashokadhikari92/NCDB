@@ -16,6 +16,7 @@ class CreateChildVaccinesTable extends Migration {
 		{
 			$table->increments('chld_vcin_id');
             $table->integer('chld_vcin_vaccine_id')->unsigned();
+            $table->integer('chld_vcin_registration_id')->unsigned();
             $table->date('chld_vcin_date');
             $table->integer('chld_vcin_dose_no');
             $table->integer('chld_vcin_address')->unsigned();

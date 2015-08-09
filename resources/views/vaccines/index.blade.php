@@ -16,7 +16,7 @@
                 <tr class="dtThRow">
             	    <th>Vaccine Name</th>
             		<th>Vaccine Dose </th>
-            		<th>View Intervals</th>
+            		<th>Dose Intervals</th>
             		<th>Edit</th>
             		<th>Delete</th>
                 </tr>

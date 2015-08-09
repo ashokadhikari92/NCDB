@@ -69,4 +69,25 @@ class VaccineRepository implements VaccineInterface
     {
         return $this->vaccine->find($id);
     }
+
+    public function delete($id)
+    {
+
+        $result = [];
+
+        try{
+            $result['result'] = $this->vaccine->find($id)->delete();
+
+            $result['success'] = true;
+
+            $result['message'] = 'Vaccine is deleted Successfully';
+        }catch (Exception $e){
+            $result['result'] = $e;
+
+            $result['success'] = false;
+
+            $result['message'] = 'There is some problem to delete the vaccine';
+        }
+        return $result;
+    }
 }

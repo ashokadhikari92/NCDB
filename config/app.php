@@ -152,6 +152,7 @@ return [
          */
         'Zizaco\Entrust\EntrustServiceProvider',
         'Khill\Lavacharts\Laravel\LavachartsServiceProvider',
+	'Orangehill\Iseed\IseedServiceProvider',
 
         /*
          * Repository Service Providers...
@@ -162,6 +163,7 @@ return [
         'Repo\Providers\ChildVaccineServiceProvider',
         'Repo\Providers\RoleServiceProvider',
         'Repo\Providers\VaccineServiceProvider',
+        'Repo\Providers\VaccineProgramServiceProvider',
 
 	],
 

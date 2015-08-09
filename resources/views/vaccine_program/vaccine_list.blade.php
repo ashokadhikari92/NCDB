@@ -19,7 +19,15 @@
         </tr>
         </thead>
         <tbody class="dtBody">
-
+            @foreach($vaccines as $vaccine)
+             <tr class="dtThRow">
+                <th>$vaccine->vcin_name</th>
+                <th>Which Dose</th>
+                <th>Previous Dose</th>
+                <th>Next Dose</th>
+                <th></th>
+            </tr>
+            @endforeach
         </tbody>
     </table>
  </div>

@@ -39,7 +39,7 @@ var base_url = "{!!URL::to('/')!!}";
     <div class="row">
        <div class="col-lg-2 col-md-3">
        {{-- @include('layouts.left_menu')--}}
-        @include('layouts.sideMenu')
+        @include('layouts.configuration.sideMenu')
        </div>
 <!-- accordion end -->
 <!-- column 1 end-->

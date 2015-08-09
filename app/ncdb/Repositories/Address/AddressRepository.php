@@ -123,4 +123,9 @@
 
             return ($address);
         }
+
+        public function getLocationsByLocnType($type)
+        {
+            return \DB::table('locations')->where('locn_type','=',$type)->get();
+        }
     }

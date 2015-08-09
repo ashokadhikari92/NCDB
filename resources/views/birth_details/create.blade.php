@@ -206,8 +206,10 @@
                 </div>
                 <div class="form-group col-lg-6">
                        {!! Form::label('father_citizenship_issued_district','Issued District : ') !!}
-                       <select class="form-control issued-district" name="father_citizenship_issued_district" id="district">
-                       <option>Choose District</option>
+                       <select class="form-control" name="father_citizenship_issued_district" >
+                       @foreach($districts as $district)
+                            <option value="{{$district->locn_name}}">{{$district->locn_name}}</option>
+                       @endforeach
                        </select>
                 </div>
                 <div class="form-group col-lg-6">
@@ -272,8 +274,10 @@
                 </div>
                 <div class="form-group col-lg-6">
                        {!! Form::label('mother_citizenship_issued_district','Issued District : ') !!}
-                       <select class="form-control" name="mother_citizenship_issued_district" id="district">
-                       <option>Choose District</option>
+                       <select class="form-control" name="mother_citizenship_issued_district">
+                       @foreach($districts as $district)
+                             <option value="{{$district->locn_name}}">{{$district->locn_name}}</option>
+                        @endforeach
                        </select>
                 </div>
                <div class="form-group col-lg-6">
@@ -308,8 +312,10 @@
                 </div>
                 <div class="form-group col-lg-6">
                        {!! Form::label('gfather_citizenship_issued_district','Issued District : ') !!}
-                       <select class="form-control issued-district" name="gfather_citizenship_issued_district" id="district">
-                       <option>Choose District</option>
+                       <select class="form-control" name="gfather_citizenship_issued_district">
+                          @foreach($districts as $district)
+                                <option value="{{$district->locn_name}}">{{$district->locn_name}}</option>
+                           @endforeach
                        </select>
                 </div>
 
@@ -319,33 +325,13 @@
 
       <div class="tab-pane" id="informer">
         <div class="col-lg-12">
-                            <legend class="header">Informer</legend>
-                       </div>
+                    <legend class="header">Informer</legend>
+               </div>
 
-                       <div class="form-group col-lg-6">
-                            {!! Form::label('informer_first_name','First Name') !!}
-                            {!! Form::text('informer_first_name',null,array('class'=>'form-control')) !!}
-                       </div>
-                       <div class="form-group col-lg-6">
-                            {!! Form::label('informer_last_name','Last Name') !!}
-                            {!! Form::text('informer_last_name',null,array('class'=>'form-control')) !!}
-                       </div>
-                       <div class="form-group col-lg-12">
-                             {!! Form::label('informer_full_name','Full Name') !!}
-                             <font face="Nepali">{!! Form::text('informer_full_name',null,array('class'=>'form-control','placeholder'=>'नेपालीमा')) !!}</font>
-                        </div>
-
-                       <div class="col-lg-12">
-                             <h3>Citizenship Certificate Detail</h3>
-                        </div>
-                        <div class="form-group col-lg-6">
-                              {!! Form::label('informer_citizenship_no','Citizenship No: ') !!}
-                              {!! Form::text('informer_citizenship_no',null,array('class'=>'form-control')) !!}
-                        </div>
-                        <div class="form-group col-lg-6">
-                              {!! Form::label('form_filled_date','Form Filled Date') !!}
-                              {!! Form::text('form_filled_date',null,array('class'=>'form-control nepali-calendar' )) !!}
-                        </div>
+               <div class="form-group col-lg-12">
+                    {!! Form::label('brth_informer','Full Name') !!}
+                    {!! Form::text('brth_informer',null,array('class'=>'form-control')) !!}
+               </div>
 
       </div>
 

@@ -42,8 +42,9 @@
     </div>
 
     <div class="col-lg-12">
-       {{--<a href="{!!route('vaccination/program/vaccine/list')!!}" ><button class="btn btn-warning">Vaccine List</button></a>--}}
-        <h4 class="list-inline"><button class="btn btn-warning" id="vaccine_list">Vaccine List</button></h4>
+       {{--<a href="{!!route('vaccination/program/vaccine/list')!!}" ><button class="btn btn-warning">Vaccine List</button></a>--}}{{--
+        <h4 class="list-inline"><button class="btn btn-warning" id="vaccine_list">Vaccine List</button></h4>--}}
+        <h4 class="list-inline">{!! link_to_route('vaccination.program.show','Available Vaccine List', array($child->brth_registration_id), array('class' => 'btn btn-warning'))!!}</h4>
     </div>
 
 

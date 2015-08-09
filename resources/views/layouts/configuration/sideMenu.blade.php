@@ -6,7 +6,7 @@
                 <div class="panel-left-menu table-responsive">
                     <table class="table">
                     @foreach($menus as $menu)
-                       @if($menu->parent_id == 0 && $menu->type !== 'setting')
+                       @if($menu->parent_id == 0 && $menu->type == 'setting')
                        <tr>
                             <td>
                                 <a href="{!! $menu->url !!}"

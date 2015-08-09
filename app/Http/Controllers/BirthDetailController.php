@@ -45,11 +45,10 @@ class BirthDetailController extends Controller {
 	 */
 	public function create()
 	{
-        $district = $this->location->getLocationByParentId(0);
+        $district = $this->location->getLocationsByLocnType('District');//dd($district);
 
-        //dd($district);
-
-		return view('birth_details.create');
+		return view('birth_details.create')
+            ->with('districts',$district);
 	}
 
     /**
@@ -143,4 +142,12 @@ class BirthDetailController extends Controller {
 
         return json_encode($address);
     }
+
+    public function viewBirthCertificate($id)
+    {
+        $result = $this->birth->viewBirthCertificate($id);
+
+        return view('birth_details.birth_certificate')->with('child',$result);
+    }
+
 }
