@@ -18,8 +18,8 @@ class PermissionTableSeeder extends Seeder{
         App\Permission::create(['id'=>'7','name'=>'vaccination_edit','display_name'=>'Edit','type'=>'third','url'=>'7','parent_id'=>'5']);
         App\Permission::create(['id'=>'8','name'=>'vaccination_delete','display_name'=>'Delete','type'=>'third','url'=>'8','parent_id'=>'5']);
         App\Permission::create(['id'=>'9','name'=>'education','display_name'=>'Education','type'=>'main','url'=>'/educations','parent_id'=>'0']);
-        App\Permission::create(['id'=>'10','name'=>'user_management','display_name'=>'User Management','type'=>'main','url'=>'/users','parent_id'=>'0']);
-        App\Permission::create(['id'=>'11','name'=>'Roles','display_name'=>'Roles','type'=>'main','url'=>'/roles','parent_id'=>'0']);
+        App\Permission::create(['id'=>'10','name'=>'user_management','display_name'=>'User Management','type'=>'setting','url'=>'/users','parent_id'=>'0']);
+        App\Permission::create(['id'=>'11','name'=>'Roles','display_name'=>'Roles','type'=>'setting','url'=>'/roles','parent_id'=>'0']);
         App\Permission::create(['id'=>'12','name'=>'Vaccine','display_name'=>'Vaccine','type'=>'main','url'=>'/vaccines','parent_id'=>'0']);
 
     }

@@ -199,7 +199,7 @@ use App\BirthDetail as Child;
 
             $sn = \DB::table('birth_details')->max('brth_id');;
 
-            return $ward_no."-071-72-".$sn;
+            return $ward_no."-071-72-".($sn+1);
         }
 
         public function getChildLocation($id)

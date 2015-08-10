@@ -27,8 +27,8 @@
                <div class="form-group col-lg-6">
                     {!! Form::label('chld_vcin_vaccillator_id','Vaccinator:') !!}
                      <select class="form-control" name="chld_vcin_vaccillator_id">
-                        @foreach($vaccinators as $vaccinator)
-                            <option value="{{$vaccinator->vclr_id}}">{{$vaccinator->vclr_first_name}}{{" ".$vaccinator->vclr_first_name}}</option>
+                        @foreach($vaccilator as $key => $value)
+                            <option value="{{$key}}">{{$value}}</option>
                         @endforeach
                       </select>
                 </div>
