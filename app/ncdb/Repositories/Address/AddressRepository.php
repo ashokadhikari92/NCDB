@@ -93,6 +93,8 @@
 
             $address['ward_no'] = $ward['locn_name'];
 
+            $address['full_address'] = $address['vdc']." ".$address['ward_no']. " ".$address['district'];
+
             return $address;
         }
 

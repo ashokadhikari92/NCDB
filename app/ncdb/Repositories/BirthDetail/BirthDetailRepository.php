@@ -212,8 +212,6 @@ use App\BirthDetail as Child;
 
         public function getChildByRegistrationId($id)
         {
-            $childs = \DB::table('birth_details')->where('brth_registration_id',$id)->first();
-
             return $this->child->where('brth_registration_id',$id)->first();
         }
 

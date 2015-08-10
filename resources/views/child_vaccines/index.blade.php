@@ -16,13 +16,12 @@
         <tr class="dtThRow">
     	    <th>Registration No</th>
     		<th>Full Name </th>
-    		<th>Previous Date</th>
-    		<th>Previous Vaccine</th>
-    		<th>Next Date</th>
-    		<th>Next Vaccine</th>
+            <th>Address</th>
+            <th>Vaccine Name</th>
+            <th>Which Dose</th>
+            <th>Given Date</th>
     		<th>Details</th>
     		<th>Edit</th>
-    		<th>Delete</th>
         </tr>
         </thead>
         <tbody class="dtBody">

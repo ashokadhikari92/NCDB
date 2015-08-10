@@ -5,7 +5,11 @@
  * Date: 5/23/2015
  * Time: 7:10 AM
  */
+use App\BirthDetail;
 Use App\ChildVaccine;
+use Repo\Repositories\Address\AddressInterface;
+use Repo\Repositories\BirthDetail\BirthDetailInterface;
+use Repo\Repositories\Vaccine\VaccineInterface;
 
 class ChildVaccineRepository implements ChildVaccineInterface
 {
@@ -13,9 +17,22 @@ class ChildVaccineRepository implements ChildVaccineInterface
 
     protected $result = array();
 
-    function __construct(ChildVaccine $child_vaccine)
+    private $location;
+
+    private $child;
+
+    private $vaccine;
+
+
+    function __construct(ChildVaccine $child_vaccine, AddressInterface $location, BirthDetailInterface $child, VaccineInterface $vaccine)
     {
         $this->child_vaccine = $child_vaccine;
+
+        $this->location = $location;
+
+        $this->child = $child;
+
+        $this->vaccine = $vaccine;
     }
 
     public function store($input)
@@ -82,6 +99,17 @@ class ChildVaccineRepository implements ChildVaccineInterface
     {
         $result = $this->child_vaccine->all();
 
+        foreach($result as $value)
+        {
+            $child = $this->child->getChildByRegistrationId($value->chld_vcin_registration_id);
+            $value['child_full_name'] = $child->brth_first_name." ".$child->brth_last_name;
+
+            $fullAddress = $this->location->getFullAddress($child->brth_birth_address);
+            $value['child_address'] = $fullAddress['full_address'];
+
+            $vaccine = $this->vaccine->getVaccineById($value->chld_vcin_vaccine_id);
+            $value['vaccine_name'] = $vaccine->vcin_name;
+        }
         return $result;
     }
 }

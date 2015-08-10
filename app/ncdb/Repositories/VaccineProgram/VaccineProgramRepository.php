@@ -25,6 +25,8 @@ class VaccineProgramRepository implements VaccineProgramInterface
     {
         $data['chld_vcin_vaccine_id'] = $input['chld_vcin_vaccine_id'];
 
+        $data['chld_vcin_registration_id'] = $input['chld_vcin_registration_id'];
+
         $data['chld_vcin_date'] = $input['chld_vcin_date'];
 
         $data['chld_vcin_dose_no'] = $input['chld_vcin_dose_no'];
@@ -34,8 +36,6 @@ class VaccineProgramRepository implements VaccineProgramInterface
         $data['chld_vcin_place'] = $input['chld_vcin_place'];
 
         $data['chld_vcin_vaccillator_id'] = $input['chld_vcin_vaccillator_id'];
-
-        $data['chld_vcin_registration_id'] = $input['chld_vcin_registration_id'];
 
         $result = ChildVaccine::create($data);
 

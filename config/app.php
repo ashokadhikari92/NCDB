@@ -152,18 +152,19 @@ return [
          */
         'Zizaco\Entrust\EntrustServiceProvider',
         'Khill\Lavacharts\Laravel\LavachartsServiceProvider',
-	'Orangehill\Iseed\IseedServiceProvider',
+		'Orangehill\Iseed\IseedServiceProvider',
 
         /*
          * Repository Service Providers...
          */
-        'Repo\Providers\BirthDetailServiceProvider',
+		'App\Providers\RepositoryServiceProvider',
+       /* 'Repo\Providers\BirthDetailServiceProvider',
         'Repo\Providers\AddressServiceProvider',
         'Repo\Providers\ParentsDetailServiceProvider',
         'Repo\Providers\ChildVaccineServiceProvider',
         'Repo\Providers\RoleServiceProvider',
         'Repo\Providers\VaccineServiceProvider',
-        'Repo\Providers\VaccineProgramServiceProvider',
+        'Repo\Providers\VaccineProgramServiceProvider',*/
 
 	],
 

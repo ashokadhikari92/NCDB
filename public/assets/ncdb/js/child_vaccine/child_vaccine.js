@@ -30,11 +30,11 @@ $(document).ready(function () {
         "sAjaxDataProp": '',
         "aoColumns": [
             { "mData": "chld_vcin_registration_id"},
-            { "mData": "chld_vcin_vaccine_id"},
-            { "mData": "chld_vcin_date" },
+            { "mData": "child_full_name"},
+            { "mData": "child_address" },
+            { "mData": "vaccine_name" },
             { "mData": "chld_vcin_dose_no" },
-            { "mData": "chld_vcin_address" },
-            { "mData": "chld_vcin_vaccillator_id" },
+            { "mData": "chld_vcin_date" },
             {
                 "mData": null,
                 "mRender": function (data, type, full) {
@@ -45,12 +45,6 @@ $(document).ready(function () {
                 "mData": null,
                 "mRender": function (data, type, full) {
                     return '<a href="javascript: editBirthRegistration(' + full['chld_vcin_id'] + ')"><i class="glyphicon glyphicon-edit"></a>';
-                }
-            },
-            {
-                "mData": null,
-                "mRender": function (data, type, full) {
-                    return '<a href="javascript: deleteBirthRegistration(' + full['chld_vcin_id'] + ')"><i class="glyphicon glyphicon-trash"></a>';
                 }
             }
         ]
