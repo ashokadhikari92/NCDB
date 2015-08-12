@@ -4,9 +4,6 @@
 
     <div class="px-margin-top"></div>
 
-
-
-
                <div class="col-lg-3 col-sm-4 small-border back-white">
                    <div class="px-margin-top"></div>
 
@@ -53,22 +50,24 @@
                                    <div class="col-md-6 pull-left col-xs-12">
                                         <table class="table table-hover">
                                             <tbody>
-                                            <tr><td class="bold">First Name:</td><td>{!!$child->brth_first_name!!}</td></tr>
-                                            <tr><td class="bold">User Name:</td><td>{!!$child->brth_last_name !!}</td></tr>
-                                            <tr><td class="bold">City:</td><td>Nawalparasi</td></tr>
-                                            <tr><td class="bold">Birthday:</td><td>{!!$child->brth_birth_date_bs !!}B.S</td></tr>
-                                            <tr><td class="bold">Website:</td><td>madhu.wordpress.com</td></tr>
+                                            <tr><td class="bold">First Name :</td><td>{!!$child->brth_first_name!!}</td></tr>
+                                            <tr><td class="bold">Full Name :</td><td>{!!$child->brth_full_name_nepali !!}</td></tr>
+                                            <tr><td class="bold">Birth Place :</td><td>{{$child->brth_birth_place}}</td></tr>
+                                            <tr><td class="bold">Gender :</td><td>{!!$child->brth_gender !!}</td></tr>
+                                            <tr><td class="bold">Birth Type :</td><td>{{$child->brth_birth_type}}</td></tr>
+                                            <tr><td class="bold">Registered By :</td><td>{{$child->brth_registered_by}}</td></tr>
                                             </tbody>
                                         </table>
                                    </div>
                                    <div class="col-md-6 col-xs-12">
                                        <table class="table">
                                            <tbody>
-                                           <tr><td class="bold">Last Name:</td><td>{!!$child->brth_last_name !!}</td></tr>
-                                           <tr><td class="bold">Email:</td><td>madhu@acd.edu.np</td></tr>
-                                           <tr><td class="bold">Country:</td><td>Nepal</td></tr>
-                                           <tr><td class="bold">Interests:</td><td>Basketball, Web, Design, etc.</td></tr>
-                                           <tr><td class="bold">Phone:</td><td>9843360552</td></tr>
+                                           <tr><td class="bold">Last Name :</td><td>{!!$child->brth_last_name !!}</td></tr>
+                                           <tr><td class="bold">Registration Id:</td><td>{{$child->brth_registration_id}}</td></tr>
+                                           <tr><td class="bold">Birth Helper:</td><td>{{$child->brth_birth_helper}}</td></tr>
+                                           <tr><td class="bold">Handicap :</td><td>{{$child->brth_handicap}}</td></tr>
+                                           <tr><td class="bold">Informed By :</td><td>{{$child->brth_informed_by}}</td></tr>
+                                           <tr><td class="bold">Registered Date :</td><td>{{$child->brth_registered_date}}</td></tr>
                                            </tbody>
                                        </table>
                                    </div>

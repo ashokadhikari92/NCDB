@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use App\Helper\NCDBHelper;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -122,9 +123,11 @@ class ChildVaccineController extends Controller {
         return $this->child_vaccine->findAll();
     }
 
-    public function loadChild(Location $location,$id)
+    public function loadChild(Location $location,$id,NCDBHelper $helper)
     {
         $child = $this->child->getChildByRegistrationId($id);
+
+		$child['age'] = $helper->calculateAge('1992-01-06');
 
         $child_address = $location->getFullAddress($child->brth_birth_address);
 

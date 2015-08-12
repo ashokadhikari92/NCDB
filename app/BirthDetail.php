@@ -14,4 +14,14 @@ class BirthDetail extends Model {
 
     public $customMessage = [];
 
+    public function father()
+    {
+        return $this->hasOne('App\Parents','prnt_id','father');
+    }
+
+    public function mother()
+    {
+        return $this->hasOne('App\Parents','prnt_id','mother');
+    }
+
 }

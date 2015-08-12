@@ -17,7 +17,7 @@
          <h4 class="list-inline"> <label>Date of Birth : {!! $child->brth_birth_date_bs!!} B.S.</label></h4>
     </div>
     <div class="col-lg-6">
-         <h4 class="list-inline"><label>Age : </label></h4>
+         <h4 class="list-inline"><label>Age : {!! $child->age!!}</label></h4>
     </div>
     <div class="col-lg-6">
          <h4 class="list-inline"><label>Gender : {!! $child->brth_gender!!}</label></h4>
