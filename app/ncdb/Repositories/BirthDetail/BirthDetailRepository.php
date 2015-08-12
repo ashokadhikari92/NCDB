@@ -6,10 +6,14 @@
  * Time: 10:01 AM
  */
 
+use App\BirthHelper;
+use App\BirthPlace;
+use App\Caste;
 use League\Flysystem\Exception;
 use Repo\Repositories\Address\AddressRepository;
 use Repo\Repositories\ParentsDetail\ParentsDetailRepository as Parents;
 use App\BirthDetail as Child;
+use App\HandicapType;
 
     class BirthDetailRepository implements BirthDetailInterface{
 
@@ -19,13 +23,29 @@ use App\BirthDetail as Child;
 
         protected $location;
 
-        function __construct(Parents $parent,Child $child,AddressRepository $location)
+        private $handicapTYpe;
+
+        private $caste;
+
+        private $birthPlace;
+
+        private $birthHelper;
+
+        function __construct(Parents $parent,Child $child,AddressRepository $location,HandicapType $handicapType,Caste $caste, BirthPlace $birthPlace, BirthHelper $birthHelper)
         {
             $this->parent = $parent;
 
             $this->child = $child;
 
             $this->location = $location;
+
+            $this->handicapTYpe = $handicapType;
+
+            $this->caste = $caste;
+
+            $this->birthPlace = $birthPlace;
+
+            $this->birthHelper = $birthHelper;
         }
 
         public function registerChild($child)
@@ -270,5 +290,25 @@ use App\BirthDetail as Child;
                 $result['miss.mr'] = "Mr./Miss.";
             }
             return $result;
+        }
+
+        public function getAllHandicapType()
+        {
+            return $this->handicapTYpe->all()->lists('hndy_name','hndy_id');
+        }
+
+        public function getAllCastes()
+        {
+            return $this->caste->all()->lists('cast_name','cast_id');
+        }
+
+        public function getAllBirthPlaces()
+        {
+            return $this->birthPlace->all()->lists('plac_name','plac_id');
+        }
+
+        public function getAllBirthHelpers()
+        {
+            return $this->birthHelper->all()->lists('hlpr_name','hlpr_id');
         }
     }

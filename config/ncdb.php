@@ -12,5 +12,13 @@ return [
         'Shree Janata Higher School',
         'Madhu Sudhan Public Hospital',
         'Ganntee Ba Clinic'
+    ],
+
+    'birth_types' => [
+        'Single' => 'Single',
+        'Twins'  => 'Twins',
+        'Triplet'=> 'Triplet',
+        'More than Triplet' => 'More than Triplet'
     ]
+
 ];

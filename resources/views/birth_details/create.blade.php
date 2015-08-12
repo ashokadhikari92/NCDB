@@ -48,21 +48,22 @@
                 </div>
                 <div class="form-group col-lg-6">
                      {!! Form::label('brth_birth_place','Birth Place') !!}
-                    {{-- {!! Form::text('brth_first_name',null,array('class'=>'form-control')) !!}--}}
                       <select class="form-control" name="brth_birth_place" id="birth_place">
-                        <option>Choose Birth Place</option>
+                          @foreach($birthPlaces as $key => $value)
+                            <option value="{{$key}}">{{$value}}</option>
+                          @endforeach
                       </select>
                 </div>
                 <div class="form-group col-lg-6">
                      {!! Form::label('brth_birth_helper','Birth Helper') !!}
-                     {{--{!! Form::text('brth_birth_helper',null,array('class'=>'form-control')) !!}--}}
                       <select class="form-control" name="brth_birth_helper" id="birth_helper">
-                       <option>Choose Birth Helper</option>
+                          @foreach($birthHelpers as $key => $value)
+                            <option value="{{$key}}">{{$value}}</option>
+                          @endforeach
                       </select>
                 </div>
                 <div class="form-group col-lg-6">
                       {!! Form::label('brth_gender','Gender') !!}
-                      {{--{!! Form::text('brth_gender',null,array('class'=>'form-control')) !!}--}}
                        <select class="form-control" name="brth_gender">
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
@@ -71,29 +72,28 @@
                 </div>
                 <div class="form-group col-lg-6">
                       {!! Form::label('brth_caste','Caste') !!}
-                      {{--{!! Form::text('brth_caste',null,array('class'=>'form-control')) !!}--}}
                        <select class="form-control" name="brth_caste" id="caste">
-                            <option>Choose Caste</option>
-                            <option value="Braman">Braman</option>
-                            <option value="Newar">Newar</option>
+                            @foreach($castes as $key => $value)
+                              <option value="{{$key}}">{{$value}}</option>
+                            @endforeach
                        </select>
                 </div>
                 <div class="form-group col-lg-6">
                       {!! Form::label('brth_birth_type','Birth Type') !!}
                       {{--{!! Form::text('brth_birth_type',null,array('class'=>'form-control')) !!}--}}
                        <select class="form-control" name="brth_birth_type">
-                            <option value="Single">Single</option>
-                            <option value="Twins">Twins</option>
-                            <option value="Triplets">Triplets</option>
+                            @foreach($birthTypes as $key => $value)
+                               <option value="{{$key}}">{{$value}}</option>
+                            @endforeach
                        </select>
                 </div>
                 <div class="form-group col-lg-6">
                       {!! Form::label('brth_handicap','Handicap') !!}
                       {{--{!! Form::text('brth_handicap',null,array('class'=>'form-control')) !!}--}}
-                        <select class="form-control" name="brth_handicap" id="handicap">
-                             <option value="None">None</option>
-                             <option value="Vision Loss and Blindness">Vision Loss and Blindness</option>
-                             <option value="Hearing Loss">Hearing Loss and Deafness</option>
+                        <select name="brth_handicap" class="form-control">
+                             @foreach($handicapType as $key => $value)
+                                <option value="{{$key}}">{{$value}}</option>
+                             @endforeach
                         </select>
                 </div>
 

@@ -9,4 +9,9 @@ class NCDBHelper{
 
         return $vaccilators;
     }
+
+    public function getBirthTypes()
+    {
+        return config('ncdb.birth_types');
+    }
 }

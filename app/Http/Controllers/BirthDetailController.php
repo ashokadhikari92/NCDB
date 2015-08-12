@@ -10,6 +10,7 @@ use Repo\Repositories\BirthDetail\BirthDetailInterface as BirthDetail;
 use Repo\Repositories\Address\AddressInterface as Location;
 use Repo\Repositories\ParentsDetail\ParentsDetailRepository as Parents;
 use Illuminate\Validation\Validator;
+use App\Helper\NCDBHelper;
 
 class BirthDetailController extends Controller {
 
@@ -19,13 +20,17 @@ class BirthDetailController extends Controller {
 
     protected $parent;
 
-    function __construct(BirthDetail $birth,Location $location,Parents $parent)
+    private $helper;
+
+    function __construct(BirthDetail $birth,Location $location,Parents $parent, NCDBHelper $helper)
     {
         $this->birth = $birth;
 
         $this->location = $location;
 
         $this->parent = $parent;
+
+        $this->helper = $helper;
     }
 
     /**
@@ -47,8 +52,23 @@ class BirthDetailController extends Controller {
 	{
         $district = $this->location->getLocationsByLocnType('District');//dd($district);
 
+        $handicapTypes = $this->birth->getAllHandicapType();
+
+        $castes = $this->birth->getAllCastes();
+
+        $birthHelpers = $this->birth->getAllBirthHelpers();
+
+        $birthPlaces = $this->birth->getAllBirthPlaces();
+
+        $birthTypes = $this->helper->getBirthTypes();
+
 		return view('birth_details.create')
-            ->with('districts',$district);
+            ->with('districts',$district)
+            ->with('handicapType',$handicapTypes)
+            ->with('birthHelpers',$birthHelpers)
+            ->with('castes',$castes)
+            ->with('birthPlaces',$birthPlaces)
+            ->with('birthTypes',$birthTypes);
 	}
 
     /**

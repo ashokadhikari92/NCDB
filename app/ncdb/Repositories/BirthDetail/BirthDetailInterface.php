@@ -32,4 +32,12 @@ use Repo\Repositories\Address\AddressRepository;
      public function getChildByRegistrationId($id);
 
      public function viewBirthCertificate($id);
+
+     public function getAllHandicapType();
+
+     public function getAllCastes();
+
+     public function getAllBirthPlaces();
+
+     public function getAllBirthHelpers();
  }
